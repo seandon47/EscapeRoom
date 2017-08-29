@@ -27,19 +27,22 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate()
     {
+        if (transform.position.y <= 2.071)
+        {
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveVertical = Input.GetAxis("Vertical");
+
+            Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+
+            movement = Director.transform.rotation * movement;
+
+            rb.velocity = movement * speed;
+        }
+
         float xOffset = transform.position.x + FollowerX;
         float yOffset = transform.position.y + FollowerY;
         float zOffset = transform.position.z + FollowerZ;
         Follower.transform.position = new Vector3(xOffset, yOffset, zOffset);
-
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-        movement = Director.transform.rotation * movement;
-
-        rb.velocity = movement * speed;
     }
 
     private void OnCollisionEnter(Collision collision)
