@@ -18,7 +18,7 @@ public class MouseRotate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         yaw += 2 * Input.GetAxis("Mouse X");
-        pitch += 2 * Input.GetAxis("Mouse Y");
+        pitch += 2 * -1 * Input.GetAxis("Mouse Y");
 
         transform.eulerAngles = new Vector3(pitch, yaw, 0);
         
