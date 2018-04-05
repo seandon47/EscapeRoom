@@ -68,6 +68,11 @@ public class PowerSystemClass : ShipSystemClass {
         base.ChargeFailed();
     }
 
+    public override string GetRepairInstructions()
+    {
+        return "System is stable";
+    }
+
     double CalculateOutput()
     {
         // Do something with subsystems and their status to calculate the output

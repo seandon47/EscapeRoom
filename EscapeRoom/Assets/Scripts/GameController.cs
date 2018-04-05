@@ -6,6 +6,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
@@ -40,12 +41,17 @@ public class GameController : MonoBehaviour {
 
     public int Time {get; private set; }
     public GameStateEnum CurrentState;
+    public Text ConsoleText;
+    public GameObject ConsoleContainer;
     public PowerSystemClass PowerSystem;
     public BatterySystemClass BatterySystem;
     public LifeSupportClass LifeSupportSystem;
     public LightingSystemClass LightingSystem;
     public DoorSystemClass DoorSystem;
     public  List<ShipSystemClass> shipSystems;
+
+    Queue<string> consoleHistory = new Queue<string>();
+    bool ConsoleActive = false;
 
     public GameController()
     {
@@ -68,6 +74,21 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void AppendToConsole(string TextToAppend)
+    {
+        if (consoleHistory.Count > 30)
+            consoleHistory.Dequeue();
+
+        consoleHistory.Enqueue(TextToAppend);
+        ConsoleText.text = string.Join("\n", consoleHistory.ToArray());
+    }
+
+    public void ToggleConsole()
+    {
+        ConsoleActive = !ConsoleActive;
+        ConsoleContainer.SetActive(ConsoleActive);
+    }
 
     void TimeUpdate()
     {

@@ -83,4 +83,10 @@ public class ShipSystemClass : MonoBehaviour {
     {
         // Override in derived class!
     }
+
+    public virtual string GetRepairInstructions()
+    {
+        // Override in derived classes!
+        return "No repairs necessary at this time";
+    }
 }

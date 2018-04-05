@@ -22,67 +22,13 @@ public class MouseRotate : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         //Cursor.lockState = CursorLockMode.None;
 
-        //SetTextureColor(BG_Green, Color.green);
-        //SetTextureColor(BG_Yellow, Color.yellow);
-        //SetTextureColor(BG_Red, Color.red);
-        //SetTextureColor(BG_Grey, Color.grey);
-
-    }
-
-    //private void SetTextureColor(Texture2D NovaTexture, Color NovaColor)
-    //{
-    //    int size = 8;
-    //    NovaTexture = new Texture2D(size, size);
-    //    for (int i = 0; i < size; i++)
-    //    {
-    //        for (int j = 0; j < size; j++)
-    //        {
-    //            NovaTexture.SetPixel(i, j, NovaColor);
-    //        }
-    //    }
-    //    NovaTexture.Apply();
-    //}
-
-    private void OnGUI()
-    {
-        //if (controllingRobot)
-        //    return;
-
-        //float W = Screen.width;
-        //float Y = 0;
-        //Texture2D Background = BG_Green;
-
-
-        //for (int i = 0; i < GameController.Instance.shipSystems.Count; i++)
-        //{
-        //    ShipSystemClass System = GameController.Instance.shipSystems[i];
-        //    //switch (System.GetStatus())
-        //    //{
-        //    //    case ShipSystemClass.SystemStatusEnum.Functioning:
-        //    //        Background = BG_Green;
-        //    //        break;
-        //    //    case ShipSystemClass.SystemStatusEnum.Compromised:
-        //    //        Background = BG_Yellow;
-        //    //        break;
-        //    //    case ShipSystemClass.SystemStatusEnum.Malfunctioning:
-        //    //        Background = BG_Red;
-        //    //        break;
-        //    //    case ShipSystemClass.SystemStatusEnum.Offline:
-        //    //        Background = BG_Grey;
-        //    //        break;
-        //    //    default:
-        //    //        break;
-        //    //}
-                        
-        //    GUI.Button(new Rect(W - 100, Y, 100, 25), System.GetSystemName());
-        //    Y += 50;
-        //}
     }
 
     // Update is called once per frame
     void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            GameController.Instance.ToggleConsole();
             if (controllingRobot)
             {
                 controllingRobot = false;
