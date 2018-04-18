@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttachToHand : MonoBehaviour {
 
-    public GameObject rightHand, watch;
+    public GameObject hand, attachedObject;
 
 	// Use this for initialization
 	void Start () {
@@ -14,7 +14,10 @@ public class AttachToHand : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        watch.transform.position = rightHand.transform.position - (rightHand.transform.forward * .3f);
-        watch.transform.rotation = new Quaternion(rightHand.transform.rotation.x, rightHand.transform.rotation.y, rightHand.transform.rotation.z, rightHand.transform.rotation.w);
+        if (attachedObject.name == "Watch")
+            attachedObject.transform.position = hand.transform.position - (hand.transform.forward * .3f);
+        else
+            attachedObject.transform.position = hand.transform.position;
+        attachedObject.transform.rotation = new Quaternion(hand.transform.rotation.x, hand.transform.rotation.y, hand.transform.rotation.z, hand.transform.rotation.w);
     }
 }
