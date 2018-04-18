@@ -24,6 +24,11 @@ public class OpenDoorButton : MonoBehaviour {
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        StartCoroutine(DoAnimation());
+    }
+
     void OnCollisionEnter(Collision col)
     {
         StartCoroutine(DoAnimation());

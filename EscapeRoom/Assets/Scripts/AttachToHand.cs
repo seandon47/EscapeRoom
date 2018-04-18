@@ -18,6 +18,6 @@ public class AttachToHand : MonoBehaviour {
             attachedObject.transform.position = hand.transform.position - (hand.transform.forward * .3f);
         else
             attachedObject.transform.position = hand.transform.position;
-        attachedObject.transform.rotation = new Quaternion(hand.transform.rotation.x, hand.transform.rotation.y, hand.transform.rotation.z, hand.transform.rotation.w);
+            attachedObject.transform.rotation = new Quaternion(hand.transform.rotation.x, hand.transform.rotation.y, hand.transform.rotation.z, hand.transform.rotation.w);
     }
 }
