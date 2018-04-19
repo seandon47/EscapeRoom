@@ -5,15 +5,16 @@
 //
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PowerSystemClass : ShipSystemClass {
 
-    SystemStatusEnum reactorCore;
-    SystemStatusEnum coolingCoil;
-    SystemStatusEnum energyEqualizer;
-    SystemStatusEnum processingUnit;
+    SubSystemClass reactorCore;
+    SubSystemClass coolingCoil;
+    SubSystemClass energyEqualizer;
+    SubSystemClass processingUnit;
     bool canBreakAtRandom;
     double output;
 
@@ -21,12 +22,16 @@ public class PowerSystemClass : ShipSystemClass {
     {
         systemName = "Power System";
 
-        reactorCore = SystemStatusEnum.Functioning;
-        coolingCoil = SystemStatusEnum.Functioning;
-        energyEqualizer = SystemStatusEnum.Functioning;
-        processingUnit = SystemStatusEnum.Functioning;
+        reactorCore = new SubSystemClass(SystemStatusEnum.Malfunctioning, "reactor core");
+        coolingCoil = new SubSystemClass(SystemStatusEnum.Functioning, "cooling coil");
+        energyEqualizer = new SubSystemClass(SystemStatusEnum.Functioning, "energy equalizer");
+        processingUnit = new SubSystemClass(SystemStatusEnum.Functioning, "processing unit");
 
-        SubSystemList.AddRange(new SystemStatusEnum[] { reactorCore, coolingCoil, energyEqualizer, processingUnit});
+        //SubSystemNames.Add(reactorCore, "reactor core");
+        //SubSystemNames.Add(coolingCoil, "cooling coil");
+        //SubSystemNames.Add(energyEqualizer, "energy equalizer");
+        //SubSystemNames.Add(processingUnit, "processing unit");
+        SubSystemList.AddRange(new SubSystemClass[] { reactorCore, coolingCoil, energyEqualizer, processingUnit });
 
         canBreakAtRandom = false;
     }
@@ -53,6 +58,25 @@ public class PowerSystemClass : ShipSystemClass {
         }
 
         output = CalculateOutput();
+
+        foreach (SubSystemClass SubSystem in SubSystemList)
+        {
+            if (SubSystem.Status == SystemStatusEnum.Malfunctioning)
+            {
+                status = SystemStatusEnum.Malfunctioning;
+            }
+
+            if (SubSystem.Status == SystemStatusEnum.Compromised)
+            {
+                status = SystemStatusEnum.Compromised;
+            }
+
+            if (SubSystem.Status == SystemStatusEnum.Offline)
+            {
+                status = SystemStatusEnum.Offline;
+            }
+        }
+
         base.TimeUpdate(CurrentTime);
     }
 
@@ -70,7 +94,34 @@ public class PowerSystemClass : ShipSystemClass {
 
     public override string GetRepairInstructions()
     {
-        return "System is stable";
+        StringBuilder SB = new StringBuilder();
+        if (status == SystemStatusEnum.Functioning)
+        {
+            return "System is stable.";
+        }
+        else
+        {
+            foreach (SubSystemClass SubSystem in SubSystemList)
+            {
+                SB.Append(SubSystem.Name + " " + GetStatusString(SubSystem.Status));
+                if (SubSystem.Status != SystemStatusEnum.Functioning)
+                {
+                    if (SubSystem.Status == SystemStatusEnum.Offline)
+                    {
+                        SB.Append(" bring system online.\n");
+                    }
+                    else
+                    {
+                        SB.Append(" replace " + SubSystem.Name + ".\n");
+                    }
+                }
+                else
+                {
+                    SB.Append("\n");
+                }
+            }
+        }
+        return SB.ToString();
     }
 
     double CalculateOutput()
@@ -96,7 +147,7 @@ public class PowerSystemClass : ShipSystemClass {
     {
         for (int i = 0; i < SubSystemList.Count; i++)
         {
-            if (SubSystemList[i] != SystemStatusEnum.Functioning)
+            if (SubSystemList[i].Status != SystemStatusEnum.Functioning)
                 return false;
         }
         return true;

@@ -22,7 +22,8 @@ public class ShipSystemClass : MonoBehaviour {
     protected SystemStatusEnum status;
     protected double percentFunctional;
     protected string systemName;
-    protected List<SystemStatusEnum> SubSystemList;
+    protected List<SubSystemClass> SubSystemList;
+    protected Dictionary<SystemStatusEnum, string> SubSystemNames = new Dictionary<SystemStatusEnum, string>();
     protected static Dictionary<SystemStatusEnum, Color> StatusColorMap = new Dictionary<SystemStatusEnum, Color>
     {
         { SystemStatusEnum.Functioning, Color.green },
@@ -33,9 +34,32 @@ public class ShipSystemClass : MonoBehaviour {
 
     public ShipSystemClass()
     {
-        SubSystemList = new List<SystemStatusEnum>();
+        SubSystemList = new List<SubSystemClass>();
         status = SystemStatusEnum.Functioning;
         percentFunctional = 100;
+    }
+
+    public static string GetStatusString(SystemStatusEnum Status)
+    {
+        string retval = string.Empty;
+        switch (Status)
+        {
+            case SystemStatusEnum.Functioning:
+                retval = "Functioning";
+                break;
+            case SystemStatusEnum.Compromised:
+                retval = "Compromised";
+                break;
+            case SystemStatusEnum.Malfunctioning:
+                retval = "Malfunctioning";
+                break;
+            case SystemStatusEnum.Offline:
+                retval = "Offline";
+                break;
+            default:
+                break;
+        }
+        return retval;
     }
 
     private static void Setup()
