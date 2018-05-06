@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SubSystemClass : MonoBehaviour {
+public class SubSystemClass {
 
     public ShipSystemClass.SystemStatusEnum Status;
     public string Name;

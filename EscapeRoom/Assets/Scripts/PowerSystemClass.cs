@@ -21,20 +21,6 @@ public class PowerSystemClass : ShipSystemClass {
 
     public PowerSystemClass()
     {
-        systemName = "Power System";
-
-        reactorCore = new SubSystemClass(SystemStatusEnum.Malfunctioning, "reactor core");
-        coolingCoil = new SubSystemClass(SystemStatusEnum.Functioning, "cooling coil");
-        energyEqualizer = new SubSystemClass(SystemStatusEnum.Functioning, "energy equalizer");
-        processingUnit = new SubSystemClass(SystemStatusEnum.Functioning, "processing unit");
-
-        //SubSystemNames.Add(reactorCore, "reactor core");
-        //SubSystemNames.Add(coolingCoil, "cooling coil");
-        //SubSystemNames.Add(energyEqualizer, "energy equalizer");
-        //SubSystemNames.Add(processingUnit, "processing unit");
-        SubSystemList.AddRange(new SubSystemClass[] { reactorCore, coolingCoil, energyEqualizer, processingUnit });
-
-        canBreakAtRandom = false;
     }
 
     public double GetOutput()
@@ -43,8 +29,19 @@ public class PowerSystemClass : ShipSystemClass {
     }
 
 	// Use this for initialization
-	void Start () {
-	}
+	void Start ()
+    {
+        systemName = "Power System";
+
+        reactorCore = new SubSystemClass(SystemStatusEnum.Malfunctioning, "reactor core");
+        coolingCoil = new SubSystemClass(SystemStatusEnum.Functioning, "cooling coil");
+        energyEqualizer = new SubSystemClass(SystemStatusEnum.Functioning, "energy equalizer");
+        processingUnit = new SubSystemClass(SystemStatusEnum.Functioning, "processing unit");
+        
+        SubSystemList.AddRange(new SubSystemClass[] { reactorCore, coolingCoil, energyEqualizer, processingUnit });
+
+        canBreakAtRandom = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -60,22 +57,31 @@ public class PowerSystemClass : ShipSystemClass {
 
         output = CalculateOutput();
 
+        bool AllUp = true;
         foreach (SubSystemClass SubSystem in SubSystemList)
         {
             if (SubSystem.Status == SystemStatusEnum.Malfunctioning)
             {
                 status = SystemStatusEnum.Malfunctioning;
+                AllUp = false;
             }
 
             if (SubSystem.Status == SystemStatusEnum.Compromised)
             {
                 status = SystemStatusEnum.Compromised;
+                AllUp = false;
             }
 
             if (SubSystem.Status == SystemStatusEnum.Offline)
             {
                 status = SystemStatusEnum.Offline;
+                AllUp = false;
             }
+        }
+
+        if (AllUp && status != SystemStatusEnum.Functioning)
+        {
+            status = SystemStatusEnum.Functioning;
         }
 
         base.TimeUpdate(CurrentTime);
