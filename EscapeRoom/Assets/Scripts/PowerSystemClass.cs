@@ -11,6 +11,7 @@ using UnityEngine.UI;
 
 public class PowerSystemClass : ShipSystemClass {
 
+    public GameObject ReactorObject;
     SubSystemClass reactorCore;
     SubSystemClass coolingCoil;
     SubSystemClass energyEqualizer;
@@ -164,5 +165,10 @@ public class PowerSystemClass : ShipSystemClass {
                 // is this too high? We can run with it on sometime and check.
             }
         }
+    }
+
+    public SubSystemClass GetSubsystem(string SName)
+    {
+        return SubSystemList.Find(S => S.Name == SName);
     }
 }
