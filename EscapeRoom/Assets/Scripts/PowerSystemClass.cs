@@ -91,11 +91,16 @@ public class PowerSystemClass : ShipSystemClass {
     {
         // So the thing that makes power needs some power.
         // It's got a computer system that does stuff, right?
-        return 100;
+        if (status == SystemStatusEnum.Functioning)
+            return 10;
+        else
+            return 1;
     }
 
     public override void ChargeFailed()
     {
+        // This is an interesting situation.
+        // What to do if the power system has no power?
         base.ChargeFailed();
     }
 
@@ -136,7 +141,14 @@ public class PowerSystemClass : ShipSystemClass {
         // Do something with subsystems and their status to calculate the output
         // This way if the output drops we can make lights flicker, or doors jam
         // that sort of thing.
-        return 1000;
+        if (status == SystemStatusEnum.Functioning)
+        {
+            return 1000;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     public bool UseCharge(double Usage)

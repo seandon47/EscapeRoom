@@ -33,11 +33,17 @@ public class DoorSystemClass : ShipSystemClass {
 
     public override double PowerRequested()
     {
-        return DoorList.Count * 10;
+        return DoorList.Count * 2;
     }
 
     public override void ChargeFailed()
     {
+        foreach(GameObject Door in DoorList)
+        {
+            // Randomly disable doors.
+            // Oh shit, doors need some sort of little door system of their own as a component.
+            // FUCK that's more code I have to write.
+        }
         base.ChargeFailed();
     }
 }

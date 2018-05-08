@@ -33,7 +33,10 @@ public class LightingSystemClass : ShipSystemClass {
 
     public override double PowerRequested()
     {
-        return LightList.Count * 100;
+        // Do something cute in the future.
+        // Right now, we'll just make some shit up
+        // return LightList.Count * 100;
+        return 10;
     }
 
     public override void ChargeFailed()

@@ -24,7 +24,7 @@ public class BatterySystemClass : ShipSystemClass {
 	// Use this for initialization
 	void Start () {
         systemName = "Batteries";
-        maxCharge = 10000;
+        maxCharge = 100000;
         charge = maxCharge;		
 	}
 	
@@ -32,6 +32,11 @@ public class BatterySystemClass : ShipSystemClass {
 	void Update () {
 		
 	}
+
+    private void OnGUI()
+    {
+        //GUI.TextArea(new Rect(100, 100, 100, 100), charge.ToString());
+    }
 
     public override void TimeUpdate(int CurrentTime)
     {

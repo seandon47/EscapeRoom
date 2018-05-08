@@ -9,17 +9,18 @@ using UnityEngine;
 
 public class LifeSupportClass : ShipSystemClass {
 
-    public int NumberOfRooms;
+    public int NumberOfRooms;   // Obvious
+    public float Oxygen;        // Percent Needed
 
     public LifeSupportClass()
     {
-        systemName = "Life Support";
-        NumberOfRooms = 10;
     }
 
 	// Use this for initialization
 	void Start () {
-		
+        systemName = "Life Support";
+        NumberOfRooms = 5;
+        Oxygen = 100;
 	}
 	
 	// Update is called once per frame
@@ -34,11 +35,11 @@ public class LifeSupportClass : ShipSystemClass {
 
     public override double PowerRequested()
     {
-        return NumberOfRooms * 100;
+        return NumberOfRooms * 2;
     }
 
     public override void ChargeFailed()
     {
-        base.ChargeFailed();
+        Oxygen = Oxygen - 0.5f;
     }
 }
