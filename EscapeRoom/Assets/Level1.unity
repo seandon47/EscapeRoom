@@ -21274,6 +21274,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 415124, guid: 820591594dcfa124d8a9c5d016d6c22c, type: 2}
   m_PrefabInternal: {fileID: 1258185958}
+--- !u!1 &1258185960 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 115324, guid: 820591594dcfa124d8a9c5d016d6c22c, type: 2}
+  m_PrefabInternal: {fileID: 1258185958}
 --- !u!1 &1259226955
 GameObject:
   m_ObjectHideFlags: 0
@@ -22804,6 +22808,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 820591594dcfa124d8a9c5d016d6c22c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1356456756 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 115324, guid: 820591594dcfa124d8a9c5d016d6c22c, type: 2}
+  m_PrefabInternal: {fileID: 1356456755}
 --- !u!1 &1370827640
 GameObject:
   m_ObjectHideFlags: 0
@@ -25966,7 +25974,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanelObject: {fileID: 1617855874}
-  DoorList: []
+  DoorList:
+  - {fileID: 1258185960}
+  - {fileID: 1356456756}
+  - {fileID: 204847964}
 --- !u!4 &1587970273
 Transform:
   m_ObjectHideFlags: 0

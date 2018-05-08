@@ -19,14 +19,13 @@ public class BatterySystemClass : ShipSystemClass {
 
     public BatterySystemClass()
     {
-        systemName = "Batteries";
-        maxCharge = 1000;
-        charge = maxCharge;
     }
 
 	// Use this for initialization
 	void Start () {
-		
+        systemName = "Batteries";
+        maxCharge = 10000;
+        charge = maxCharge;		
 	}
 	
 	// Update is called once per frame
