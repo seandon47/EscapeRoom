@@ -16,6 +16,14 @@ public class MiniMapClass : MonoBehaviour {
     RectTransform MiniMapRT = null;
     float Delta = 10.0f;
 
+    float lerpTime = 0.25f;
+    float currentLerpTime;
+    Vector3 LocationContracted = new Vector3(-590, 277, 0); 
+    Vector3 LocationExpanded = new Vector3(0, 0, 0);
+
+    Vector2 SizeContracted = new Vector2(200, 200);
+    Vector2 SizeExpanded = new Vector2(400, 400);
+
     // Use this for initialization
     void Start () {
         CurrentState = MiniMapStates.Contracted;
@@ -26,51 +34,32 @@ public class MiniMapClass : MonoBehaviour {
 	void Update () {
         float NewX = MiniMapRT.localPosition.x;
         float NewY = MiniMapRT.localPosition.y;
+        float SizeDelta = 0;
+
+        currentLerpTime += Time.deltaTime;
+        if (currentLerpTime > lerpTime)
+        {
+            currentLerpTime = lerpTime;
+        }
+        float t = currentLerpTime / lerpTime;
+
         switch (CurrentState)
         {
             case MiniMapStates.Expanding:
-                if (NewX < 0)
-                {
-                    NewX += Delta * 2.1892f;
-                }
-                else
-                {
-                    NewX = 0;
-                }
-                if (NewY > 0)
-                {
-                    NewY -= Delta ;
-                }
-                else
-                {
-                    NewY = 0;
-                }
-                if (NewX == 0 && NewY == 0)
+                if (currentLerpTime == lerpTime)
                     CurrentState = MiniMapStates.Expanded;
-                MiniMapRT.localPosition = new Vector3(NewX, NewY, MiniMapRT.localPosition.z);
+
+                MiniMapRT.localPosition = Vector3.Lerp(LocationContracted, LocationExpanded, t);
+                MiniMapRT.sizeDelta = Vector2.Lerp(SizeContracted, SizeExpanded, t);
                 break;
             case MiniMapStates.Expanded:
                 break;
             case MiniMapStates.Contracting:
-                if (NewX > -590)
-                {
-                    NewX -= Delta * 2.1892f;
-                }
-                else
-                {
-                    NewX = -590;
-                }
-                if (NewY < 277)
-                {
-                    NewY += Delta;
-                }
-                else
-                {
-                    NewY = 277;
-                }
-                if (NewX <= -590 && NewY >= 277)
+                if (currentLerpTime == lerpTime)
                     CurrentState = MiniMapStates.Contracted;
-                MiniMapRT.localPosition = new Vector3(NewX, NewY, MiniMapRT.localPosition.z);
+
+                MiniMapRT.localPosition = Vector3.Lerp(LocationExpanded, LocationContracted, t);
+                MiniMapRT.sizeDelta = Vector2.Lerp(SizeExpanded, SizeContracted, t);
                 break;
             case MiniMapStates.Contracted:
                 break;
@@ -98,5 +87,6 @@ public class MiniMapClass : MonoBehaviour {
             default:
                 break;
         }
+        currentLerpTime = 0;
     }
 }
