@@ -28,7 +28,7 @@ public class MouseRotate : MonoBehaviour {
     void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameController.Instance.ToggleConsole();
+            //GameController.Instance.ToggleConsole();
             if (controllingRobot)
             {
                 controllingRobot = false;

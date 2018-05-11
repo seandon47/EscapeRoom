@@ -23,8 +23,8 @@ public class DoorSystemClass : ShipSystemClass {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+    }
 
     public override void TimeUpdate(int CurrentTime)
     {
@@ -45,5 +45,10 @@ public class DoorSystemClass : ShipSystemClass {
             // FUCK that's more code I have to write.
         }
         base.ChargeFailed();
+    }
+
+    public override void ClickEvent()
+    {
+        GameController.Instance.MiniMap.GetComponent<MiniMapClass>().ToggleState();
     }
 }

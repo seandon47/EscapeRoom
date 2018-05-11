@@ -113,4 +113,9 @@ public class ShipSystemClass : MonoBehaviour {
         // Override in derived classes!
         return "No repairs necessary at this time";
     }
+
+    public virtual void ClickEvent()
+    {
+        // Override in derived classes!
+    }
 }

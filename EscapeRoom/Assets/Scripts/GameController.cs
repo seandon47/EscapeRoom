@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour {
     public GameStateEnum CurrentState;
     public Text ConsoleText;
     public GameObject ConsoleContainer;
+    public GameObject MiniMap;
     public PowerSystemClass PowerSystem;
     public BatterySystemClass BatterySystem;
     public LifeSupportClass LifeSupportSystem;

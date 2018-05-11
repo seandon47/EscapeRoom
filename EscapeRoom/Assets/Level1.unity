@@ -4994,7 +4994,7 @@ AudioListener:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 279969867}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1 &287545195
 GameObject:
   m_ObjectHideFlags: 0
@@ -5845,6 +5845,7 @@ MonoBehaviour:
   CurrentState: 1
   ConsoleText: {fileID: 1697571045}
   ConsoleContainer: {fileID: 644514077}
+  MiniMap: {fileID: 774994966}
   PowerSystem: {fileID: 459403524}
   BatterySystem: {fileID: 1873818525}
   LifeSupportSystem: {fileID: 724583069}
@@ -11040,7 +11041,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 685813509}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!92 &685813513
 Behaviour:
   m_ObjectHideFlags: 0
@@ -11064,7 +11065,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.0627451, g: 0.0627451, b: 0.0627451, a: 0.503}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -11409,6 +11410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PanelObject: {fileID: 419579255}
   NumberOfRooms: 10
+  Oxygen: 0
 --- !u!4 &724583070
 Transform:
   m_ObjectHideFlags: 0
@@ -12531,8 +12533,9 @@ GameObject:
   - component: {fileID: 774994967}
   - component: {fileID: 774994969}
   - component: {fileID: 774994968}
+  - component: {fileID: 774994970}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: MiniMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12553,7 +12556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -613, y: 279}
+  m_AnchoredPosition: {x: -590, y: 277}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.49999994, y: 0.5}
 --- !u!114 &774994968
@@ -12588,6 +12591,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 774994966}
+--- !u!114 &774994970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 774994966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c2889b693d36b442b732bb41e56287d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &775629600
 Prefab:
   m_ObjectHideFlags: 0
