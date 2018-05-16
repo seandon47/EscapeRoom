@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (transform.position.y <= 2.071)
+        if (transform.position.y <= -3.8)
         {
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
