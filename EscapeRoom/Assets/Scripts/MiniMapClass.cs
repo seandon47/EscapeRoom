@@ -32,6 +32,10 @@ public class MiniMapClass : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        float NewX = MiniMapRT.localPosition.x;
+        float NewY = MiniMapRT.localPosition.y;
+        float SizeDelta = 0;
+
         currentLerpTime += Time.deltaTime;
         if (currentLerpTime > lerpTime)
         {
