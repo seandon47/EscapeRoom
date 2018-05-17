@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour {
         float yOffset = transform.position.y + FollowerY;
         float zOffset = transform.position.z + FollowerZ;
         Follower.transform.position = new Vector3(xOffset, yOffset, zOffset);
+        Director.transform.position = new Vector3(transform.position.x, transform.position.y + 0.250f, transform.position.z);
     }
 
     private void OnCollisionEnter(Collision collision)
