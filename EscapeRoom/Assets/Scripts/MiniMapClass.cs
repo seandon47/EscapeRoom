@@ -116,7 +116,7 @@ public class MiniMapClass : MonoBehaviour, IPointerClickHandler
         LocalPosition.x = LocalPosition.x / RT.sizeDelta.x * 256;
         LocalPosition.y = LocalPosition.y / RT.sizeDelta.y * 256;
         Ray ray = MiniMapCamera.ScreenPointToRay(LocalPosition);
-        Debug.DrawRay(ray.origin, ray.direction * 1000, Color.magenta, 10f);
+        //Debug.DrawRay(ray.origin, ray.direction * 1000, Color.magenta, 10f);
 
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, StatusIconMask))

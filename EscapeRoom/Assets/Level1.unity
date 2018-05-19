@@ -5167,7 +5167,7 @@ GameObject:
   - component: {fileID: 288928390}
   - component: {fileID: 288928394}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: Drone Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11159,8 +11159,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 7
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -12754,6 +12754,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2889b693d36b442b732bb41e56287d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MiniMapCamera: {fileID: 685813515}
+  StatusIconMask:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1001 &775629600
 Prefab:
   m_ObjectHideFlags: 0
@@ -16636,7 +16640,7 @@ GameObject:
   - component: {fileID: 965766696}
   - component: {fileID: 965766697}
   m_Layer: 0
-  m_Name: PassiveCameraObject
+  m_Name: DroneCameraObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18101,6 +18105,105 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1031953865}
+--- !u!1 &1034111654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1034111655}
+  - component: {fileID: 1034111659}
+  - component: {fileID: 1034111658}
+  - component: {fileID: 1034111657}
+  - component: {fileID: 1034111656}
+  m_Layer: 12
+  m_Name: DoorStatusIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1034111655
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1034111654}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 1258185959}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+--- !u!114 &1034111656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1034111654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b362d27710b4cdd41a6ffc1f2179a9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Door: {fileID: 1258185960}
+--- !u!23 &1034111657
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1034111654}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: e1f5902ca83b8544d84eb5604babf9b3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!64 &1034111658
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1034111654}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &1034111659
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1034111654}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1038398062
 Prefab:
   m_ObjectHideFlags: 0
@@ -21847,6 +21950,21 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 115324, guid: 820591594dcfa124d8a9c5d016d6c22c, type: 2}
   m_PrefabInternal: {fileID: 1258185958}
+--- !u!114 &1258185961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1258185960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 967ed29fd997dc946a618758e42ca144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OpenSwitch: {fileID: 1272869916}
+  StatusIcon: {fileID: 1034111654}
+  IsLocked: 1
+  IsOpen: 0
 --- !u!1 &1259226955
 GameObject:
   m_ObjectHideFlags: 0
@@ -26663,6 +26781,8 @@ MonoBehaviour:
   - {fileID: 1258185960}
   - {fileID: 1356456756}
   - {fileID: 204847964}
+  LockedIcon: {fileID: 2100000, guid: e1f5902ca83b8544d84eb5604babf9b3, type: 2}
+  UnlockedIcon: {fileID: 2100000, guid: 09c0f4a8b20cd7e4da507dc74b1b95fc, type: 2}
 --- !u!4 &1587970273
 Transform:
   m_ObjectHideFlags: 0
@@ -29641,7 +29761,7 @@ GameObject:
   - component: {fileID: 1743409244}
   - component: {fileID: 1743409243}
   m_Layer: 10
-  m_Name: Head
+  m_Name: Drone Head
   m_TagString: PlayerRobot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32487,7 +32607,7 @@ GameObject:
   - component: {fileID: 1928563199}
   - component: {fileID: 1928563198}
   m_Layer: 10
-  m_Name: Sphere
+  m_Name: Drone Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
