@@ -51,6 +51,14 @@ public class GameController : MonoBehaviour {
     public DoorSystemClass DoorSystem;
     public  List<ShipSystemClass> shipSystems;
 
+    public int maxMessages = 30;
+    public Color playerMessage, info;
+
+    public GameObject newConsolePanel, textObject, conBox, inpField;
+    public InputField chatBox;
+    public string userName;
+
+
     Queue<string> consoleHistory = new Queue<string>();
     bool ConsoleActive = false;
 
@@ -71,10 +79,6 @@ public class GameController : MonoBehaviour {
         shipSystems.AddRange(new ShipSystemClass[] { PowerSystem, BatterySystem, LifeSupportSystem, LightingSystem, DoorSystem });
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void AppendToConsole(string TextToAppend)
     {
@@ -89,6 +93,8 @@ public class GameController : MonoBehaviour {
     {
         ConsoleActive = !ConsoleActive;
         ConsoleContainer.SetActive(ConsoleActive);
+        
+
     }
 
     void TimeUpdate()
@@ -141,5 +147,102 @@ public class GameController : MonoBehaviour {
         // Maybe dynamically create the level with prefabs
         // Add all the light objects to the lighting system
         // Add all the doors to the door system
+    }
+
+    [SerializeField]
+    List<Message> messageList = new List<Message>();
+
+    void Update()
+    {
+        if (chatBox.text != "")
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                SendMessageToConsole(userName + ": " + chatBox.text, Message.MessageType.playerMessage);
+                chatBox.text = "";
+            }
+        }
+        else
+        {
+            if (!chatBox.isFocused && Input.GetKeyDown(KeyCode.Return))
+                chatBox.ActivateInputField();
+
+        }
+
+        if (!chatBox.isFocused)
+        {
+            //The idea for this if to set responses for things the player types,
+            //But i don't really know how to yet
+            //It should be noted that currently this is reacting to keypresses while the box is focused, so regardless of typing this will trigger...
+            if (Input.GetKeyDown(KeyCode.Y))
+            {
+                SendMessageToConsole("Ship Exploding in 5, 4, 3 , 2, PSYCH", Message.MessageType.info);
+                Debug.Log("Y");
+            }
+        }
+
+    }
+
+
+    public void SendMessageToConsole(string text, Message.MessageType messageType)
+    {
+        //sends  messages to console
+        if (messageList.Count >= maxMessages)
+        {
+            Destroy(messageList[0].textObject.gameObject);
+            messageList.Remove(messageList[0]);
+
+        }
+        Message newMessage = new Message();
+
+        newMessage.text = text;
+
+        GameObject newText = Instantiate(textObject, newConsolePanel.transform);
+
+        newMessage.textObject = newText.GetComponent<Text>();
+
+        newMessage.textObject.text = newMessage.text;
+        newMessage.textObject.color = MessageTypeColor(messageType);
+
+        messageList.Add(newMessage);
+    }
+
+    bool chatActive = false;
+    public void ToggleNewConsole()
+    {
+        //This turns the chatbox and input field on/off
+        chatActive = !chatActive;
+        inpField.SetActive(chatActive);
+        conBox.SetActive(chatActive);
+
+    }
+
+    Color MessageTypeColor(Message.MessageType messageType)
+    {
+        //system or player color specificity is kind of neat
+        Color color = info;
+
+        switch (messageType)
+        {
+            case Message.MessageType.playerMessage:
+                color = playerMessage;
+                break;
+        }
+
+        return color;
+    }
+
+    [System.Serializable]
+    public class Message
+    {
+        public string text;
+        public Text textObject;
+        public MessageType messageType;
+
+        public enum MessageType
+        {
+            playerMessage,
+            info
+        }
     }
 }
