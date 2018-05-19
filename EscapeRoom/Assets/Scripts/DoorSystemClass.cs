@@ -10,6 +10,8 @@ using UnityEngine;
 public class DoorSystemClass : ShipSystemClass {
 
     public List<GameObject> DoorList = new List<GameObject>();
+    public Material LockedIcon;
+    public Material UnlockedIcon;
 
     public DoorSystemClass()
     {

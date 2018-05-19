@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿//
+//  FixedRotation.cs
+//  Class to prevent rotation
+//  Copyright 2018 Disi Studios LLC
+//
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

@@ -8,6 +8,7 @@ public class OpenDoorButton : MonoBehaviour {
     MeshCollider thedoorCollider;
     BoxCollider theCollider;
     Animator anim;
+    Door myDoor;
     bool doorOpened = false;
 
     // Use this for initialization
@@ -16,6 +17,7 @@ public class OpenDoorButton : MonoBehaviour {
         anim = door.GetComponent<Animator>();
         thedoorCollider = door.GetComponent<MeshCollider>();
         theCollider = this.GetComponent<BoxCollider>();
+        myDoor = door.GetComponent<Door>();
     }
 	
 	// Update is called once per frame
@@ -26,11 +28,17 @@ public class OpenDoorButton : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        if (myDoor.IsLocked)
+            return;
+
         StartCoroutine(DoAnimation());
     }
 
     void OnCollisionEnter(Collision col)
     {
+        if (myDoor.IsLocked)
+            return;
+
         StartCoroutine(DoAnimation());
     }
 
