@@ -53,7 +53,7 @@ public class Fade : MonoBehaviour {
             yield return null;
         }
 
-        SceneManager.LoadScene("Level1", LoadSceneMode.Single);
+        SceneManager.LoadScene("StartMenu", LoadSceneMode.Single);
 
     }
 
