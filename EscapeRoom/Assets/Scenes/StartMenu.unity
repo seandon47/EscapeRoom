@@ -1614,7 +1614,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 662144670}
-  m_Text: Enter to Ready Up
+  m_Text: Press Enter to Ready Up
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
