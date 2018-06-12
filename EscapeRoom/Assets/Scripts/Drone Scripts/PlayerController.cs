@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR.InteractionSystem;
 
 public class PlayerController : MonoBehaviour {
 
@@ -31,7 +30,19 @@ public class PlayerController : MonoBehaviour {
     }
 
     void FixedUpdate()
-    {        
+    {
+        //if (transform.position.y <= -3.8)
+        //{
+        //    float moveHorizontal = Input.GetAxis("Horizontal");
+        //    float moveVertical = Input.GetAxis("Vertical");
+
+        //    Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+
+        //    movement = Director.transform.rotation * movement;
+
+        //    rb.velocity = movement * speed;
+        //}
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
@@ -39,7 +50,13 @@ public class PlayerController : MonoBehaviour {
 
         movement = Director.transform.rotation * movement;
 
-        rb.velocity = movement * speed;
+        rb.AddForce(movement * speed);
+
+        if (moveHorizontal == 0 && moveVertical == 0)
+        {
+            var oppositeForce = -rb.velocity * 500;
+            rb.AddForce(oppositeForce * Time.deltaTime);
+        }
 
         float xOffset = transform.position.x + FollowerX;
         float yOffset = transform.position.y + FollowerY;
@@ -50,10 +67,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        TeleportArea TA = collision.gameObject.GetComponent <TeleportArea>();
-
-        if (collision.gameObject.tag == "PlayerRobot" ||
-            TA != null)
+        if (collision.gameObject.tag == "PlayerRobot")
         {
             Physics.IgnoreCollision(GetComponent<Collider>(), collision.gameObject.GetComponent<Collider>());
         }
