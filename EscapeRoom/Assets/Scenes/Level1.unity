@@ -29534,6 +29534,30 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 23028591346583582, guid: c69ca5d4562934b8c8d61b46a4214978,
+        type: 2}
+      propertyPath: m_MinimumChartSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 23028591346583582, guid: c69ca5d4562934b8c8d61b46a4214978,
+        type: 2}
+      propertyPath: m_ImportantGI
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23028591346583582, guid: c69ca5d4562934b8c8d61b46a4214978,
+        type: 2}
+      propertyPath: m_ScaleInLightmap
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513016900314520, guid: c69ca5d4562934b8c8d61b46a4214978, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 23028591346583582, guid: c69ca5d4562934b8c8d61b46a4214978,
+        type: 2}
+      propertyPath: m_LightProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c69ca5d4562934b8c8d61b46a4214978, type: 2}
   m_IsPrefabParent: 0
