@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour {
         {
             var oppositeForce = -rb.velocity * 500;
             rb.AddForce(oppositeForce * Time.deltaTime);
+            transform.rotation = Quaternion.identity;
         }
 
         float xOffset = transform.position.x + FollowerX;
