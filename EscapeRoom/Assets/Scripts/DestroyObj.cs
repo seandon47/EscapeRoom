@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroyObj : MonoBehaviour {
 
-    public GameObject baroquePrefab;
+    public GameObject baroquePrefab, contents;
 
     void OnMouseDown()
     {
@@ -23,7 +23,14 @@ public class DestroyObj : MonoBehaviour {
     {
         if (baroquePrefab)
         {
-            Instantiate(baroquePrefab, transform.position, transform.rotation);
+            GameObject GO = Instantiate(baroquePrefab, transform.position, transform.rotation);
+            GO.transform.localScale = transform.localScale;
+
+            if(contents != null)
+            {
+                GameObject content = Instantiate(contents, transform.position, transform.rotation);
+            }
+                
         }
         Destroy(gameObject);
 
