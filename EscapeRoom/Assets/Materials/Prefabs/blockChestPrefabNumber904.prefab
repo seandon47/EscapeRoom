@@ -170,5 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2da0cdda049434cb507983cc94065d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baroquePrefab: {fileID: 1983985716670260, guid: ec7c4e805d175eb41b27be7e994123dd,
+  baroquePrefab: {fileID: 1262549133862226, guid: c73d942c24b274546aa76e2299c5d884,
     type: 2}
+  contents: {fileID: 0}
