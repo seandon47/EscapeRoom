@@ -26,6 +26,11 @@ public class OpenDoorButton : MonoBehaviour {
 
     }
 
+    public void ToggleDoor()
+    {
+        StartCoroutine(DoAnimation());
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (myDoor.IsLocked)
