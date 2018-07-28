@@ -11,7 +11,11 @@ public class PlayerController : MonoBehaviour {
     public float FollowerY;
     public float FollowerZ;
 
-    private Rigidbody rb;
+    public GameObject CrossHair;
+
+    Rigidbody rb;
+    bool InteractiveMode;
+    GameObject InteractingObject;
 
     // Use this for initialization
     void Start ()
@@ -22,10 +26,60 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        #region Mouse Input
+        // Left mouse button is down
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Select object for interactions
+        }
+
+        // Right mouse button is down
+        if (Input.GetMouseButtonDown(1))
+        {
+            // Enable interactive mode
+            InteractiveMode = true;
+            if (CrossHair != null)
+            {
+                CrossHair.SetActive(true);
+            }
+        }
+
+        // Middle mouse button is down
+        if (Input.GetMouseButtonDown(2))
+        {
+
+        }
+
+        // Left mouse button is up
+        if (Input.GetMouseButtonUp(0))
+        {
+
+        }
+
+        // Right mouse button is up
+        if (Input.GetMouseButtonUp(1))
+        {
+            // Disable interactive mode
+            InteractiveMode = false;
+            if (CrossHair != null)
+            {
+                CrossHair.SetActive(false);
+            }
+        }
+
+        // Middle mouse button is up
+        if (Input.GetMouseButtonUp(2))
+        {
+
+        }
+        #endregion
+
+        #region Keyboard Input
         if (Input.GetKeyDown(KeyCode.C))
         {
             GameController.Instance.ToggleNewConsole();
         }
+        #endregion
 
     }
 
