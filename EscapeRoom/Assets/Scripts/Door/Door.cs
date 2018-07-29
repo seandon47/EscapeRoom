@@ -6,6 +6,7 @@ public class Door : MonoBehaviour {
 
     public GameObject OpenSwitch;
     public GameObject StatusIcon;
+    public bool IsBroken;
     public bool IsLocked;
     public bool IsOpen;
 

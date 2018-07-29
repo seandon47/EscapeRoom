@@ -9,33 +9,60 @@ using UnityEngine;
 
 public class DoorStatusIcon : MonoBehaviour {
 
-    public GameObject Door;
+    public GameObject DoorObject;
+    Door doorInstance;
+    Renderer rend;
 
 	// Use this for initialization
 	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void Clicked()
-    {
-        Door D = Door.GetComponent<Door>();
-        if (D != null)
+        rend = GetComponent<Renderer>();
+        doorInstance = DoorObject.GetComponent<Door>();
+        if (doorInstance.IsBroken)
         {
-            D.IsLocked = !D.IsLocked;
-            if (D.IsLocked)
+            if (doorInstance.IsLocked)
             {
-                // Set quad material to locked materal
+                GetComponent<MeshRenderer>().material = GameController.Instance.DoorSystem.BrokenLockedIcon;
+            }
+            else
+            {
+                GetComponent<MeshRenderer>().material = GameController.Instance.DoorSystem.BrokenUnlockedIcon;
+            }
+        }
+        else
+        {
+            if (doorInstance.IsLocked)
+            {
                 GetComponent<MeshRenderer>().material = GameController.Instance.DoorSystem.LockedIcon;
             }
             else
             {
-                // Set quad material to unlocked materal
                 GetComponent<MeshRenderer>().material = GameController.Instance.DoorSystem.UnlockedIcon;
             }
+        }
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	}
+
+    public void Clicked()
+    {
+        if (doorInstance.IsBroken)
+        {
+            // Make failure noise
+            return;
+        }
+
+        doorInstance.IsLocked = !doorInstance.IsLocked;
+        if (doorInstance.IsLocked)
+        {
+            // Set quad material to locked materal
+            GetComponent<MeshRenderer>().material = GameController.Instance.DoorSystem.LockedIcon;
+        }
+        else
+        {
+            // Set quad material to unlocked materal
+            GetComponent<MeshRenderer>().material = GameController.Instance.DoorSystem.UnlockedIcon;
         }
     }
 }
