@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DroneInteractable : MonoBehaviour {
-    Renderer rend;
-    Color oldColor;
+    protected Renderer rend;
 
     // Use this for initialization
     void Start () {
@@ -16,7 +15,7 @@ public class DroneInteractable : MonoBehaviour {
 		
 	}
 
-    public void Select(bool Selected)
+    public virtual void Select(bool Selected)
     {
         if (Selected)
         {
@@ -34,5 +33,10 @@ public class DroneInteractable : MonoBehaviour {
 
             //rend.material.color = Color.white;
         }
+    }
+
+    public virtual void Activated()
+    {
+
     }
 }

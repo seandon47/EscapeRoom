@@ -17,28 +17,7 @@ public class DoorStatusIcon : MonoBehaviour {
 	void Start () {
         rend = GetComponent<Renderer>();
         doorInstance = DoorObject.GetComponent<Door>();
-        if (doorInstance.IsBroken)
-        {
-            if (doorInstance.IsLocked)
-            {
-                GetComponent<MeshRenderer>().material = GameController.Instance.DoorSystem.BrokenLockedIcon;
-            }
-            else
-            {
-                GetComponent<MeshRenderer>().material = GameController.Instance.DoorSystem.BrokenUnlockedIcon;
-            }
-        }
-        else
-        {
-            if (doorInstance.IsLocked)
-            {
-                GetComponent<MeshRenderer>().material = GameController.Instance.DoorSystem.LockedIcon;
-            }
-            else
-            {
-                GetComponent<MeshRenderer>().material = GameController.Instance.DoorSystem.UnlockedIcon;
-            }
-        }
+        UpdateIcon();
 	}
 	
 	// Update is called once per frame
@@ -63,6 +42,32 @@ public class DoorStatusIcon : MonoBehaviour {
         {
             // Set quad material to unlocked materal
             GetComponent<MeshRenderer>().material = GameController.Instance.DoorSystem.UnlockedIcon;
+        }
+    }
+
+    public void UpdateIcon()
+    {
+        if (doorInstance.IsBroken)
+        {
+            if (doorInstance.IsLocked)
+            {
+                GetComponent<MeshRenderer>().material = GameController.Instance.DoorSystem.BrokenLockedIcon;
+            }
+            else
+            {
+                GetComponent<MeshRenderer>().material = GameController.Instance.DoorSystem.BrokenUnlockedIcon;
+            }
+        }
+        else
+        {
+            if (doorInstance.IsLocked)
+            {
+                GetComponent<MeshRenderer>().material = GameController.Instance.DoorSystem.LockedIcon;
+            }
+            else
+            {
+                GetComponent<MeshRenderer>().material = GameController.Instance.DoorSystem.UnlockedIcon;
+            }
         }
     }
 }

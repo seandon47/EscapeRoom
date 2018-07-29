@@ -19,4 +19,13 @@ public class Door : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void FixDoor()
+    {
+        if (IsBroken)
+        {
+            IsBroken = false;
+            StatusIcon.GetComponent<DoorStatusIcon>().UpdateIcon();
+        }
+    }
 }

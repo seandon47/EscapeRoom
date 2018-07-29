@@ -7940,7 +7940,7 @@ GameObject:
   - component: {fileID: 490444589}
   - component: {fileID: 490444588}
   - component: {fileID: 490444587}
-  - component: {fileID: 490444590}
+  - component: {fileID: 490444591}
   m_Layer: 0
   m_Name: Quad
   m_TagString: Untagged
@@ -8016,7 +8016,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 490444585}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &490444590
+--- !u!114 &490444591
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -8024,9 +8024,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 490444585}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04d2196549cf79642bc25f054bf0d6c9, type: 3}
+  m_Script: {fileID: 11500000, guid: f90ad960bf7bdcd4f93dc452ba3301f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorInstance: {fileID: 1258185961}
 --- !u!1 &494195639
 GameObject:
   m_ObjectHideFlags: 0
@@ -22207,6 +22208,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1526752703052376, guid: c769818ef2fe4864c9e4a8ac766b5364,
     type: 2}
   m_PrefabInternal: {fileID: 1258185958}
+--- !u!114 &1258185961 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114937546464733780, guid: c769818ef2fe4864c9e4a8ac766b5364,
+    type: 2}
+  m_PrefabInternal: {fileID: 1258185958}
+  m_Script: {fileID: 11500000, guid: 967ed29fd997dc946a618758e42ca144, type: 3}
 --- !u!1 &1259226955
 GameObject:
   m_ObjectHideFlags: 0

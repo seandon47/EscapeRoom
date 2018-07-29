@@ -33,7 +33,12 @@ public class PlayerController : MonoBehaviour {
         // Left mouse button went down this frame
         if (Input.GetMouseButtonDown(0))
         {
-            // Select object for interactions
+            // Interact with object
+            DroneInteractable DI = InteractingObject.GetComponent<DroneInteractable>();
+            if (DI != null)
+            {
+                DI.Activated();
+            }
         }
 
         // Right mouse button went down this frame
