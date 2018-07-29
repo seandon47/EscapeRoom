@@ -90,12 +90,24 @@ public class PlayerController : MonoBehaviour {
             Ray ray = DroneCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 5.0f))
             {
-                if( InteractingObject != null &&
+                DroneInteractable DI = null;
+                if ( InteractingObject != null &&
                     !InteractingObject.transform.name.Equals(hit.transform.name))
                 {
+                    DI = InteractingObject.GetComponent<DroneInteractable>();
+                    if (DI != null)
+                    {
+                        DI.Select(false);
+                    }
                     Debug.Log("Drone Selected: " + hit.transform.name);
                 }
+
                 InteractingObject = hit.transform.gameObject;
+                DI = InteractingObject.GetComponent<DroneInteractable>();
+                if (DI != null)
+                {
+                    DI.Select(true);
+                }
             }
         }
 
