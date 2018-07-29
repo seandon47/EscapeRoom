@@ -33027,6 +33027,7 @@ MonoBehaviour:
   speed: 5
   Director: {fileID: 1743409241}
   Follower: {fileID: 965766695}
+  DroneCamera: {fileID: 288928393}
   FollowerX: 0
   FollowerY: 0.02
   FollowerZ: 0

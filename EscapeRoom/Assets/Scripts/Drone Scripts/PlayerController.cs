@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float speed;
     public GameObject Director;
     public GameObject Follower;
+    public Camera DroneCamera;
     public float FollowerX;
     public float FollowerY;
     public float FollowerZ;
@@ -27,13 +28,14 @@ public class PlayerController : MonoBehaviour {
     void Update()
     {
         #region Mouse Input
-        // Left mouse button is down
+        #region Mouse Input THIS Frame
+        // Left mouse button went down this frame
         if (Input.GetMouseButtonDown(0))
         {
             // Select object for interactions
         }
 
-        // Right mouse button is down
+        // Right mouse button went down this frame
         if (Input.GetMouseButtonDown(1))
         {
             // Enable interactive mode
@@ -44,19 +46,19 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        // Middle mouse button is down
+        // Middle mouse button went down this frame
         if (Input.GetMouseButtonDown(2))
         {
 
         }
 
-        // Left mouse button is up
+        // Left mouse button went up this frame
         if (Input.GetMouseButtonUp(0))
         {
 
         }
 
-        // Right mouse button is up
+        // Right mouse button went up this frame
         if (Input.GetMouseButtonUp(1))
         {
             // Disable interactive mode
@@ -67,11 +69,42 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        // Middle mouse button is up
+        // Middle mouse button went up this frame
         if (Input.GetMouseButtonUp(2))
         {
 
         }
+        #endregion
+
+        #region Mouse Input EVERY Frame
+        // Left mouse button is being held down
+        if (Input.GetMouseButton(0))
+        {
+
+        }
+
+        //Right mouse button is being held down
+        if (Input.GetMouseButton(1))
+        {
+            RaycastHit hit;
+            Ray ray = DroneCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 5.0f))
+            {
+                if( InteractingObject != null &&
+                    !InteractingObject.transform.name.Equals(hit.transform.name))
+                {
+                    Debug.Log("Drone Selected: " + hit.transform.name);
+                }
+                InteractingObject = hit.transform.gameObject;
+            }
+        }
+
+        // Middle mouse button is being held down
+        if (Input.GetMouseButton(2))
+        {
+
+        }
+        #endregion
         #endregion
 
         #region Keyboard Input
