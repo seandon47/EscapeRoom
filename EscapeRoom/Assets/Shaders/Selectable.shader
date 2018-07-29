@@ -3,6 +3,7 @@
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
+		_OutlineColor("Outline Color", Color) = (0,1,0,1)
 	}
 	SubShader
 	{
@@ -38,12 +39,15 @@
 			}
 			
 			sampler2D _MainTex;
+			uniform float4 _OutlineColor
 
 			fixed4 frag (v2f i) : SV_Target
 			{
 				fixed4 col = tex2D(_MainTex, i.uv);
 				// just invert the colors
-				col.rgb = 1 - col.rgb;
+				//col.rgb = 1 - col.rgb;
+				//col.rgb = 1;
+				col = _OutlineColor;
 				return col;
 			}
 			ENDCG

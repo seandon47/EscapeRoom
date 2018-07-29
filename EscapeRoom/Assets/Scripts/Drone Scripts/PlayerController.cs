@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour {
     void Update()
     {
         #region Mouse Input
+
         #region Mouse Input THIS Frame
         // Left mouse button went down this frame
         if (Input.GetMouseButtonDown(0))
@@ -66,6 +67,16 @@ public class PlayerController : MonoBehaviour {
             if (CrossHair != null)
             {
                 CrossHair.SetActive(false);
+
+                // If player has selected an object, deselect it now
+                if (InteractingObject != null)
+                {
+                    DroneInteractable DI = InteractingObject.GetComponent<DroneInteractable>();
+                    if (DI != null)
+                    {
+                        DI.Select(false);
+                    }
+                }
             }
         }
 
@@ -99,7 +110,7 @@ public class PlayerController : MonoBehaviour {
                     {
                         DI.Select(false);
                     }
-                    Debug.Log("Drone Selected: " + hit.transform.name);
+                    //Debug.Log("Drone Selected: " + hit.transform.name);
                 }
 
                 InteractingObject = hit.transform.gameObject;
@@ -117,6 +128,7 @@ public class PlayerController : MonoBehaviour {
 
         }
         #endregion
+
         #endregion
 
         #region Keyboard Input

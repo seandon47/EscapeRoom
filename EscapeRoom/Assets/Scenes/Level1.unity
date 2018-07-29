@@ -7930,6 +7930,7 @@ GameObject:
   - component: {fileID: 490444589}
   - component: {fileID: 490444588}
   - component: {fileID: 490444587}
+  - component: {fileID: 490444590}
   m_Layer: 0
   m_Name: Quad
   m_TagString: Untagged
@@ -8005,6 +8006,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 490444585}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &490444590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 490444585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d2196549cf79642bc25f054bf0d6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &494195639
 GameObject:
   m_ObjectHideFlags: 0

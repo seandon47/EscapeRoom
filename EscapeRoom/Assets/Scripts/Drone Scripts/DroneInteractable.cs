@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DroneInteractable : MonoBehaviour {
     Renderer rend;
-    Shader oldShader;
+    Color oldColor;
 
     // Use this for initialization
     void Start () {
@@ -23,11 +23,16 @@ public class DroneInteractable : MonoBehaviour {
             //oldShader = rend.material.shader;
             //rend.material.shader = Shader.Find("Self-Illumin/Outlined Diffuse");
             rend.material.shader = Shader.Find("SelectedImageEffectShader");
+
+            //oldColor = rend.material.color;
+            //rend.material.color = Color.green;
         }
         else
         {
             //rend.material.shader = oldShader;
             rend.material.shader = Shader.Find("Diffuse");
+
+            //rend.material.color = Color.white;
         }
     }
 }
