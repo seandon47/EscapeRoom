@@ -27013,9 +27013,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PanelObject: {fileID: 1617855874}
   DoorList:
+  - {fileID: 1025682660}
   - {fileID: 1258185960}
-  - {fileID: 1258185960}
-  - {fileID: 0}
+  - {fileID: 223148163}
   LockedIcon: {fileID: 2100000, guid: e1f5902ca83b8544d84eb5604babf9b3, type: 2}
   UnlockedIcon: {fileID: 2100000, guid: 09c0f4a8b20cd7e4da507dc74b1b95fc, type: 2}
   BrokenLockedIcon: {fileID: 2100000, guid: d266e72fc362bbf4d8b9437a4b8a5125, type: 2}

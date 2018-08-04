@@ -53,6 +53,19 @@ public class DoorSystemClass : ShipSystemClass {
 
     public override void ClickEvent()
     {
-        GameController.Instance.MiniMap.GetComponent<MiniMapClass>().ToggleState();
+        //GameController.Instance.MiniMap.GetComponent<MiniMapClass>().ToggleState();
+    }
+
+    public void SetDoorStatusIconScale(float Scale)
+    {
+        foreach (GameObject GO in DoorList)
+        {
+            Door door = GO.GetComponent<Door>();
+            if (door == null)
+                continue;
+
+            DoorStatusIcon DSI = door.StatusIcon.GetComponent<DoorStatusIcon>();
+            DSI.transform.localScale = new Vector3(Scale, Scale, Scale);
+        }
     }
 }

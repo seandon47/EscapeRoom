@@ -21,6 +21,7 @@ public class MiniMapClass : MonoBehaviour, IPointerClickHandler
 
     public Camera MiniMapCamera;
     public LayerMask StatusIconMask;
+    GameObject OldParent;
 
     MiniMapStates CurrentState;
     RectTransform MiniMapRT = null;
@@ -28,6 +29,14 @@ public class MiniMapClass : MonoBehaviour, IPointerClickHandler
 
     float lerpTime = 0.25f;
     float currentLerpTime;
+
+    float cameraSizeSmall = 7;
+    float cameraSizeLarge = 40;
+
+    Vector3 MapCenter = new Vector3(-38.5f, 80, -33.2f);
+    Vector3 DefaultMapCameraLocation = new Vector3(0, 80, 0);
+    Vector3 MapStartPos = new Vector3();
+
     Vector3 LocationContracted = new Vector3(-590, 277, 0); 
     Vector3 LocationExpanded = new Vector3(0, 0, 0);
 
@@ -52,33 +61,57 @@ public class MiniMapClass : MonoBehaviour, IPointerClickHandler
         switch (CurrentState)
         {
             case MiniMapStates.Expanding:
+                if (MiniMapCamera.gameObject.transform.parent != null)
+                {
+                    OldParent = MiniMapCamera.gameObject.transform.parent.gameObject;
+                    MiniMapCamera.gameObject.transform.SetParent(null);
+                    MapStartPos = MiniMapCamera.gameObject.transform.position;
+                }
+
                 if (currentLerpTime == lerpTime)
                 {
                     CurrentState = MiniMapStates.Expanded;
                     OldCullingMask = MiniMapCamera.cullingMask;
+                    GameController.Instance.DoorSystem.SetDoorStatusIconScale(7);
                     MiniMapCamera.cullingMask = (1 << LayerMask.NameToLayer("DoorStatus") | MiniMapCamera.cullingMask);
                 }
 
                 MiniMapRT.localPosition = Vector3.Lerp(LocationContracted, LocationExpanded, t);
                 MiniMapRT.sizeDelta = Vector2.Lerp(SizeContracted, SizeExpanded, t);
+
+                MiniMapCamera.orthographicSize = Mathf.Lerp(cameraSizeSmall, cameraSizeLarge, t);
+                MiniMapCamera.gameObject.transform.position = Vector3.Lerp(MapStartPos, MapCenter, t);
                 break;
             case MiniMapStates.Expanded:
                 break;
             case MiniMapStates.Contracting:
                 if (currentLerpTime == lerpTime)
                 {
+                    MiniMapCamera.gameObject.transform.SetParent(OldParent.transform);
+                    MiniMapCamera.gameObject.transform.localPosition = DefaultMapCameraLocation;
+                    GameController.Instance.DoorSystem.SetDoorStatusIconScale(3);
                     CurrentState = MiniMapStates.Contracted;
                     MiniMapCamera.cullingMask = OldCullingMask;
                 }
 
                 MiniMapRT.localPosition = Vector3.Lerp(LocationExpanded, LocationContracted, t);
                 MiniMapRT.sizeDelta = Vector2.Lerp(SizeExpanded, SizeContracted, t);
+
+                MiniMapCamera.orthographicSize = Mathf.Lerp(cameraSizeLarge, cameraSizeSmall, t);
+                Vector3 Pos = OldParent.transform.position;
+                Pos.y = 80;
+                MiniMapCamera.gameObject.transform.position = Vector3.Lerp(MapCenter, Pos, t);
                 break;
             case MiniMapStates.Contracted:
                 break;
             default:
                 break;
         }
+    }
+
+    public void SetCameraPos(Vector3 NewPos)
+    {
+        MiniMapCamera.gameObject.transform.position = NewPos;
     }
 
     public void ToggleState()
