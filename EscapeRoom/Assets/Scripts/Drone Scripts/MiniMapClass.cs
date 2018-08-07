@@ -37,8 +37,8 @@ public class MiniMapClass : MonoBehaviour, IPointerClickHandler
     Vector3 DefaultMapCameraLocation = new Vector3(0, 80, 0);
     Vector3 MapStartPos = new Vector3();
 
-    Vector3 LocationContracted = new Vector3(-590, 277, 0); 
-    Vector3 LocationExpanded = new Vector3(0, 0, 0);
+    Vector3 LocationContracted = new Vector3(115, -115, 0); 
+    Vector3 LocationExpanded = new Vector3(960, -540, 0);
 
     Vector2 SizeContracted = new Vector2(200, 200);
     Vector2 SizeExpanded = new Vector2(400, 400);
@@ -76,7 +76,7 @@ public class MiniMapClass : MonoBehaviour, IPointerClickHandler
                     MiniMapCamera.cullingMask = (1 << LayerMask.NameToLayer("DoorStatus") | MiniMapCamera.cullingMask);
                 }
 
-                MiniMapRT.localPosition = Vector3.Lerp(LocationContracted, LocationExpanded, t);
+                MiniMapRT.anchoredPosition = Vector3.Lerp(LocationContracted, LocationExpanded, t);
                 MiniMapRT.sizeDelta = Vector2.Lerp(SizeContracted, SizeExpanded, t);
 
                 MiniMapCamera.orthographicSize = Mathf.Lerp(cameraSizeSmall, cameraSizeLarge, t);
@@ -94,7 +94,7 @@ public class MiniMapClass : MonoBehaviour, IPointerClickHandler
                     MiniMapCamera.cullingMask = OldCullingMask;
                 }
 
-                MiniMapRT.localPosition = Vector3.Lerp(LocationExpanded, LocationContracted, t);
+                MiniMapRT.anchoredPosition = Vector3.Lerp(LocationExpanded, LocationContracted, t);
                 MiniMapRT.sizeDelta = Vector2.Lerp(SizeExpanded, SizeContracted, t);
 
                 MiniMapCamera.orthographicSize = Mathf.Lerp(cameraSizeLarge, cameraSizeSmall, t);
