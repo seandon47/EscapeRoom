@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ReactorClass : MonoBehaviour {
 
+    public GameObject ParticleSystemObject;
+    public GameObject LightObject;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -30,12 +33,27 @@ public class ReactorClass : MonoBehaviour {
             SSC.Status != ShipSystemClass.SystemStatusEnum.Functioning)
         { 
             SSC.Status = ShipSystemClass.SystemStatusEnum.Functioning;
+            ParticleSystemObject.SetActive(true);
+            LightObject.SetActive(true);
         }
 
         if (RCC == null)
         {
             // BAD SHIT GOES DOWN
+            ParticleSystemObject.SetActive(false);
+            LightObject.SetActive(false);
         }
         
+    }
+
+    private void OnTransformChildrenChanged()
+    {
+        if( transform.GetChild(0).gameObject.GetComponent<ReactorCoreClass>() == null)
+        {
+            ParticleSystemObject.SetActive(false);
+            LightObject.SetActive(false);
+
+            GameController.Instance.PowerSystem.GetSubsystem("reactor core").Status = ShipSystemClass.SystemStatusEnum.Offline;
+        }
     }
 }

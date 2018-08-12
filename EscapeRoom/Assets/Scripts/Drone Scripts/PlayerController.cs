@@ -180,9 +180,9 @@ public class PlayerController : MonoBehaviour {
             transform.rotation = Quaternion.identity;
         }
 
-        float xOffset = transform.localPosition.x + FollowerX;
-        float yOffset = transform.localPosition.y + FollowerY;
-        float zOffset = transform.localPosition.z + FollowerZ;
+        float xOffset = transform.position.x + FollowerX;
+        float yOffset = transform.position.y + FollowerY;
+        float zOffset = transform.position.z + FollowerZ;
         Follower.transform.localPosition = new Vector3(xOffset, yOffset, zOffset);
         Director.transform.position = new Vector3(transform.position.x, transform.position.y + 0.250f, transform.position.z);
     }
