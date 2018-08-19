@@ -9,9 +9,11 @@ public class Door : MonoBehaviour {
     public bool IsBroken;
     public bool IsLocked;
     public bool IsOpen;
+    public bool isOpenAtStart = false;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		
 	}
 	

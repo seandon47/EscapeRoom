@@ -18,6 +18,11 @@ public class OpenDoorButton : MonoBehaviour {
         thedoorCollider = door.GetComponent<MeshCollider>();
         theCollider = this.GetComponent<BoxCollider>();
         myDoor = door.GetComponent<Door>();
+
+        if(myDoor.isOpenAtStart)
+        {
+            StartCoroutine(DoAnimation());
+        }
     }
 	
 	// Update is called once per frame
