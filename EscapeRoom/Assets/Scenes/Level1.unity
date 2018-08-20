@@ -2538,6 +2538,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
+  isOpenAtStart: 0
 --- !u!64 &46873366
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3435,7 +3436,7 @@ Prefab:
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
@@ -12730,6 +12731,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
+  isOpenAtStart: 0
 --- !u!64 &339906633
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13993,6 +13995,7 @@ MonoBehaviour:
   IsBroken: 1
   IsLocked: 1
   IsOpen: 0
+  isOpenAtStart: 0
 --- !u!64 &368288144
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22715,6 +22718,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
+  isOpenAtStart: 0
 --- !u!64 &574278818
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30442,6 +30446,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
+  isOpenAtStart: 0
 --- !u!64 &753384794
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31431,6 +31436,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
+  isOpenAtStart: 0
 --- !u!64 &772480821
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37052,6 +37058,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
+  isOpenAtStart: 0
 --- !u!64 &888239805
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44175,6 +44182,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
+  isOpenAtStart: 1
 --- !u!64 &1020721530
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44541,6 +44549,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 1
   IsOpen: 0
+  isOpenAtStart: 0
 --- !u!1001 &1027606297
 Prefab:
   m_ObjectHideFlags: 0
@@ -45251,7 +45260,7 @@ Prefab:
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
@@ -52467,6 +52476,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
+  isOpenAtStart: 0
 --- !u!64 &1207641107
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -56163,7 +56173,7 @@ Prefab:
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -70
       objectReference: {fileID: 0}
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
@@ -56324,6 +56334,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
+  isOpenAtStart: 0
 --- !u!64 &1300779122
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59495,6 +59506,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
+  isOpenAtStart: 1
 --- !u!64 &1395773342
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -62194,6 +62206,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
+  isOpenAtStart: 0
 --- !u!64 &1462419977
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -63104,6 +63117,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
+  isOpenAtStart: 0
 --- !u!64 &1486139939
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73556,7 +73570,7 @@ Prefab:
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
@@ -75923,6 +75937,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
+  isOpenAtStart: 0
 --- !u!64 &1764254057
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -82371,7 +82386,7 @@ Prefab:
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
@@ -85428,6 +85443,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
+  isOpenAtStart: 0
 --- !u!64 &2031225600
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -86813,6 +86829,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
+  isOpenAtStart: 1
 --- !u!64 &2059493971
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -89447,6 +89464,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
+  isOpenAtStart: 1
 --- !u!64 &2133106481
 MeshCollider:
   m_ObjectHideFlags: 0
