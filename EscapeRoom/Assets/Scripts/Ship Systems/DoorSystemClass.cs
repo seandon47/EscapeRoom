@@ -6,14 +6,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DoorSystemClass : ShipSystemClass {
 
     public List<GameObject> DoorList = new List<GameObject>();
+    public DoorMenu Menu;
     public Material LockedIcon;
     public Material UnlockedIcon;
     public Material BrokenLockedIcon;
     public Material BrokenUnlockedIcon;
+    public GameObject DoorMenuPanelPrefab;
 
     public DoorSystemClass()
     {
@@ -21,8 +24,17 @@ public class DoorSystemClass : ShipSystemClass {
     }
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+    {
+		for (int i = 0; i < DoorList.Count; i++)
+        {
+            Door D = DoorList[i].GetComponent<Door>();
+            GameObject NewDoorMenuPanel = Instantiate(DoorMenuPanelPrefab);
+            NewDoorMenuPanel.transform.SetParent(Menu.Content, false);
+
+            DoorPanelScript DPS = NewDoorMenuPanel.GetComponent<DoorPanelScript>();
+            DPS.Setup("Door " + i.ToString("00"), D);
+        }
 	}
 	
 	// Update is called once per frame
@@ -54,6 +66,14 @@ public class DoorSystemClass : ShipSystemClass {
     public override void ClickEvent()
     {
         //GameController.Instance.MiniMap.GetComponent<MiniMapClass>().ToggleState();
+        if(Menu.gameObject.activeInHierarchy)
+        {
+            Menu.gameObject.SetActive(false);
+        }
+        else
+        {
+            Menu.gameObject.SetActive(true);
+        }
     }
 
     public void SetDoorStatusIconScale(float Scale)
