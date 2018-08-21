@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             // Interact with object
+            if (InteractingObject == null)
+                return;
+
             DroneInteractable DI = InteractingObject.GetComponent<DroneInteractable>();
             if (DI != null)
             {
