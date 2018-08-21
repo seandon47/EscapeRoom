@@ -31,4 +31,9 @@ public class Door : MonoBehaviour {
             StatusIcon.GetComponent<DoorStatusIcon>().UpdateIcon();
         }
     }
+
+    public void ToggleDoor()
+    {
+        OpenSwitch.GetComponent<OpenDoorButton>().ToggleDoor();
+    }
 }
