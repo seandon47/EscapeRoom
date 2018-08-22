@@ -26,6 +26,17 @@ public class DoorSystemClass : ShipSystemClass {
 	// Use this for initialization
 	void Start ()
     {
+        // Code to load EVERY door in the scene
+        // But they come up in no particular order... JPR
+
+        //DoorList.Clear();
+        //Door[] Doors = FindObjectsOfType<Door>();
+
+        //foreach (Door D in Doors)
+        //{
+        //    DoorList.Add(D.gameObject);
+        //}
+
 		for (int i = 0; i < DoorList.Count; i++)
         {
             Door D = DoorList[i].GetComponent<Door>();
