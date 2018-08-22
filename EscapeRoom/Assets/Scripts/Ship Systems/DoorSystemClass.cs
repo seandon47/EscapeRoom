@@ -33,7 +33,7 @@ public class DoorSystemClass : ShipSystemClass {
             NewDoorMenuPanel.transform.SetParent(Menu.Content, false);
 
             DoorPanelScript DPS = NewDoorMenuPanel.GetComponent<DoorPanelScript>();
-            DPS.Setup("Door " + i.ToString("00"), D);
+            DPS.Setup("Door " + (i + 1).ToString("00"), D);
         }
 	}
 	
