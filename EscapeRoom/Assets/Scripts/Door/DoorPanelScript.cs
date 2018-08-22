@@ -21,7 +21,7 @@ public class DoorPanelScript : MonoBehaviour {
     public void Setup(string Name, Door InDoor)
     {
         MyDoor = InDoor;
-        NameLabel.text = Name;
+        NameLabel.text = MyDoor.gameObject.name;
         StatusLabel.text = MyDoor.IsBroken ? "Malfunctioning" : "Functioning";
         LockButton.GetComponentInChildren<Text>().text = MyDoor.IsLocked ? "Locked" : "Unlocked";
         OpenButton.GetComponentInChildren<Text>().text = MyDoor.IsOpen ? "Open" : "Closed";
@@ -29,6 +29,9 @@ public class DoorPanelScript : MonoBehaviour {
 
     public void LockButtonClick()
     {
+        if (MyDoor.IsBroken)
+            return;
+
         if (MyDoor.IsLocked)
         {
             MyDoor.IsLocked = false;
@@ -37,11 +40,14 @@ public class DoorPanelScript : MonoBehaviour {
         {
             MyDoor.IsLocked = true;
         }
-        LockButton.GetComponent<Text>().text = MyDoor.IsLocked ? "Locked" : "Unlocked";
+        LockButton.GetComponentInChildren<Text>().text = MyDoor.IsLocked ? "Locked" : "Unlocked";
     }
 
     public void OpenButtonClick()
     {
+        if (MyDoor.IsBroken)
+            return;
+
         // Run animation coroutine
         MyDoor.ToggleDoor();
         if (MyDoor.IsOpen)
@@ -52,6 +58,6 @@ public class DoorPanelScript : MonoBehaviour {
         {
             MyDoor.IsOpen = true;
         }
-        OpenButton.GetComponent<Text>().text = MyDoor.IsOpen ? "Open" : "Closed";
+        OpenButton.GetComponentInChildren<Text>().text = MyDoor.IsOpen ? "Open" : "Closed";
     }
 }
