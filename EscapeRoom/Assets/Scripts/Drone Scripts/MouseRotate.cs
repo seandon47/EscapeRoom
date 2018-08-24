@@ -46,6 +46,11 @@ public class MouseRotate : MonoBehaviour {
             yaw += 2 * Input.GetAxis("Mouse X");
             pitch += 2 * -1 * Input.GetAxis("Mouse Y");
 
+            if (pitch > 80)
+                pitch = 80;
+            else if (pitch < -80)
+                pitch = -80;
+
             transform.eulerAngles = new Vector3(pitch, yaw, 0);
             HeadObject.transform.eulerAngles = new Vector3(0, yaw, 0);
         }
