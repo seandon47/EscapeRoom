@@ -11,6 +11,7 @@ using UnityEngine.UI;
 
 public class PowerSystemClass : ShipSystemClass {
 
+    public PowerMenu Menu;
     public GameObject ReactorObject;
     SubSystemClass reactorCore;
     SubSystemClass coolingCoil;
@@ -188,5 +189,18 @@ public class PowerSystemClass : ShipSystemClass {
     public SubSystemClass GetSubsystem(string SName)
     {
         return SubSystemList.Find(S => S.Name == SName);
+    }
+
+    public override void ClickEvent()
+    {
+        if (Menu.gameObject.activeInHierarchy)
+        {
+            Menu.gameObject.SetActive(false);
+        }
+        else
+        {
+            Menu.gameObject.SetActive(true);
+        }
+
     }
 }

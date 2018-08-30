@@ -58,7 +58,6 @@ public class GameController : MonoBehaviour {
     public InputField chatBox;
     public string userName;
 
-
     Queue<string> consoleHistory = new Queue<string>();
     bool ConsoleActive = false;
 
