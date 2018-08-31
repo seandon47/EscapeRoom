@@ -11,7 +11,14 @@ using UnityEngine.UI;
 
 public class PowerSystemClass : ShipSystemClass {
 
+    public BatterySystemClass BatterySystem;
     public PowerMenu Menu;
+    public Text OutputText;
+    public Text BatteryCharge;
+    public Text LifeSupportDraw;
+    public Text DoorSystemDraw;
+    public Text LightSystemDraw;
+    public Text TotalDraw;
     public GameObject ReactorObject;
     SubSystemClass reactorCore;
     SubSystemClass coolingCoil;
@@ -19,6 +26,7 @@ public class PowerSystemClass : ShipSystemClass {
     SubSystemClass processingUnit;
     bool canBreakAtRandom;
     double output;
+    Dictionary<string, Text> PowerDrawMap = new Dictionary<string, Text>();
 
     public PowerSystemClass()
     {
@@ -41,6 +49,10 @@ public class PowerSystemClass : ShipSystemClass {
         
         SubSystemList.AddRange(new SubSystemClass[] { reactorCore, coolingCoil, energyEqualizer, processingUnit });
 
+        PowerDrawMap.Add("Life Support", LifeSupportDraw);
+        PowerDrawMap.Add("Doors", DoorSystemDraw);
+        PowerDrawMap.Add("Lighting", LightSystemDraw);
+
         canBreakAtRandom = false;
     }
 	
@@ -57,6 +69,7 @@ public class PowerSystemClass : ShipSystemClass {
         }
 
         output = CalculateOutput();
+        OutputText.text = output.ToString("0") + " kw";
 
         bool AllUp = true;
         foreach (SubSystemClass SubSystem in SubSystemList)
@@ -152,15 +165,30 @@ public class PowerSystemClass : ShipSystemClass {
         }
     }
 
-    public bool UseCharge(double Usage)
+    public void UpdateTotalDraw(double DrawValue)
     {
+        TotalDraw.text = DrawValue.ToString("0") + " kw";
+        BatteryCharge.text = BatterySystem.GetCharge().ToString("0") + " kw";
+    }
+
+    public bool UseCharge(double Usage, string NameOfSystem)
+    {
+        bool RetVal = true;
+
+        int iUsage = (int)Usage;
+        if (PowerDrawMap.ContainsKey(NameOfSystem))
+        {
+            PowerDrawMap[NameOfSystem].text = iUsage.ToString() + " kw";
+        }
+
         output -= Usage;
         if (output <= 0)
         {
             output = 0;
-            return false;
+            RetVal = BatterySystem.UseCharge(Usage);
         }
-        return true;
+
+        return RetVal;
     }
 
     public bool SystemIsFunctional()

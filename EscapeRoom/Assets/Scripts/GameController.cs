@@ -103,35 +103,25 @@ public class GameController : MonoBehaviour {
             // Increment time
             Time++;
 
-            int i = 0;
             double PowerRequested = 0;
+            double TotalPowerRequested = 0;
             // Use power from ship's generator first
-            for (; i < shipSystems.Count; i++)
+            for (int i = 0; i < shipSystems.Count; i++)
             {
                 PowerRequested = shipSystems[i].PowerRequested();
-                if(!PowerSystem.UseCharge(PowerRequested))
-                {
-                    // This means that the power usage of the ship has exceeded the power created by the generator in the 
-                    // power system. At this point the logic will transition to using the batteries for power.
-                    // Break out of the loop keeping i the same
-                    break;
-                }
-            }
-
-            // Anything leftover in the generator will credit or debit battery charge as necessary
-            for (; i < shipSystems.Count; i++)
-            {
-                PowerRequested = shipSystems[i].PowerRequested();
-                if (BatterySystem.UseCharge(PowerRequested))
+                if(!PowerSystem.UseCharge(PowerRequested, shipSystems[i].GetSystemName()))
                 {
                     // At this point the battery system can no longer supply power to anything
                     // Should put a trigger here to alert players that they are FUCKED
                     shipSystems[i].ChargeFailed();
                 }
+                TotalPowerRequested += PowerRequested;
             }
 
+            PowerSystem.UpdateTotalDraw(TotalPowerRequested);
+
             // Update the ship systems
-            for (i = 0; i < shipSystems.Count; i++)
+            for (int i = 0; i < shipSystems.Count; i++)
             {
                 shipSystems[i].TimeUpdate(Time);
             }

@@ -49,6 +49,11 @@ public class BatterySystemClass : ShipSystemClass {
         return base.PowerRequested();
     }
 
+    public double GetCharge()
+    {
+        return charge;
+    }
+
     /// <summary>
     /// Adds to the battery systems charge
     /// </summary>
