@@ -42,12 +42,28 @@ public class PowerSystemClass : ShipSystemClass {
     {
         systemName = "Power System";
 
-        reactorCore = new SubSystemClass(SystemStatusEnum.Malfunctioning, "reactor core");
-        coolingCoil = new SubSystemClass(SystemStatusEnum.Functioning, "cooling coil");
-        energyEqualizer = new SubSystemClass(SystemStatusEnum.Functioning, "energy equalizer");
-        processingUnit = new SubSystemClass(SystemStatusEnum.Functioning, "processing unit");
+        // Setup reactor core subsystem
+        reactorCore = new SubSystemClass(SystemStatusEnum.Malfunctioning, "Reactor Core");
+        reactorCore.SetRepairInstructions("Replace faulty reactor core in main reactor.");
+
+        // Setup cooling coil
+        coolingCoil = new SubSystemClass(SystemStatusEnum.Functioning, "Cooling Coil");
+        coolingCoil.SetRepairInstructions("Refill reactor coolant reservoir.");
+
+        // Setup energy equalizer
+        energyEqualizer = new SubSystemClass(SystemStatusEnum.Functioning, "Energy Equalizer");
+        energyEqualizer.SetRepairInstructions("Manually power cycle the main reactor.");
+
+        // Setup processing unit
+        processingUnit = new SubSystemClass(SystemStatusEnum.Functioning, "Processing Unit");
+        processingUnit.SetRepairInstructions("Replace main CPU board");
         
         SubSystemList.AddRange(new SubSystemClass[] { reactorCore, coolingCoil, energyEqualizer, processingUnit });
+
+        foreach (SubSystemClass SSC in SubSystemList)
+        {
+            Menu.AddSubsystemToMenu(SSC);
+        }
 
         PowerDrawMap.Add("Life Support", LifeSupportDraw);
         PowerDrawMap.Add("Doors", DoorSystemDraw);
