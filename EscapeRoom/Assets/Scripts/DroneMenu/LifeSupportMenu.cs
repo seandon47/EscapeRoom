@@ -1,15 +1,8 @@
-﻿//
-//  PowerMenu.cs
-//  Class to handle the doors aboard a ship
-//  Copyright 2018 Disi Studios LLC
-//
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerMenu : MonoBehaviour
-{
-    // Reference to the content of the scrollable window
+public class LifeSupportMenu : MonoBehaviour {
     public Transform Content;
     public GameObject SubsystemPanelPrefab;
 

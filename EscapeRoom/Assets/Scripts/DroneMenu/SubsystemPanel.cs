@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PowerSubsystemPanel : MonoBehaviour {
+public class SubsystemPanel : MonoBehaviour {
     public Image Picture;
     public Text Name;
     public Text Status;

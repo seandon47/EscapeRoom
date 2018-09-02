@@ -58,9 +58,9 @@ GameObject:
   - component: {fileID: 114773642658152586}
   - component: {fileID: 114955693392735024}
   - component: {fileID: 114017683163847040}
-  - component: {fileID: 114401161967302884}
+  - component: {fileID: 114004943729074280}
   m_Layer: 5
-  m_Name: PowerSubsystemPanel
+  m_Name: SubsystemPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,6 +151,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Name
+--- !u!114 &114004943729074280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1321761193669198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91313d4456d06494cae7d02ca68d142a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Picture: {fileID: 114562494256133054}
+  Name: {fileID: 114003935901100522}
+  Status: {fileID: 114184242562186112}
+  Instructions: {fileID: 114909124407498814}
 --- !u!114 &114017683163847040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -271,21 +286,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114401161967302884
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1321761193669198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91313d4456d06494cae7d02ca68d142a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Picture: {fileID: 114562494256133054}
-  Name: {fileID: 114003935901100522}
-  Status: {fileID: 114184242562186112}
-  Instructions: {fileID: 114909124407498814}
 --- !u!114 &114562494256133054
 MonoBehaviour:
   m_ObjectHideFlags: 1
