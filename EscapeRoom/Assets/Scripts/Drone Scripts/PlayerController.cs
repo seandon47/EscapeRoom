@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
     public float FollowerZ;
 
     public GameObject CrossHair;
+    int DecelerationMultiplier = 3000;
+    int maxVelocity = 4;
 
     Rigidbody rb;
     bool InteractiveMode;
@@ -155,32 +157,19 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate()
     {
-        //if (transform.position.y <= -3.8)
-        //{
-        //    float moveHorizontal = Input.GetAxis("Horizontal");
-        //    float moveVertical = Input.GetAxis("Vertical");
+        Ray ray = new Ray(transform.position, Vector3.down);
 
-        //    Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-        //    movement = Director.transform.rotation * movement;
-
-        //    rb.velocity = movement * speed;
-        //}
-
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-        movement = Director.transform.rotation * movement;
-
-        rb.AddForce(movement * speed);
-
-        if (moveHorizontal == 0 && moveVertical == 0)
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 0.26f))
         {
-            var oppositeForce = -rb.velocity * 500;
-            rb.AddForce(oppositeForce * Time.deltaTime);
-            transform.rotation = Quaternion.identity;
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveVertical = Input.GetAxis("Vertical");
+
+            Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+
+            movement = Director.transform.rotation * movement;
+
+            rb.velocity = movement * speed;
         }
 
         float xOffset = transform.position.x + FollowerX;
