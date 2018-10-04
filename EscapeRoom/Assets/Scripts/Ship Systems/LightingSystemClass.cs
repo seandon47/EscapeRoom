@@ -9,7 +9,13 @@ using UnityEngine;
 
 public class LightingSystemClass : ShipSystemClass {
 
-    public List<GameObject> LightList = new List<GameObject>();
+    /// <summary>
+    /// Element 1 Left side
+    /// Element 2 Center
+    /// Element 3 Top Left
+    /// Element 4 Top Right
+    /// </summary>
+    public CircuitClass LightingCircuits;
 
     public LightingSystemClass()
     {
@@ -18,7 +24,16 @@ public class LightingSystemClass : ShipSystemClass {
 
 	// Use this for initialization
 	void Start () {
-		
+		foreach (LightList LL in LightingCircuits.AllMyCircuits)
+        {
+            foreach (LightClass LC in LL.Lights)
+            {
+                // Get the child light point and set it!
+                Transform t = LC.gameObject.transform.GetChild(0);
+                Light L = t.GetComponent<Light>();
+                LC.PointLight = L;
+            }
+        }
 	}
 	
 	// Update is called once per frame
@@ -28,6 +43,26 @@ public class LightingSystemClass : ShipSystemClass {
 
     public override void TimeUpdate(int CurrentTime)
     {
+        if (CurrentTime % 3 == 0)
+        {
+            foreach (LightList LL in LightingCircuits.AllMyCircuits)
+            {
+                foreach (LightClass LC in LL.Lights)
+                {
+                    LC.PointLight.intensity = 0;
+                }
+            }
+        }
+        else
+        {
+            foreach (LightList LL in LightingCircuits.AllMyCircuits)
+            {
+                foreach (LightClass LC in LL.Lights)
+                {
+                    LC.PointLight.intensity = 1.06f;
+                }
+            }
+        }
         base.TimeUpdate(CurrentTime);
     }
 
