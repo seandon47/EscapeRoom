@@ -234,4 +234,28 @@ public class GameController : MonoBehaviour {
             info
         }
     }
+
+    public static float StepValue(float CurrentValue, float IntendedValue, float Step)
+    {
+        float retVal = CurrentValue;
+
+        float Diff = CurrentValue - IntendedValue;
+        if (Diff != 0)
+        {
+            if (Mathf.Abs(Diff) <= Step)
+            {
+                retVal = IntendedValue;
+            }
+            else if(Diff < 0)
+            {
+                retVal = CurrentValue + Step;
+            }
+            else
+            {
+                retVal = CurrentValue - Step;
+            }
+        }
+
+        return retVal;
+    }
 }

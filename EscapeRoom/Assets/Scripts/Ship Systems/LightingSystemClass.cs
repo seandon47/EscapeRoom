@@ -9,6 +9,8 @@ using UnityEngine;
 
 public class LightingSystemClass : ShipSystemClass {
 
+    public LightsMenu Menu;
+    public GameObject LightMenuPanelPrefab;
     /// <summary>
     /// Element 1 Left side
     /// Element 2 Center
@@ -32,6 +34,13 @@ public class LightingSystemClass : ShipSystemClass {
                 Transform t = LC.gameObject.transform.GetChild(0);
                 Light L = t.GetComponent<Light>();
                 LC.PointLight = L;
+                LC.LoadAllValues();
+
+                GameObject NewLightPanel = Instantiate(LightMenuPanelPrefab);
+                NewLightPanel.transform.SetParent(Menu.Content, false);
+
+                LightPanelScript LPS = NewLightPanel.GetComponent<LightPanelScript>();
+                LPS.Setup("Oh shit", LightingCircuits.AllMyCircuits.IndexOf(LL), LL.Lights.IndexOf(LC), LC);
             }
         }
 	}
@@ -43,26 +52,6 @@ public class LightingSystemClass : ShipSystemClass {
 
     public override void TimeUpdate(int CurrentTime)
     {
-        if (CurrentTime % 3 == 0)
-        {
-            foreach (LightList LL in LightingCircuits.AllMyCircuits)
-            {
-                foreach (LightClass LC in LL.Lights)
-                {
-                    LC.PointLight.intensity = 0;
-                }
-            }
-        }
-        else
-        {
-            foreach (LightList LL in LightingCircuits.AllMyCircuits)
-            {
-                foreach (LightClass LC in LL.Lights)
-                {
-                    LC.PointLight.intensity = 1.06f;
-                }
-            }
-        }
         base.TimeUpdate(CurrentTime);
     }
 
@@ -77,5 +66,17 @@ public class LightingSystemClass : ShipSystemClass {
     public override void ChargeFailed()
     {
         base.ChargeFailed();
+    }
+
+    public override void ClickEvent()
+    {
+        if(Menu.gameObject.activeInHierarchy)
+        {
+            Menu.gameObject.SetActive(false);
+        }
+        else
+        {
+            Menu.gameObject.SetActive(true);
+        }
     }
 }
