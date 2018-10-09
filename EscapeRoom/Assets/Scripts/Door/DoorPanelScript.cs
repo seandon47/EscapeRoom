@@ -34,11 +34,11 @@ public class DoorPanelScript : MonoBehaviour {
 
         if (MyDoor.IsLocked)
         {
-            MyDoor.IsLocked = false;
+            MyDoor.SetLock(false);
         }
         else
         {
-            MyDoor.IsLocked = true;
+            MyDoor.SetLock(true);
         }
         LockButton.GetComponentInChildren<Text>().text = MyDoor.IsLocked ? "Locked" : "Unlocked";
     }

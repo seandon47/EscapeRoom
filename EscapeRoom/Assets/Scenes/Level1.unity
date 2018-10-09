@@ -3462,6 +3462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 569701779}
+  OpenSwitch2: {fileID: 217182384}
   StatusIcon: {fileID: 374948046}
   IsBroken: 0
   IsLocked: 0
@@ -4510,9 +4511,19 @@ Prefab:
       propertyPath: m_Name
       value: Door06
       objectReference: {fileID: 0}
+    - target: {fileID: 114665825913738126, guid: fd9c97ec52d609e40a0726e91c693901,
+        type: 2}
+      propertyPath: OpenSwitch2
+      value: 
+      objectReference: {fileID: 85309219}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fd9c97ec52d609e40a0726e91c693901, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &85309219 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1913787780792436, guid: fd9c97ec52d609e40a0726e91c693901,
+    type: 2}
+  m_PrefabInternal: {fileID: 85309218}
 --- !u!1001 &85560906
 Prefab:
   m_ObjectHideFlags: 0
@@ -4568,7 +4579,7 @@ Prefab:
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -70
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
@@ -15732,6 +15743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 810030918}
+  OpenSwitch2: {fileID: 938758834}
   StatusIcon: {fileID: 466062588}
   IsBroken: 0
   IsLocked: 0
@@ -17076,6 +17088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 1291952200}
+  OpenSwitch2: {fileID: 341509291}
   StatusIcon: {fileID: 1442821772}
   IsBroken: 1
   IsLocked: 1
@@ -27043,6 +27056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 420372552}
+  OpenSwitch2: {fileID: 810373597}
   StatusIcon: {fileID: 2000033635}
   IsBroken: 0
   IsLocked: 0
@@ -36022,6 +36036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 388980906}
+  OpenSwitch2: {fileID: 1979713621}
   StatusIcon: {fileID: 892120701}
   IsBroken: 0
   IsLocked: 0
@@ -37265,6 +37280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 1707461362}
+  OpenSwitch2: {fileID: 2034097564}
   StatusIcon: {fileID: 1115400702}
   IsBroken: 0
   IsLocked: 0
@@ -41436,12 +41452,32 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.682722
       objectReference: {fileID: 0}
+    - target: {fileID: 114641209541489222, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 2}
+      propertyPath: OpenSwitch2
+      value: 
+      objectReference: {fileID: 844078148}
+    - target: {fileID: 114184658181354776, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 2}
+      propertyPath: OpenSwitch2
+      value: 
+      objectReference: {fileID: 844078147}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0db147abf24fd2a4db05b4d76e0145b5, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &844078146 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4670343195694308, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+    type: 2}
+  m_PrefabInternal: {fileID: 844078145}
+--- !u!1 &844078147 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1935283455797270, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+    type: 2}
+  m_PrefabInternal: {fileID: 844078145}
+--- !u!1 &844078148 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1904347697871106, guid: 0db147abf24fd2a4db05b4d76e0145b5,
     type: 2}
   m_PrefabInternal: {fileID: 844078145}
 --- !u!1 &844430438
@@ -43864,6 +43900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 89979903}
+  OpenSwitch2: {fileID: 1488667171}
   StatusIcon: {fileID: 216151418}
   IsBroken: 0
   IsLocked: 0
@@ -51655,6 +51692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 1356503935}
+  OpenSwitch2: {fileID: 0}
   StatusIcon: {fileID: 630320475}
   IsBroken: 0
   IsLocked: 0
@@ -52022,6 +52060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 522331522}
+  OpenSwitch2: {fileID: 0}
   StatusIcon: {fileID: 1848550460}
   IsBroken: 0
   IsLocked: 1
@@ -52737,7 +52776,7 @@ Prefab:
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
@@ -61183,6 +61222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 1080492805}
+  OpenSwitch2: {fileID: 0}
   StatusIcon: {fileID: 1307441274}
   IsBroken: 0
   IsLocked: 0
@@ -65354,7 +65394,7 @@ Prefab:
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
@@ -65612,6 +65652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 1067931676}
+  OpenSwitch2: {fileID: 1481591481}
   StatusIcon: {fileID: 1057582723}
   IsBroken: 0
   IsLocked: 0
@@ -69396,6 +69437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 1875366398}
+  OpenSwitch2: {fileID: 0}
   StatusIcon: {fileID: 1891633840}
   IsBroken: 0
   IsLocked: 0
@@ -72594,6 +72636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 900948623}
+  OpenSwitch2: {fileID: 150336888}
   StatusIcon: {fileID: 878447083}
   IsBroken: 0
   IsLocked: 0
@@ -73797,6 +73840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 1516673405}
+  OpenSwitch2: {fileID: 1150732312}
   StatusIcon: {fileID: 924177662}
   IsBroken: 0
   IsLocked: 0
@@ -85424,7 +85468,7 @@ Prefab:
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
@@ -87721,6 +87765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 831081636}
+  OpenSwitch2: {fileID: 320237355}
   StatusIcon: {fileID: 163874253}
   IsBroken: 0
   IsLocked: 0
@@ -92563,9 +92608,39 @@ Prefab:
       propertyPath: m_Name
       value: Door05
       objectReference: {fileID: 0}
+    - target: {fileID: 114184658181354776, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 2}
+      propertyPath: OpenSwitch2
+      value: 
+      objectReference: {fileID: 1877612900}
+    - target: {fileID: 114641209541489222, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 2}
+      propertyPath: OpenSwitch2
+      value: 
+      objectReference: {fileID: 1877612901}
+    - target: {fileID: 114311540659147168, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 2}
+      propertyPath: OpenSwitch2
+      value: 
+      objectReference: {fileID: 1877612902}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0db147abf24fd2a4db05b4d76e0145b5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1877612900 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1935283455797270, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1877612899}
+--- !u!1 &1877612901 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1904347697871106, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1877612899}
+--- !u!1 &1877612902 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1649997860053034, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1877612899}
 --- !u!1 &1884923325
 GameObject:
   m_ObjectHideFlags: 0
@@ -95217,7 +95292,7 @@ Prefab:
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224118020926040680, guid: c804eadca185f2f488b8eecf5dcd924a,
         type: 2}
@@ -98726,6 +98801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 1500237452}
+  OpenSwitch2: {fileID: 225301050}
   StatusIcon: {fileID: 2122011725}
   IsBroken: 0
   IsLocked: 0
@@ -100386,6 +100462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 921852625}
+  OpenSwitch2: {fileID: 0}
   StatusIcon: {fileID: 700510416}
   IsBroken: 0
   IsLocked: 0
@@ -103320,6 +103397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenSwitch: {fileID: 2065621329}
+  OpenSwitch2: {fileID: 0}
   StatusIcon: {fileID: 214684206}
   IsBroken: 0
   IsLocked: 0

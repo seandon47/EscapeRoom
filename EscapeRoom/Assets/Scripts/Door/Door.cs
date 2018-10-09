@@ -5,6 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour {
 
     public GameObject OpenSwitch;
+    public GameObject OpenSwitch2;
     public GameObject StatusIcon;
     public bool IsBroken;
     public bool IsLocked;
@@ -52,5 +53,23 @@ public class Door : MonoBehaviour {
     public void ToggleDoor()
     {
         OpenSwitch.GetComponent<OpenDoorButton>().ToggleDoor();
+    }
+
+    public void SetLock(bool LockVal)
+    {
+        IsLocked = LockVal;
+
+        if (IsLocked)
+        {
+            // Change color to red
+            OpenSwitch.GetComponentInChildren<Light>().color = Color.red;
+            OpenSwitch2.GetComponentInChildren<Light>().color = Color.red;
+        }
+        else
+        {
+            // Change color to blue
+            OpenSwitch.GetComponentInChildren<Light>().color = Color.blue;
+            OpenSwitch2.GetComponentInChildren<Light>().color = Color.blue;
+        }
     }
 }
