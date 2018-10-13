@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour {
     public LightingSystemClass LightingSystem;
     public DoorSystemClass DoorSystem;
     public  List<ShipSystemClass> shipSystems;
+    public GameObject VRWatch;
 
     public int maxMessages = 30;
     public Color playerMessage, info;

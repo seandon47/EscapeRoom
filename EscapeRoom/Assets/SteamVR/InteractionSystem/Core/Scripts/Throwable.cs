@@ -162,9 +162,13 @@ namespace Valve.VR.InteractionSystem
 
 			hand.HoverUnlock( null );
 
-			Rigidbody rb = GetComponent<Rigidbody>();
-			rb.isKinematic = false;
-			rb.interpolation = RigidbodyInterpolation.Interpolate;
+            Rigidbody rb = GetComponent<Rigidbody>();
+            MountableObject MO = GetComponent<MountableObject>();
+            if (MO != null && !MO.IsMounted)
+            {
+                rb.isKinematic = false;
+                rb.interpolation = RigidbodyInterpolation.Interpolate;
+            }
 
 			Vector3 position = Vector3.zero;
 			Vector3 velocity = Vector3.zero;

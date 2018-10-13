@@ -14,7 +14,7 @@ public class AttachToHand : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (attachedObject.name == "Watch")
+        if (attachedObject.name == "WatchAttachPoint")
             attachedObject.transform.position = hand.transform.position - (hand.transform.forward * .3f);
         else
             attachedObject.transform.position = hand.transform.position;
