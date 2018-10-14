@@ -164,7 +164,7 @@ namespace Valve.VR.InteractionSystem
 
             Rigidbody rb = GetComponent<Rigidbody>();
             MountableObject MO = GetComponent<MountableObject>();
-            if (MO != null && !MO.IsMounted)
+            if (MO == null || (MO != null && !MO.IsMounted))
             {
                 rb.isKinematic = false;
                 rb.interpolation = RigidbodyInterpolation.Interpolate;

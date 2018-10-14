@@ -44,7 +44,7 @@ public class MountableObject : MonoBehaviour {
 
     public virtual void MountObject(GameObject NewParent)
     {
-        Debug.Log("MountObject " + gameObject.name + " to " + NewParent.name);
+        //Debug.Log("MountObject " + gameObject.name + " to " + NewParent.name);
         transform.SetParent(NewParent.transform);
 
         transform.localPosition = new Vector3(0, 0, 0);
