@@ -21,7 +21,7 @@ public class ReactorClass : MonoBehaviour {
     {
         ReactorCoreClass RCC = collision.gameObject.GetComponent<ReactorCoreClass>();
 
-        SubSystemClass SSC = GameController.Instance.PowerSystem.GetSubsystem("reactor core");
+        SubSystemClass SSC = GameController.Instance.PowerSystem.GetSubsystem("Reactor Core");
         
         collision.gameObject.transform.SetParent(transform);
         collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
@@ -53,7 +53,7 @@ public class ReactorClass : MonoBehaviour {
             ParticleSystemObject.SetActive(false);
             LightObject.SetActive(false);
 
-            GameController.Instance.PowerSystem.GetSubsystem("reactor core").Status = ShipSystemClass.SystemStatusEnum.Offline;
+            GameController.Instance.PowerSystem.GetSubsystem("Reactor Core").Status = ShipSystemClass.SystemStatusEnum.Offline;
         }
     }
 }

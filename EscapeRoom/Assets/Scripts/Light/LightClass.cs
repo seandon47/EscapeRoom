@@ -13,7 +13,6 @@ public class LightClass : MonoBehaviour {
     }
 
     public Light PointLight;
-    public Color lightColor;
     public float intensity;
     public float range;
     public float rangeStep;
@@ -27,14 +26,16 @@ public class LightClass : MonoBehaviour {
         intensityStep = 0.1f;
         chanceThreshold = 0.5f;
         CurrentState = LightState.ON;
-	}
+
+        
+
+    }
 
     public void LoadAllValues()
     {
         if (PointLight == null)
             return;
-
-        lightColor = PointLight.color;
+        
         intensity = PointLight.intensity;
         range = PointLight.range;
     }
@@ -139,5 +140,10 @@ public class LightClass : MonoBehaviour {
                 break;
         }
         return retVal;
+    }
+
+    public void SetLightColor(Color tempColor)
+    {
+        PointLight.color = tempColor;
     }
 }

@@ -51,6 +51,7 @@ public class GameController : MonoBehaviour {
     public DoorSystemClass DoorSystem;
     public  List<ShipSystemClass> shipSystems;
     public GameObject VRWatch;
+    public Tutorial CurrentStory;
 
     public int maxMessages = 30;
     public Color playerMessage, info;
@@ -103,6 +104,9 @@ public class GameController : MonoBehaviour {
         { 
             // Increment time
             Time++;
+
+            // Story Time!
+            CurrentStory.TimeUpdate();
 
             double PowerRequested = 0;
             double TotalPowerRequested = 0;

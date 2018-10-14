@@ -33,7 +33,16 @@ public class Door : MonoBehaviour {
         TM.alignment = TextAlignment.Center;
         TM.anchor = TextAnchor.MiddleCenter;        
         TM.text = gameObject.name;
-	}
+
+        if(OpenSwitch != null)
+        {
+            OpenSwitch.GetComponentInChildren<Light>().intensity = .2f;
+        }
+        if (OpenSwitch2 != null)
+        {
+            OpenSwitch2.GetComponentInChildren<Light>().intensity = .2f;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update ()

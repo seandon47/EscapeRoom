@@ -41,12 +41,15 @@ public class LightingSystemClass : ShipSystemClass {
 
                 LightPanelScript LPS = NewLightPanel.GetComponent<LightPanelScript>();
                 LPS.Setup("Oh shit", LightingCircuits.AllMyCircuits.IndexOf(LL), LL.Lights.IndexOf(LC), LC);
+
+                LC.SetLightColor(Color.red);
             }
         }
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 
     }
 
@@ -77,6 +80,32 @@ public class LightingSystemClass : ShipSystemClass {
         else
         {
             Menu.gameObject.SetActive(true);
+        }
+    }
+
+    protected override void StatusChanged()
+    {
+        foreach (LightList LL in LightingCircuits.AllMyCircuits)
+        {
+            foreach (LightClass LC in LL.Lights)
+            {
+                switch (status)
+                {
+                    case SystemStatusEnum.Functioning:
+                        LC.SetState(LightClass.LightState.ON);
+                        break;
+                    case SystemStatusEnum.Compromised:
+                        break;
+                    case SystemStatusEnum.Malfunctioning:
+                        LC.SetState(LightClass.LightState.OFF);
+                        break;
+                    case SystemStatusEnum.Offline:
+                        LC.SetState(LightClass.LightState.OFF);
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MountableObject : MonoBehaviour {
+    public Vector3 MountedOrientation;
     public bool IsMounted;
     Color OriginalColor;
     MountPoint mountPoint;
@@ -48,7 +49,8 @@ public class MountableObject : MonoBehaviour {
         transform.SetParent(NewParent.transform);
 
         transform.localPosition = new Vector3(0, 0, 0);
-        transform.rotation = new Quaternion(NewParent.transform.rotation.x, NewParent.transform.rotation.y, NewParent.transform.rotation.z, NewParent.transform.rotation.w);
+        Vector3 ParentEuler = NewParent.transform.rotation.eulerAngles;
+        transform.rotation = Quaternion.Euler(ParentEuler.x + MountedOrientation.x, ParentEuler.y + MountedOrientation.y, ParentEuler.z + MountedOrientation.z);
 
         MeshRenderer MR = GetComponent<MeshRenderer>();
         if (MR != null)

@@ -67,9 +67,20 @@ public class ShipSystemClass : MonoBehaviour {
 
     }
 
+    public void SetStatus(SystemStatusEnum NewStatus)
+    {
+        status = NewStatus;
+        StatusChanged();
+    }
+
     public SystemStatusEnum GetStatus()
     {
         return status;
+    }
+
+    protected virtual void StatusChanged()
+    {
+        // Override me in derived class!!!!!!!!!!$#^#$^&48yroidfh;goarjh;foi
     }
 
     public double GetPercentFunctional()

@@ -41,6 +41,7 @@ public class PowerSystemClass : ShipSystemClass {
 	void Start ()
     {
         systemName = "Power System";
+        status = SystemStatusEnum.Malfunctioning;
 
         // Setup reactor core subsystem
         reactorCore = new SubSystemClass(SystemStatusEnum.Malfunctioning, "Reactor Core");

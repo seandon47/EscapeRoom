@@ -16,6 +16,6 @@ public class ReactorCoreClass : MonoBehaviour {
 
     public void OnPickUp()
     {
-        GameController.Instance.PowerSystem.GetSubsystem("reactor core").Status = ShipSystemClass.SystemStatusEnum.Offline;
+        GameController.Instance.PowerSystem.GetSubsystem("Reactor Core").Status = ShipSystemClass.SystemStatusEnum.Offline;
     }
 }
