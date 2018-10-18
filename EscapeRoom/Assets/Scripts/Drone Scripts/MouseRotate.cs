@@ -33,11 +33,13 @@ public class MouseRotate : MonoBehaviour {
             {
                 controllingRobot = false;
                 Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
             else
             {
                 controllingRobot = true;
                 Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
             }
         }
 
