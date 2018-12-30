@@ -10,6 +10,8 @@ public class OpenDoorButton : MonoBehaviour {
     Animator anim;
     Door myDoor;
     bool doorOpened = false;
+    public AudioClip doorCloseSound, doorOpenSound;
+    AudioSource audio;
 
     // Use this for initialization
     void Start ()
@@ -18,8 +20,9 @@ public class OpenDoorButton : MonoBehaviour {
         thedoorCollider = door.GetComponent<MeshCollider>();
         theCollider = this.GetComponent<BoxCollider>();
         myDoor = door.GetComponent<Door>();
+        audio = door.GetComponent<AudioSource>();
 
-        if(myDoor.isOpenAtStart)
+        if (myDoor.isOpenAtStart)
         {
             StartCoroutine(DoAnimation());
         }
@@ -56,7 +59,8 @@ public class OpenDoorButton : MonoBehaviour {
     {
         theCollider.enabled = false;
         if (!doorOpened)
-        { 
+        {
+            audio.PlayOneShot(doorOpenSound);
             anim.Play("door_2_open");
             yield return new WaitForSeconds(.5f);
             anim.enabled = false;
@@ -65,6 +69,7 @@ public class OpenDoorButton : MonoBehaviour {
         }
         else
         {
+            audio.PlayOneShot(doorCloseSound);
             anim.enabled = true;
             anim.Play("door_2_close");
             yield return new WaitForSeconds(.5f);
