@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
     public float FollowerY;
     public float FollowerZ;
 
-    public GameObject CrossHair;
+    public GameObject CrossHair, DroneEscapeMenu;
     int DecelerationMultiplier = 3000;
     int maxVelocity = 4;
 
@@ -66,6 +66,18 @@ public class PlayerController : MonoBehaviour {
         // Left mouse button went up this frame
         if (Input.GetMouseButtonUp(0))
         {
+
+        }
+
+        // Left mouse button went up this frame
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(!DroneEscapeMenu.activeInHierarchy)
+            {
+                DroneEscapeMenu.SetActive(true);
+            }
+            else
+                DroneEscapeMenu.SetActive(false);
 
         }
 
