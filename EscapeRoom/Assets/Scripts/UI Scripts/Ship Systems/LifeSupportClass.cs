@@ -51,14 +51,7 @@ public class LifeSupportClass : ShipSystemClass {
 
     public override void ClickEvent()
     {
-        if (Menu.gameObject.activeInHierarchy)
-        {
-            Menu.gameObject.SetActive(false);
-        }
-        else
-        {
-            Menu.gameObject.SetActive(true);
-        }
+        Menu.ToggleMenu();
     }
 
     public override void TimeUpdate(int CurrentTime)

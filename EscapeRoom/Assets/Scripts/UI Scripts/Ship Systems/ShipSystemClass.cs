@@ -19,6 +19,7 @@ public class ShipSystemClass : MonoBehaviour {
     }
 
     public GameObject PanelObject;
+    public BaseMenu Menu;
     protected SystemStatusEnum status;
     protected double percentFunctional;
     protected string systemName;

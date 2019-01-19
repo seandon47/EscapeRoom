@@ -76,15 +76,7 @@ public class DoorSystemClass : ShipSystemClass {
 
     public override void ClickEvent()
     {
-        //GameController.Instance.MiniMap.GetComponent<MiniMapClass>().ToggleState();
-        if(Menu.gameObject.activeInHierarchy)
-        {
-            Menu.gameObject.SetActive(false);
-        }
-        else
-        {
-            Menu.gameObject.SetActive(true);
-        }
+        Menu.ToggleMenu();
     }
 
     public void SetDoorStatusIconScale(float Scale)

@@ -238,14 +238,6 @@ public class PowerSystemClass : ShipSystemClass {
 
     public override void ClickEvent()
     {
-        if (Menu.gameObject.activeInHierarchy)
-        {
-            Menu.gameObject.SetActive(false);
-        }
-        else
-        {
-            Menu.gameObject.SetActive(true);
-        }
-
+        Menu.ToggleMenu();
     }
 }

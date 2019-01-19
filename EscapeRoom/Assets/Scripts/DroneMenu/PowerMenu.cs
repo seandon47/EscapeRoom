@@ -7,7 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerMenu : MonoBehaviour
+public class PowerMenu : BaseMenu
 {
     // Reference to the content of the scrollable window
     public Transform Content;

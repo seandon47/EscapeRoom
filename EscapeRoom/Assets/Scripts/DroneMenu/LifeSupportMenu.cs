@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LifeSupportMenu : MonoBehaviour {
+public class LifeSupportMenu : BaseMenu {
     public Transform Content;
     public GameObject SubsystemPanelPrefab;
 
