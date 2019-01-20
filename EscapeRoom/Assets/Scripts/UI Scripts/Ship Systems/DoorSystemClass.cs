@@ -11,7 +11,6 @@ using UnityEngine.UI;
 public class DoorSystemClass : ShipSystemClass {
 
     public List<GameObject> DoorList = new List<GameObject>();
-    public DoorMenu Menu;
     public Material LockedIcon;
     public Material UnlockedIcon;
     public Material BrokenLockedIcon;

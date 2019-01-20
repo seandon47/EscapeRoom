@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DoorMenu : BaseMenu {
+public class DoorMenu : BaseSystemMenu {
     
-    public Transform Content;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    // Use this for initialization
+    protected override void Start () {
+        base.Start();
+    }
 	
 	// Update is called once per frame
 	void Update () {

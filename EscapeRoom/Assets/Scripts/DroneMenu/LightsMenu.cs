@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightsMenu : MonoBehaviour {
+public class LightsMenu : BaseSystemMenu {
 
-    public Transform Content;
 	// Use this for initialization
-	void Start () {
-		
+	protected override void Start () {
+        base.Start();
 	}
 	
 	// Update is called once per frame

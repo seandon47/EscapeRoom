@@ -9,7 +9,6 @@ using UnityEngine;
 
 public class LightingSystemClass : ShipSystemClass {
 
-    public LightsMenu Menu;
     public GameObject LightMenuPanelPrefab;
     /// <summary>
     /// Element 1 Left side
@@ -73,14 +72,7 @@ public class LightingSystemClass : ShipSystemClass {
 
     public override void ClickEvent()
     {
-        if(Menu.gameObject.activeInHierarchy)
-        {
-            Menu.gameObject.SetActive(false);
-        }
-        else
-        {
-            Menu.gameObject.SetActive(true);
-        }
+        Menu.ToggleMenu();
     }
 
     protected override void StatusChanged()

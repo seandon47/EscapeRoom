@@ -9,7 +9,6 @@ using UnityEngine;
 
 public class LifeSupportClass : ShipSystemClass {
 
-    public LifeSupportMenu Menu;
     public int NumberOfRooms;   // Obvious
     public float Oxygen;        // Percent Needed
 

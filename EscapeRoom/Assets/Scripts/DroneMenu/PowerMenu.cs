@@ -7,23 +7,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerMenu : BaseMenu
+public class PowerMenu : BaseSystemMenu
 {
-    // Reference to the content of the scrollable window
-    public Transform Content;
     public GameObject SubsystemPanelPrefab;
 
     // Use this for initialization
-    void Start () {
-		
-	}
+    protected override void Start () {
+        base.Start();
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
 
-    public void AddSubsystemToMenu(SubSystemClass SubSystem)
+    public override void AddSubsystemToMenu(SubSystemClass SubSystem)
     {
         GameObject NewSubsystemPanel = Instantiate(SubsystemPanelPrefab);
         NewSubsystemPanel.transform.SetParent(Content, false);
