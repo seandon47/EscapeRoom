@@ -17,6 +17,10 @@ public class LightingSystemClass : ShipSystemClass {
     /// Element 4 Top Right
     /// </summary>
     public CircuitClass LightingCircuits;
+    public Material DimGreen;
+    public Material BrightGreen;
+    public Material DimRed;
+    public Material BrightRed;
 
     public LightingSystemClass()
     {
@@ -27,6 +31,7 @@ public class LightingSystemClass : ShipSystemClass {
 	void Start () {
 		foreach (LightList LL in LightingCircuits.AllMyCircuits)
         {
+            LL.Setup();
             foreach (LightClass LC in LL.Lights)
             {
                 // Get the child light point and set it!

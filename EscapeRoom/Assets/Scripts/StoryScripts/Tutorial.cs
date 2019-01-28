@@ -78,7 +78,12 @@ public class Tutorial : MonoBehaviour {
         }
         else if (TimeDifference == 10)
         {
-            GameController.Instance.LightingSystem.SetStatus(ShipSystemClass.SystemStatusEnum.Malfunctioning);            
+            CircuitClass AllTheCircuits = GameController.Instance.LightingSystem.LightingCircuits;
+            foreach (LightList LL in AllTheCircuits.AllMyCircuits)
+            {
+                LL.TripBreaker();
+            }
+            //GameController.Instance.LightingSystem.SetStatus(ShipSystemClass.SystemStatusEnum.Malfunctioning);            
         }
 
     }

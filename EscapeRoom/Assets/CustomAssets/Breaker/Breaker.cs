@@ -5,11 +5,17 @@ using UnityEngine;
 public class Breaker : MonoBehaviour {
     public BreakerButtonPress TopButton;
     public BreakerButtonPress BottomButton;
+    public bool Tripped;
+    public string Text;
+
     Animator anim;
+    bool TopButtonPlaying = false;
+    bool BottomButtonPlaying = false;
 
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
+        Tripped = false;
         if(TopButton != null)
         {
             TopButton.Pressed += TopButton_Pressed;
@@ -22,7 +28,7 @@ public class Breaker : MonoBehaviour {
     }
 
     private void TopButton_Pressed()
-    {
+    {        
         StartCoroutine(DoRedButtonPress());
     }
 
@@ -39,12 +45,12 @@ public class Breaker : MonoBehaviour {
     IEnumerator DoRedButtonPress()
     {
         anim.Play("TopButtonPress");
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(4.0f);
     }
 
     IEnumerator DoGreenButtonPress()
     {
         anim.Play("BottomButtonPress");
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(4.0f);
     }
 }
