@@ -41,7 +41,7 @@ public class LightingSystemClass : ShipSystemClass {
                 LC.LoadAllValues();
 
                 GameObject NewLightPanel = Instantiate(LightMenuPanelPrefab);
-                NewLightPanel.transform.SetParent(Menu.Content, false);
+                NewLightPanel.transform.SetParent(UiMenu.Content, false);
 
                 LightPanelScript LPS = NewLightPanel.GetComponent<LightPanelScript>();
                 LPS.Setup("Oh shit", LightingCircuits.AllMyCircuits.IndexOf(LL), LL.Lights.IndexOf(LC), LC);
@@ -77,7 +77,7 @@ public class LightingSystemClass : ShipSystemClass {
 
     public override void ClickEvent()
     {
-        Menu.ToggleMenu();
+        UiMenu.ToggleMenu();
     }
 
     protected override void StatusChanged()

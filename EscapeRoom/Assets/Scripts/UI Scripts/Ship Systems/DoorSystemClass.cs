@@ -40,7 +40,7 @@ public class DoorSystemClass : ShipSystemClass {
         {
             Door D = DoorList[i].GetComponent<Door>();
             GameObject NewDoorMenuPanel = Instantiate(DoorMenuPanelPrefab);
-            NewDoorMenuPanel.transform.SetParent(Menu.Content, false);
+            NewDoorMenuPanel.transform.SetParent(UiMenu.Content, false);
 
             DoorPanelScript DPS = NewDoorMenuPanel.GetComponent<DoorPanelScript>();
             DPS.Setup("Door " + (i + 1).ToString("00"), D);
@@ -75,7 +75,7 @@ public class DoorSystemClass : ShipSystemClass {
 
     public override void ClickEvent()
     {
-        Menu.ToggleMenu();
+        UiMenu.ToggleMenu();
     }
 
     public void SetDoorStatusIconScale(float Scale)

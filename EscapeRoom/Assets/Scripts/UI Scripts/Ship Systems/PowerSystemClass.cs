@@ -12,7 +12,7 @@ using UnityEngine.UI;
 public class PowerSystemClass : ShipSystemClass {
 
     public BatterySystemClass BatterySystem;
-    public PowerMenu Menu;
+    //public PowerMenu Menu;
     public Text OutputText;
     public Text BatteryCharge;
     public Text LifeSupportDraw;
@@ -63,7 +63,7 @@ public class PowerSystemClass : ShipSystemClass {
 
         foreach (SubSystemClass SSC in SubSystemList)
         {
-            Menu.AddSubsystemToMenu(SSC);
+            UiMenu.AddSubsystemToMenu(SSC);
         }
 
         PowerDrawMap.Add("Life Support", LifeSupportDraw);
@@ -238,6 +238,6 @@ public class PowerSystemClass : ShipSystemClass {
 
     public override void ClickEvent()
     {
-        Menu.ToggleMenu();
+        UiMenu.ToggleMenu();
     }
 }

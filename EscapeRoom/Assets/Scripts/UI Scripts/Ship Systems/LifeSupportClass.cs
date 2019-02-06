@@ -39,7 +39,7 @@ public class LifeSupportClass : ShipSystemClass {
 
         foreach (SubSystemClass SSC in SubSystemList)
         {
-            Menu.AddSubsystemToMenu(SSC);
+            UiMenu.AddSubsystemToMenu(SSC);
         }
 	}
 	
@@ -50,7 +50,7 @@ public class LifeSupportClass : ShipSystemClass {
 
     public override void ClickEvent()
     {
-        Menu.ToggleMenu();
+        UiMenu.ToggleMenu();
     }
 
     public override void TimeUpdate(int CurrentTime)

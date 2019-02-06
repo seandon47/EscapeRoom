@@ -1497,6 +1497,7 @@ Transform:
   m_LocalPosition: {x: -223.26, y: -0.49, z: 2.9233}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 744874935}
   - {fileID: 298755628}
   - {fileID: 1612592314}
   m_Father: {fileID: 0}
@@ -3243,6 +3244,11 @@ PrefabInstance:
       propertyPath: doorOpenSound
       value: 
       objectReference: {fileID: 8300000, guid: b2c4c48dfe59db14f958d11bc048f3a2, type: 3}
+    - target: {fileID: 54334540166481136, guid: c769818ef2fe4864c9e4a8ac766b5364,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c769818ef2fe4864c9e4a8ac766b5364, type: 3}
 --- !u!1 &38117360
@@ -3541,7 +3547,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &44658446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5010,6 +5016,16 @@ PrefabInstance:
       propertyPath: doorOpenSound
       value: 
       objectReference: {fileID: 8300000, guid: b2c4c48dfe59db14f958d11bc048f3a2, type: 3}
+    - target: {fileID: 54800058801002122, guid: fd9c97ec52d609e40a0726e91c693901,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54426509433694786, guid: fd9c97ec52d609e40a0726e91c693901,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd9c97ec52d609e40a0726e91c693901, type: 3}
 --- !u!1 &85309219 stripped
@@ -5357,7 +5373,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &89979907
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8732,7 +8748,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &150336892
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10153,7 +10169,7 @@ Transform:
   - {fileID: 669855255}
   - {fileID: 387918903}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &181975499
 GameObject:
@@ -12424,7 +12440,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &217182388
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12948,7 +12964,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &225301054
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15049,6 +15065,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!114 &260173753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15077,8 +15105,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -15106,7 +15137,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -15118,6 +15148,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!54 &260173755
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16586,7 +16617,7 @@ Transform:
   - {fileID: 1172021975}
   - {fileID: 1958449223}
   m_Father: {fileID: 13587520}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 179.20702, z: 0}
 --- !u!1001 &305654129
 PrefabInstance:
@@ -17285,7 +17316,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &320237359
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18387,7 +18418,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &341509295
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21287,7 +21318,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &388980910
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22570,7 +22601,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &420372556
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24469,9 +24500,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanelObject: {fileID: 100329165}
-  Menu: {fileID: 2002566487}
+  UiMenu: {fileID: 2002566487}
   BatterySystem: {fileID: 1873818525}
-  Menu: {fileID: 2002566487}
   OutputText: {fileID: 330822108}
   BatteryCharge: {fileID: 821586567}
   LifeSupportDraw: {fileID: 1606122483}
@@ -25883,8 +25913,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -25912,7 +25945,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -25924,6 +25956,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!54 &494195644
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25967,6 +26000,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!64 &494195647
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27175,7 +27220,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!1 &523093096
 GameObject:
   m_ObjectHideFlags: 0
@@ -27732,8 +27777,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -27761,7 +27809,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -27773,6 +27820,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!114 &538502826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27800,6 +27848,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!54 &538502828
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30083,7 +30143,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &569701783
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31627,8 +31687,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -31656,7 +31719,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -31668,6 +31730,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!114 &584715790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31695,6 +31758,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!54 &584715792
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -36291,6 +36366,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!114 &660423913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36319,8 +36406,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 1
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -36348,7 +36438,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -36360,6 +36449,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!54 &660423915
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -39706,7 +39796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanelObject: {fileID: 419579255}
-  Menu: {fileID: 310797346}
+  UiMenu: {fileID: 310797346}
   NumberOfRooms: 10
   Oxygen: 0
 --- !u!4 &724583070
@@ -40578,6 +40668,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73bb8072738d94b1b92f322b86fd7a6d, type: 3}
+--- !u!4 &744874935 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1732458955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &745203965
 GameObject:
   m_ObjectHideFlags: 0
@@ -43418,8 +43514,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -43447,7 +43546,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -43459,6 +43557,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!54 &791187852
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -43502,6 +43601,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!64 &791187855
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44620,7 +44731,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &810030922
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44753,7 +44864,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &810373601
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46088,7 +46199,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &831081640
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47109,6 +47220,11 @@ PrefabInstance:
       propertyPath: doorOpenSound
       value: 
       objectReference: {fileID: 8300000, guid: b2c4c48dfe59db14f958d11bc048f3a2, type: 3}
+    - target: {fileID: 54329648714690322, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4670343195694308, guid: 0db147abf24fd2a4db05b4d76e0145b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 47.079998
@@ -47219,6 +47335,31 @@ PrefabInstance:
       propertyPath: doorOpenSound
       value: 
       objectReference: {fileID: 8300000, guid: b2c4c48dfe59db14f958d11bc048f3a2, type: 3}
+    - target: {fileID: 54500207722304628, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54353593593687736, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54385423719498520, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54130751159941666, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54797173661951420, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0db147abf24fd2a4db05b4d76e0145b5, type: 3}
 --- !u!4 &844078146 stripped
@@ -49220,7 +49361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanelObject: {fileID: 1546790230}
-  Menu: {fileID: 824084445}
+  UiMenu: {fileID: 824084445}
   LightMenuPanelPrefab: {fileID: 1067997189419778, guid: daec07cf728443a4d9b363b0bea55313,
     type: 3}
   LightingCircuits:
@@ -51165,6 +51306,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!114 &897822466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51193,8 +51346,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -51222,7 +51378,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -51234,6 +51389,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!54 &897822468
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -51320,7 +51476,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &900948627
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52432,8 +52588,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -52461,7 +52620,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -52473,6 +52631,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!54 &912877310
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -52516,6 +52675,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!1 &914002032
 GameObject:
   m_ObjectHideFlags: 0
@@ -52946,7 +53117,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &921852629
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -53857,7 +54028,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &938758838
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -54925,8 +55096,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -54954,7 +55128,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -54966,6 +55139,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!114 &963455407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54993,6 +55167,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!54 &963455409
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -61812,7 +61998,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &1067931680
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62344,7 +62530,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &1080492809
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -66605,7 +66791,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &1150732316
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -66709,7 +66895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4777606630871252, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4777606630871252, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -67767,8 +67953,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -67796,7 +67985,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -67808,6 +67996,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!54 &1164975979
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -67851,6 +68040,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!64 &1164975986
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71224,6 +71425,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!114 &1233587923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71252,8 +71465,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -71281,7 +71497,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -71293,6 +71508,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!54 &1233587925
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -72243,6 +72459,16 @@ PrefabInstance:
       propertyPath: doorOpenSound
       value: 
       objectReference: {fileID: 8300000, guid: b2c4c48dfe59db14f958d11bc048f3a2, type: 3}
+    - target: {fileID: 54614795953908798, guid: b6f8b15ed21ffd340bd5ccf70e15febe,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54799339159734166, guid: b6f8b15ed21ffd340bd5ccf70e15febe,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6f8b15ed21ffd340bd5ccf70e15febe, type: 3}
 --- !u!4 &1258185959 stripped
@@ -74425,7 +74651,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &1291952204
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -77581,7 +77807,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &1356503939
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -79069,19 +79295,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherHand: {fileID: 1867488651}
-  startingHandType: 2
-  hoverSphereTransform: {fileID: 0}
+  handType: 0
+  trackedObject: {fileID: 0}
+  grabPinchAction: {fileID: 11400000, guid: 4c153a89ddc0bdf4dbf59901961ab92a, type: 2}
+  grabGripAction: {fileID: 11400000, guid: 6779608f35c3e6840a83c646d1fd1d90, type: 2}
+  hapticAction: {fileID: 11400000, guid: c0a6551ac9815334f84987eea068bc47, type: 2}
+  uiInteractAction: {fileID: 11400000, guid: 87776dfddbf41c347a1b743a2e04db9a, type: 2}
+  useHoverSphere: 1
+  hoverSphereTransform: {fileID: 1392559317}
   hoverSphereRadius: 0.05
   hoverLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
   hoverUpdateInterval: 0.1
+  useControllerHoverComponent: 1
+  controllerHoverComponent: tip
+  controllerHoverRadius: 0.075
+  useFingerJointHover: 1
+  fingerJointHover: 10
+  fingerJointHoverRadius: 0.025
+  objectAttachmentPoint: {fileID: 0}
   noSteamVRFallbackCamera: {fileID: 0}
   noSteamVRFallbackMaxDistanceNoItem: 10
   noSteamVRFallbackMaxDistanceWithItem: 0.5
-  controllerPrefab: {fileID: 168468, guid: 3f39fc63a93686e4a8e9168ee73f24d9, type: 3}
+  renderModelPrefab: {fileID: 0}
   showDebugText: 0
   spewDebugText: 0
+  showDebugInteractables: 0
 --- !u!1 &1395164681
 GameObject:
   m_ObjectHideFlags: 0
@@ -80246,8 +80486,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -80275,7 +80518,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls:
@@ -80309,6 +80551,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!114 &1407717380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80321,6 +80564,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!54 &1407717381
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -81139,6 +81394,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!114 &1428132029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81167,8 +81434,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -81196,7 +81466,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls:
@@ -81230,6 +81499,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!64 &1428132031
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -84568,7 +84838,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &1481591485
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -85336,7 +85606,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &1488667175
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -85515,8 +85785,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 1
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -85544,7 +85817,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -85556,6 +85828,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!54 &1489733933
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -85599,6 +85872,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!1 &1492789687
 GameObject:
   m_ObjectHideFlags: 0
@@ -85983,7 +86268,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &1500237456
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -87131,7 +87416,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &1516673409
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -90555,7 +90840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanelObject: {fileID: 1617855874}
-  Menu: {fileID: 1836306840}
+  UiMenu: {fileID: 1836306840}
   DoorList:
   - {fileID: 574278815}
   - {fileID: 1300779119}
@@ -91886,7 +92171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475244, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
@@ -91915,8 +92200,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -91944,7 +92232,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -91956,6 +92243,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!54 &1613297101
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -91999,6 +92287,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!114 &1613297104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93206,8 +93506,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -93235,7 +93538,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -93247,6 +93549,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!54 &1629613487
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -93290,6 +93593,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!1001 &1631526062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96999,9 +97314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3faa610c019764a81eb8497109e2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  fadeColor: {r: 0, g: 0, b: 0, a: 1}
-  fadeDuration: 1
 --- !u!132 &1690057354
 GUIText:
   m_ObjectHideFlags: 0
@@ -98129,7 +98441,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &1707461366
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -99275,7 +99587,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &1720284559
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -99916,6 +100228,67 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732174399}
   m_Mesh: {fileID: 4300000, guid: 505a5b8cdef614b96bd7d9b29111d23d, type: 3}
+--- !u!1001 &1732458955
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 13587520}
+    m_Modifications:
+    - target: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194540, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 204.37555
+      objectReference: {fileID: 0}
+    - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.6616163
+      objectReference: {fileID: 0}
+    - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.456794
+      objectReference: {fileID: 0}
+    - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
 --- !u!1 &1734602111
 GameObject:
   m_ObjectHideFlags: 0
@@ -100792,6 +101165,16 @@ PrefabInstance:
       propertyPath: doorOpenSound
       value: 
       objectReference: {fileID: 8300000, guid: b2c4c48dfe59db14f958d11bc048f3a2, type: 3}
+    - target: {fileID: 54614795953908798, guid: b6f8b15ed21ffd340bd5ccf70e15febe,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54799339159734166, guid: b6f8b15ed21ffd340bd5ccf70e15febe,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114298206578746502, guid: b6f8b15ed21ffd340bd5ccf70e15febe,
         type: 3}
       propertyPath: IsLocked
@@ -100995,6 +101378,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!114 &1763240997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101023,8 +101418,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -101052,7 +101450,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -101064,6 +101461,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!54 &1763240999
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -103222,8 +103620,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -103251,7 +103652,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -103263,6 +103663,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!54 &1811128090
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -103306,6 +103707,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!1001 &1811143400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -104034,8 +104447,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -104063,7 +104479,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -104075,6 +104490,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!114 &1832348175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104102,6 +104518,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!54 &1832348177
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -105343,8 +105771,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -105372,7 +105803,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -105384,6 +105814,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!114 &1863179026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105411,6 +105842,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!54 &1863179028
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -105700,19 +106143,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherHand: {fileID: 1392559318}
-  startingHandType: 2
-  hoverSphereTransform: {fileID: 0}
+  handType: 0
+  trackedObject: {fileID: 0}
+  grabPinchAction: {fileID: 11400000, guid: 4c153a89ddc0bdf4dbf59901961ab92a, type: 2}
+  grabGripAction: {fileID: 11400000, guid: 6779608f35c3e6840a83c646d1fd1d90, type: 2}
+  hapticAction: {fileID: 11400000, guid: c0a6551ac9815334f84987eea068bc47, type: 2}
+  uiInteractAction: {fileID: 11400000, guid: 87776dfddbf41c347a1b743a2e04db9a, type: 2}
+  useHoverSphere: 1
+  hoverSphereTransform: {fileID: 1867488652}
   hoverSphereRadius: 0.05
   hoverLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
   hoverUpdateInterval: 0.1
+  useControllerHoverComponent: 1
+  controllerHoverComponent: tip
+  controllerHoverRadius: 0.075
+  useFingerJointHover: 1
+  fingerJointHover: 10
+  fingerJointHoverRadius: 0.025
+  objectAttachmentPoint: {fileID: 0}
   noSteamVRFallbackCamera: {fileID: 0}
   noSteamVRFallbackMaxDistanceNoItem: 10
   noSteamVRFallbackMaxDistanceWithItem: 0.5
-  controllerPrefab: {fileID: 168468, guid: 3f39fc63a93686e4a8e9168ee73f24d9, type: 3}
+  renderModelPrefab: {fileID: 0}
   showDebugText: 0
   spewDebugText: 0
+  showDebugInteractables: 0
 --- !u!4 &1867488652
 Transform:
   m_ObjectHideFlags: 0
@@ -106108,7 +106565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanelObject: {fileID: 966834620}
-  Menu: {fileID: 0}
+  UiMenu: {fileID: 0}
 --- !u!4 &1873818526
 Transform:
   m_ObjectHideFlags: 0
@@ -106319,7 +106776,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &1875366402
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -106514,6 +106971,11 @@ PrefabInstance:
       propertyPath: doorOpenSound
       value: 
       objectReference: {fileID: 8300000, guid: b2c4c48dfe59db14f958d11bc048f3a2, type: 3}
+    - target: {fileID: 54329648714690322, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1293294549347542, guid: 0db147abf24fd2a4db05b4d76e0145b5, type: 3}
       propertyPath: m_Name
       value: Door04
@@ -106663,6 +107125,31 @@ PrefabInstance:
       propertyPath: doorOpenSound
       value: 
       objectReference: {fileID: 8300000, guid: b2c4c48dfe59db14f958d11bc048f3a2, type: 3}
+    - target: {fileID: 54500207722304628, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54353593593687736, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54385423719498520, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54130751159941666, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54797173661951420, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1706362407888410, guid: 0db147abf24fd2a4db05b4d76e0145b5, type: 3}
       propertyPath: m_Name
       value: Door03
@@ -108363,11 +108850,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e979227f3384fac4b8ca0b3550bf005c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseGameWhenDashboardIsVisible: 1
-  lockPhysicsUpdateRateToRenderFrequency: 1
   externalCamera: {fileID: 0}
   externalCameraConfigPath: externalcamera.cfg
-  trackingSpace: 1
 --- !u!1 &1925496617
 GameObject:
   m_ObjectHideFlags: 0
@@ -108669,8 +109153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -108698,7 +109185,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -108710,6 +109196,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!114 &1928563199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108737,6 +109224,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!1 &1929436902
 GameObject:
   m_ObjectHideFlags: 0
@@ -108974,19 +109473,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherHand: {fileID: 0}
-  startingHandType: 2
+  handType: 0
+  trackedObject: {fileID: 0}
+  grabPinchAction: {fileID: 11400000, guid: 4c153a89ddc0bdf4dbf59901961ab92a, type: 2}
+  grabGripAction: {fileID: 11400000, guid: 6779608f35c3e6840a83c646d1fd1d90, type: 2}
+  hapticAction: {fileID: 11400000, guid: c0a6551ac9815334f84987eea068bc47, type: 2}
+  uiInteractAction: {fileID: 11400000, guid: 87776dfddbf41c347a1b743a2e04db9a, type: 2}
+  useHoverSphere: 1
   hoverSphereTransform: {fileID: 0}
   hoverSphereRadius: 0.05
   hoverLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
   hoverUpdateInterval: 0.1
+  useControllerHoverComponent: 1
+  controllerHoverComponent: tip
+  controllerHoverRadius: 0.075
+  useFingerJointHover: 1
+  fingerJointHover: 10
+  fingerJointHoverRadius: 0.025
+  objectAttachmentPoint: {fileID: 0}
   noSteamVRFallbackCamera: {fileID: 1442265177}
   noSteamVRFallbackMaxDistanceNoItem: 10
   noSteamVRFallbackMaxDistanceWithItem: 0.5
-  controllerPrefab: {fileID: 0}
+  renderModelPrefab: {fileID: 0}
   showDebugText: 0
   spewDebugText: 0
+  showDebugInteractables: 0
 --- !u!1 &1935502698 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1572492414658890, guid: 0db147abf24fd2a4db05b4d76e0145b5,
@@ -110529,8 +111042,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 12
-  attachmentPoint: 
-  catchSpeedThreshold: 0
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
   restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
@@ -110558,7 +111074,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
-  attachEaseInAttachmentNames: []
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -110570,6 +111085,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   snapAttachEaseInCompleted: 0
+  interactable: {fileID: 0}
 --- !u!54 &1963982847
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -110613,6 +111129,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateActionSetOnAttach: {fileID: 0}
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  handFollowTransform: {fileID: 0}
+  handFollowTransformPosition: 1
+  handFollowTransformRotation: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!1 &1964187647
 GameObject:
   m_ObjectHideFlags: 0
@@ -111508,7 +112036,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &1979713625
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -114609,7 +115137,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &2034097568
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -116249,7 +116777,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &2065621333
 BoxCollider:
   m_ObjectHideFlags: 0
