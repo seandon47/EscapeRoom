@@ -78,7 +78,17 @@ public class GameController : MonoBehaviour {
         Valve.VR.InteractionSystem.Teleport.instance.CancelTeleportHint();
 
         shipSystems.AddRange(new ShipSystemClass[] { PowerSystem, BatterySystem, LifeSupportSystem, LightingSystem, DoorSystem });
-	}
+
+        var foundObjects = FindObjectsOfType<Rigidbody>();
+
+        foreach (Rigidbody r in foundObjects)
+        {
+            if (r.collisionDetectionMode == CollisionDetectionMode.Continuous)
+            {
+                Debug.Log(r.gameObject.name);
+            }
+        }
+    }
 	
 
     public void AppendToConsole(string TextToAppend)
