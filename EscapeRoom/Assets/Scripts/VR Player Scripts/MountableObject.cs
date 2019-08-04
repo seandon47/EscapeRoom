@@ -38,14 +38,13 @@ public class MountableObject : MonoBehaviour {
         MeshRenderer MR = GetComponent<MeshRenderer>();
         if (MR != null)
         {
-            OriginalColor = MR.material.color;
             MR.material.color = OriginalColor;
         }
     }
 
     public virtual void MountObject(GameObject NewParent)
     {
-        //Debug.Log("MountObject " + gameObject.name + " to " + NewParent.name);
+        Debug.Log($"MountObject {gameObject.name} to {NewParent.name}");
         transform.SetParent(NewParent.transform);
 
         transform.localPosition = new Vector3(0, 0, 0);
@@ -63,13 +62,13 @@ public class MountableObject : MonoBehaviour {
 
     public void OnPickUp()
     {
-        //Debug.Log(name + " was picked up");
+        Debug.Log($"{name} was picked up");
         IsMounted = false;
     }
 
     public void OnDetachHand()
     {
-        //Debug.Log(name + " was detached from hand");
+        Debug.Log($"{name} was detached from hand. Mount Point was: {mountPoint}");
         if (mountPoint != null)
         {
             MountObject(mountPoint.gameObject);
