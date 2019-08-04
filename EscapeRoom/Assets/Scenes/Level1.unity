@@ -29930,7 +29930,6 @@ MonoBehaviour:
       - {fileID: 84265509}
       - {fileID: 818305877}
       - {fileID: 1572804651}
-      - {fileID: 0}
       - {fileID: 525119008}
       - {fileID: 742097721}
       - {fileID: 906023814}
@@ -29943,18 +29942,7 @@ MonoBehaviour:
       - {fileID: 1939509895}
       - {fileID: 1588218414}
       CircuitBreaker: {fileID: 1982001949}
-    - Lights:
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
+    - Lights: []
       CircuitBreaker: {fileID: 2105335757}
     - Lights: []
       CircuitBreaker: {fileID: 1995675731}
