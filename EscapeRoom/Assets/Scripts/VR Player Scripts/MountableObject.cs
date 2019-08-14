@@ -49,8 +49,6 @@ public class MountableObject : MonoBehaviour {
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
         transform.localPosition = new Vector3(0, 0, 0);
-        Vector3 ParentEuler = NewParent.transform.rotation.eulerAngles;
-        transform.rotation = Quaternion.Euler(ParentEuler.x + MountedOrientation.x, ParentEuler.y + MountedOrientation.y, ParentEuler.z + MountedOrientation.z);
 
         MeshRenderer MR = GetComponent<MeshRenderer>();
         if (MR != null)
