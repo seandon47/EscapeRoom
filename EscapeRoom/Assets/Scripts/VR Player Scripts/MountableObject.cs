@@ -46,6 +46,7 @@ public class MountableObject : MonoBehaviour {
     {
         Debug.Log($"MountObject {gameObject.name} to {NewParent.name}");
         transform.SetParent(NewParent.transform);
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
         transform.localPosition = new Vector3(0, 0, 0);
         Vector3 ParentEuler = NewParent.transform.rotation.eulerAngles;
@@ -76,6 +77,7 @@ public class MountableObject : MonoBehaviour {
         else
         {
             IsMounted = false;
+            gameObject.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 }
