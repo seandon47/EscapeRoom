@@ -38167,13 +38167,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1123886121}
+  - component: {fileID: 1123886122}
+  - component: {fileID: 1123886123}
   m_Layer: 0
   m_Name: VR Menu Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1123886121
 Transform:
   m_ObjectHideFlags: 0
@@ -38189,6 +38191,37 @@ Transform:
   m_Father: {fileID: 822421097}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1123886122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123886120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14fb4de6a7fd6064892db1f11538d18d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuOnOff: {fileID: 11400000, guid: 43e46b8f19c91ea4ea8c1f7b4c0a95dc, type: 2}
+  HandType: 0
+  Menu: {fileID: 1123886120}
+--- !u!114 &1123886123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123886120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27991c206a5e66147bb8ee3ef31c8bac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionSet: {fileID: 11400000, guid: d2559478c7f6a8e409a16a49309902c8, type: 2}
+  disableAllOtherActionSets: 0
+  activateOnStart: 1
+  deactivateOnDestroy: 1
 --- !u!1001 &1127737124
 PrefabInstance:
   m_ObjectHideFlags: 0
