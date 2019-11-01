@@ -16,6 +16,7 @@ public class Tutorial : MonoBehaviour {
 
     Chapters CurrentChapter;
     int TransitionTime;
+    public GameObject alien;
 
 	// Use this for initialization
 	void Start () {
@@ -72,7 +73,7 @@ public class Tutorial : MonoBehaviour {
     private void ChapterTwo()
     {
         int TimeDifference = GameController.Instance.Time - TransitionTime;
-        if (TimeDifference< 10)
+        if (TimeDifference < 10)
         {
             return;
         }
@@ -82,9 +83,13 @@ public class Tutorial : MonoBehaviour {
             foreach (LightList LL in AllTheCircuits.AllMyCircuits)
             {
                 LL.TripBreaker();
+                alien.SetActive(true);
+                AudioSource audio = GetComponent<AudioSource>();
+
+                audio.Play();
             }
             //GameController.Instance.LightingSystem.SetStatus(ShipSystemClass.SystemStatusEnum.Malfunctioning);            
         }
-
     }
 }
+
