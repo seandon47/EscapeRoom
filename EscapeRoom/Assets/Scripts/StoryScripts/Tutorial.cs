@@ -83,7 +83,8 @@ public class Tutorial : MonoBehaviour {
             foreach (LightList LL in AllTheCircuits.AllMyCircuits)
             {
                 LL.TripBreaker();
-                alien.SetActive(true);
+                alien.GetComponent<MeshRenderer>().enabled = true;
+                alien.GetComponent<Pathfinding>().enabled = true;
                 AudioSource audio = GetComponent<AudioSource>();
 
                 audio.Play();
