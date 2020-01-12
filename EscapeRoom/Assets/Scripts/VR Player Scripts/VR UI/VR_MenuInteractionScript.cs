@@ -13,7 +13,7 @@ public class VR_MenuInteractionScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MenuOnOff.AddOnChangeListener(ButtonDown, HandType);
+//        MenuOnOff.AddOnChangeListener(ButtonDown, HandType);
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class VR_MenuInteractionScript : MonoBehaviour
         
     }
 
-    public void ButtonDown(SteamVR_Action_In fromAction)
+/*     public void ButtonDown(SteamVR_Action_In fromAction)
     {
         if (fromAction.GetChanged(HandType))
         {
@@ -32,5 +32,5 @@ public class VR_MenuInteractionScript : MonoBehaviour
                 Debug.Log("Menu Button Click");
             }
         }
-    }
+    } */
 }

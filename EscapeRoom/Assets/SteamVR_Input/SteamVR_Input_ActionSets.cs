@@ -14,36 +14,36 @@ namespace Valve.VR
     using UnityEngine;
     
     
-    public partial class SteamVR_Input
+    public partial class SteamVR_Actions
     {
         
-        public static Valve.VR.SteamVR_Input_ActionSet_default _default;
+        private static SteamVR_Input_ActionSet_default p__default;
         
-        public static Valve.VR.SteamVR_Input_ActionSet_platformer platformer;
+        private static SteamVR_Input_ActionSet_userinterface p_userinterface;
         
-        public static Valve.VR.SteamVR_Input_ActionSet_buggy buggy;
-        
-        public static Valve.VR.SteamVR_Input_ActionSet_MenuActionsM MenuActionsM;
-        
-        public static void Dynamic_InitializeActionSets()
+        public static SteamVR_Input_ActionSet_default _default
         {
-            SteamVR_Input._default.Initialize();
-            SteamVR_Input.platformer.Initialize();
-            SteamVR_Input.buggy.Initialize();
-            SteamVR_Input.MenuActionsM.Initialize();
+            get
+            {
+                return SteamVR_Actions.p__default.GetCopy<SteamVR_Input_ActionSet_default>();
+            }
         }
         
-        public static void Dynamic_InitializeInstanceActionSets()
+        public static SteamVR_Input_ActionSet_userinterface userinterface
         {
-            Valve.VR.SteamVR_Input._default = ((SteamVR_Input_ActionSet_default)(SteamVR_Input_References.GetActionSet("_default")));
-            Valve.VR.SteamVR_Input.platformer = ((SteamVR_Input_ActionSet_platformer)(SteamVR_Input_References.GetActionSet("platformer")));
-            Valve.VR.SteamVR_Input.buggy = ((SteamVR_Input_ActionSet_buggy)(SteamVR_Input_References.GetActionSet("buggy")));
-            Valve.VR.SteamVR_Input.MenuActionsM = ((SteamVR_Input_ActionSet_MenuActionsM)(SteamVR_Input_References.GetActionSet("MenuActionsM")));
+            get
+            {
+                return SteamVR_Actions.p_userinterface.GetCopy<SteamVR_Input_ActionSet_userinterface>();
+            }
+        }
+        
+        private static void StartPreInitActionSets()
+        {
+            SteamVR_Actions.p__default = ((SteamVR_Input_ActionSet_default)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_default>("/actions/default")));
+            SteamVR_Actions.p_userinterface = ((SteamVR_Input_ActionSet_userinterface)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_userinterface>("/actions/userinterface")));
             Valve.VR.SteamVR_Input.actionSets = new Valve.VR.SteamVR_ActionSet[] {
-                    Valve.VR.SteamVR_Input._default,
-                    Valve.VR.SteamVR_Input.platformer,
-                    Valve.VR.SteamVR_Input.buggy,
-                    Valve.VR.SteamVR_Input.MenuActionsM};
+                    SteamVR_Actions._default,
+                    SteamVR_Actions.userinterface};
         }
     }
 }

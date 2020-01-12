@@ -2299,7 +2299,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
@@ -2328,6 +2328,9 @@ MonoBehaviour:
   rigSteamVR: {fileID: 575120769}
   rig2DFallback: {fileID: 1171638517}
   audioListener: {fileID: 279969868}
+  headsetOnHead:
+    actionPath: /actions//in/HeadsetOnHead
+    needsReinit: 1
   allowToggleTo2D: 1
 --- !u!1 &45218734
 GameObject:
@@ -4229,7 +4232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4703808066476440, guid: c893785d2f3b0d94c9ada72216a168ec, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4703808066476440, guid: c893785d2f3b0d94c9ada72216a168ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4500,37 +4503,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateActionSetOnAttach: {fileID: 0}
+  activateActionSetOnAttach:
+    actionSetPath: 
   hideHandOnAttach: 1
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
   useHandObjectAttachmentPoint: 1
-  handFollowTransform: {fileID: 0}
-  handFollowTransformPosition: 1
-  handFollowTransformRotation: 1
-  highlightOnHover: 1
-  hideHighlight: []
---- !u!114 &108754050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108754044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffefbea063cab884ca33e5a449e5c22c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attachmentFlags: 44
-  attachmentOffset: {fileID: 0}
-  catchingSpeedThreshold: -1
-  releaseVelocityStyle: 1
-  releaseVelocityTimeOffset: -0.011
-  scaleReleaseVelocity: 1.1
-  restoreOriginalParent: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
     serializedVersion: 2
@@ -4557,6 +4537,56 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
+  highlightOnHover: 1
+  hideHighlight: []
+  hoverPriority: 0
+--- !u!114 &108754050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108754044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffefbea063cab884ca33e5a449e5c22c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachmentFlags: 44
+  attachmentOffset: {fileID: 0}
+  catchingSpeedThreshold: -1
+  releaseVelocityStyle: 1
+  releaseVelocityTimeOffset: -0.011
+  scaleReleaseVelocity: 1.1
+  scaleReleaseVelocityThreshold: -1
+  scaleReleaseVelocityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -4567,7 +4597,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  snapAttachEaseInCompleted: 0
+  onHeldUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!1001 &110735402
 PrefabInstance:
@@ -4969,7 +5003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4982559218997076, guid: b6f8b15ed21ffd340bd5ccf70e15febe, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4982559218997076, guid: b6f8b15ed21ffd340bd5ccf70e15febe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6120,7 +6154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b172c6ecbd1d86e4fbd45ce106b6e29f, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b172c6ecbd1d86e4fbd45ce106b6e29f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7093,7 +7127,7 @@ Transform:
   - {fileID: 669855255}
   - {fileID: 387918903}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &181975499
 GameObject:
@@ -9923,7 +9957,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &241151465
 AudioSource:
@@ -12202,15 +12236,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texture: {fileID: 8400000, guid: 005ed5a6df2f5ff468efd6497d37fefa, type: 2}
-  curved: 1
-  antialias: 1
-  highquality: 1
   scale: 3
   distance: 1.25
   alpha: 1
   uvOffset: {x: 0, y: 0, z: 1, w: 1}
   mouseScale: {x: 1, y: 1}
-  curvedRange: {x: 1, y: 2}
   inputMethod: 0
 --- !u!1 &344628275
 GameObject:
@@ -14570,8 +14600,10 @@ GameObject:
   - component: {fileID: 411243699}
   - component: {fileID: 411243698}
   - component: {fileID: 411243697}
+  - component: {fileID: 411243700}
+  - component: {fileID: 411243701}
   m_Layer: 5
-  m_Name: Button
+  m_Name: OptionsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14592,9 +14624,9 @@ RectTransform:
   m_Father: {fileID: 1632567889}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -33.333336}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &411243697
@@ -14636,7 +14668,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 411243698}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 411243701}
+        m_MethodName: SetText
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: + Options +
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &411243698
@@ -14676,6 +14719,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411243695}
   m_CullTransparentMesh: 0
+--- !u!65 &411243700
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411243695}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 159.41798, y: 28.114794, z: 7.4072027}
+  m_Center: {x: -0.17255543, y: 0.4470348, z: -3.2036228}
+--- !u!114 &411243701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411243695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e538c061b0d5f4c8a079f829e0f150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &417571142
 GameObject:
   m_ObjectHideFlags: 0
@@ -16478,14 +16546,13 @@ MonoBehaviour:
   releaseVelocityStyle: 1
   releaseVelocityTimeOffset: -0.011
   scaleReleaseVelocity: 1.1
-  restoreOriginalParent: 0
-  attachEaseIn: 0
-  snapAttachEaseInCurve:
+  scaleReleaseVelocityThreshold: -1
+  scaleReleaseVelocityCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -16504,7 +16571,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  snapAttachEaseInTime: 0.15
+  restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -16515,7 +16582,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  snapAttachEaseInCompleted: 0
+  onHeldUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!114 &475040663
 MonoBehaviour:
@@ -16544,18 +16615,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateActionSetOnAttach: {fileID: 0}
+  activateActionSetOnAttach:
+    actionSetPath: 
   hideHandOnAttach: 1
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
   useHandObjectAttachmentPoint: 1
-  handFollowTransform: {fileID: 0}
-  handFollowTransformPosition: 1
-  handFollowTransformRotation: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
+  hoverPriority: 0
 --- !u!54 &475040665
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17991,20 +18090,19 @@ MonoBehaviour:
   releaseVelocityStyle: 1
   releaseVelocityTimeOffset: -0.011
   scaleReleaseVelocity: 1.1
-  restoreOriginalParent: 0
-  attachEaseIn: 0
-  snapAttachEaseInCurve:
+  scaleReleaseVelocityThreshold: -1
+  scaleReleaseVelocityCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
@@ -18012,12 +18110,12 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  snapAttachEaseInTime: 0.15
+  restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -18028,7 +18126,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  snapAttachEaseInCompleted: 0
+  onHeldUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!114 &538502826
 MonoBehaviour:
@@ -18057,18 +18159,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateActionSetOnAttach: {fileID: 0}
+  activateActionSetOnAttach:
+    actionSetPath: 
   hideHandOnAttach: 1
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
   useHandObjectAttachmentPoint: 1
-  handFollowTransform: {fileID: 0}
-  handFollowTransformPosition: 1
-  handFollowTransformRotation: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
+  hoverPriority: 0
 --- !u!54 &538502828
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20268,20 +20398,19 @@ MonoBehaviour:
   releaseVelocityStyle: 1
   releaseVelocityTimeOffset: -0.011
   scaleReleaseVelocity: 1.1
-  restoreOriginalParent: 0
-  attachEaseIn: 0
-  snapAttachEaseInCurve:
+  scaleReleaseVelocityThreshold: -1
+  scaleReleaseVelocityCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
@@ -20289,12 +20418,12 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  snapAttachEaseInTime: 0.15
+  restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -20305,7 +20434,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  snapAttachEaseInCompleted: 0
+  onHeldUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!114 &584715790
 MonoBehaviour:
@@ -20334,18 +20467,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateActionSetOnAttach: {fileID: 0}
+  activateActionSetOnAttach:
+    actionSetPath: 
   hideHandOnAttach: 1
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
   useHandObjectAttachmentPoint: 1
-  handFollowTransform: {fileID: 0}
-  handFollowTransformPosition: 1
-  handFollowTransformRotation: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
+  hoverPriority: 0
 --- !u!54 &584715792
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21706,6 +21867,162 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617161379}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &617548269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 617548270}
+  - component: {fileID: 617548275}
+  - component: {fileID: 617548274}
+  - component: {fileID: 617548273}
+  - component: {fileID: 617548272}
+  - component: {fileID: 617548271}
+  m_Layer: 5
+  m_Name: QuitButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &617548270
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617548269}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Children:
+  - {fileID: 980631319}
+  m_Father: {fileID: 1632567889}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -100.00001}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &617548271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617548269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e538c061b0d5f4c8a079f829e0f150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &617548272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617548269}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 159.41798, y: 28.114794, z: 7.4072027}
+  m_Center: {x: -0.17255543, y: 0.4470348, z: -3.2036228}
+--- !u!114 &617548273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617548269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 617548274}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 617548271}
+        m_MethodName: SetText
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: + Quit To Menu +
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &617548274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617548269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &617548275
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617548269}
+  m_CullTransparentMesh: 0
 --- !u!1 &619745685 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1504606514644090, guid: c72212416bf32dc48af56649fca0b037,
@@ -23600,7 +23917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4778179723630954, guid: ed8bf7796458a064991339fadfe64d8a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4778179723630954, guid: ed8bf7796458a064991339fadfe64d8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -27705,20 +28022,19 @@ MonoBehaviour:
   releaseVelocityStyle: 1
   releaseVelocityTimeOffset: -0.011
   scaleReleaseVelocity: 1.1
-  restoreOriginalParent: 0
-  attachEaseIn: 0
-  snapAttachEaseInCurve:
+  scaleReleaseVelocityThreshold: -1
+  scaleReleaseVelocityCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
@@ -27726,12 +28042,12 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  snapAttachEaseInTime: 0.15
+  restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -27742,7 +28058,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  snapAttachEaseInCompleted: 0
+  onHeldUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!54 &791187852
 Rigidbody:
@@ -27787,18 +28107,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateActionSetOnAttach: {fileID: 0}
+  activateActionSetOnAttach:
+    actionSetPath: 
   hideHandOnAttach: 1
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
   useHandObjectAttachmentPoint: 1
-  handFollowTransform: {fileID: 0}
-  handFollowTransformPosition: 1
-  handFollowTransformRotation: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
+  hoverPriority: 0
 --- !u!64 &791187855
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29044,7 +29392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 469044, guid: 04d0bf4be9447154188d86f6e3b8dce9, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5428902, guid: 04d0bf4be9447154188d86f6e3b8dce9, type: 3}
       propertyPath: m_Drag
@@ -33657,20 +34005,19 @@ MonoBehaviour:
   releaseVelocityStyle: 1
   releaseVelocityTimeOffset: -0.011
   scaleReleaseVelocity: 1.1
-  restoreOriginalParent: 0
-  attachEaseIn: 0
-  snapAttachEaseInCurve:
+  scaleReleaseVelocityThreshold: -1
+  scaleReleaseVelocityCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
@@ -33678,12 +34025,12 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  snapAttachEaseInTime: 0.15
+  restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -33694,7 +34041,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  snapAttachEaseInCompleted: 0
+  onHeldUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!114 &963455407
 MonoBehaviour:
@@ -33723,18 +34074,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateActionSetOnAttach: {fileID: 0}
+  activateActionSetOnAttach:
+    actionSetPath: 
   hideHandOnAttach: 1
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
   useHandObjectAttachmentPoint: 1
-  handFollowTransform: {fileID: 0}
-  handFollowTransformPosition: 1
-  handFollowTransformRotation: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
+  hoverPriority: 0
 --- !u!54 &963455409
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -33889,7 +34268,7 @@ Transform:
   - {fileID: 288928389}
   - {fileID: 685813510}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &965766697
 MonoBehaviour:
@@ -34393,6 +34772,85 @@ MonoBehaviour:
   rangeStep: 0
   intensityStep: 0
   chanceThreshold: 0
+--- !u!1 &980631318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 980631319}
+  - component: {fileID: 980631321}
+  - component: {fileID: 980631320}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &980631319
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980631318}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 617548270}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &980631320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980631318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Quit To Menu
+--- !u!222 &980631321
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980631318}
+  m_CullTransparentMesh: 0
 --- !u!1001 &982303063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37408,7 +37866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4640416460675284, guid: ae89ed2e752a2bb4fb19d7f309c91b79, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4640416460675284, guid: ae89ed2e752a2bb4fb19d7f309c91b79, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -39027,7 +39485,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14fb4de6a7fd6064892db1f11538d18d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuOnOff: {fileID: 11400000, guid: 43e46b8f19c91ea4ea8c1f7b4c0a95dc, type: 2}
+  MenuOnOff:
+    actionPath: 
+    needsReinit: 0
   HandType: 0
   Menu: {fileID: 1632567888}
 --- !u!114 &1123886123
@@ -39042,7 +39502,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27991c206a5e66147bb8ee3ef31c8bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionSet: {fileID: 11400000, guid: d2559478c7f6a8e409a16a49309902c8, type: 2}
+  actionSet:
+    actionSetPath: /actions/default
+  forSources: 0
   disableAllOtherActionSets: 0
   activateOnStart: 1
   deactivateOnDestroy: 1
@@ -40113,7 +40575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4777606630871252, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4777606630871252, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -40837,7 +41299,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1164219514
 PrefabInstance:
@@ -41021,20 +41483,19 @@ MonoBehaviour:
   releaseVelocityStyle: 1
   releaseVelocityTimeOffset: -0.011
   scaleReleaseVelocity: 1.1
-  restoreOriginalParent: 0
-  attachEaseIn: 0
-  snapAttachEaseInCurve:
+  scaleReleaseVelocityThreshold: -1
+  scaleReleaseVelocityCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
@@ -41042,12 +41503,12 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  snapAttachEaseInTime: 0.15
+  restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -41058,7 +41519,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  snapAttachEaseInCompleted: 0
+  onHeldUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!54 &1164975979
 Rigidbody:
@@ -41103,18 +41568,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateActionSetOnAttach: {fileID: 0}
+  activateActionSetOnAttach:
+    actionSetPath: 
   hideHandOnAttach: 1
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
   useHandObjectAttachmentPoint: 1
-  handFollowTransform: {fileID: 0}
-  handFollowTransformPosition: 1
-  handFollowTransformRotation: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
+  hoverPriority: 0
 --- !u!64 &1164975986
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43253,7 +43746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4423122625181706, guid: 5b50c227a05fdc548b7004b458cd364e, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4423122625181706, guid: 5b50c227a05fdc548b7004b458cd364e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -46107,7 +46600,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Options
 --- !u!222 &1345030193
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46388,7 +46881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4777606630871252, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4777606630871252, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -47301,10 +47794,18 @@ MonoBehaviour:
   otherHand: {fileID: 1867488651}
   handType: 0
   trackedObject: {fileID: 0}
-  grabPinchAction: {fileID: 11400000, guid: 4c153a89ddc0bdf4dbf59901961ab92a, type: 2}
-  grabGripAction: {fileID: 11400000, guid: 6779608f35c3e6840a83c646d1fd1d90, type: 2}
-  hapticAction: {fileID: 11400000, guid: c0a6551ac9815334f84987eea068bc47, type: 2}
-  uiInteractAction: {fileID: 11400000, guid: 87776dfddbf41c347a1b743a2e04db9a, type: 2}
+  grabPinchAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  grabGripAction:
+    actionPath: /actions/default/in/GrabGrip
+    needsReinit: 0
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
+  uiInteractAction:
+    actionPath: /actions/default/in/InteractUI
+    needsReinit: 0
   useHoverSphere: 1
   hoverSphereTransform: {fileID: 1392559317}
   hoverSphereRadius: 0.05
@@ -47323,6 +47824,9 @@ MonoBehaviour:
   noSteamVRFallbackMaxDistanceNoItem: 10
   noSteamVRFallbackMaxDistanceWithItem: 0.5
   renderModelPrefab: {fileID: 0}
+  renderModels: []
+  mainRenderModel: {fileID: 0}
+  hoverhighlightRenderModel: {fileID: 0}
   showDebugText: 0
   spewDebugText: 0
   showDebugInteractables: 0
@@ -48001,20 +48505,19 @@ MonoBehaviour:
   releaseVelocityStyle: 1
   releaseVelocityTimeOffset: -0.011
   scaleReleaseVelocity: 1.1
-  restoreOriginalParent: 0
-  attachEaseIn: 0
-  snapAttachEaseInCurve:
+  scaleReleaseVelocityThreshold: -1
+  scaleReleaseVelocityCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
@@ -48022,12 +48525,12 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  snapAttachEaseInTime: 0.15
+  restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
       m_Calls:
@@ -48060,7 +48563,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  snapAttachEaseInCompleted: 0
+  onHeldUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!114 &1407717380
 MonoBehaviour:
@@ -48074,18 +48581,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateActionSetOnAttach: {fileID: 0}
+  activateActionSetOnAttach:
+    actionSetPath: 
   hideHandOnAttach: 1
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
   useHandObjectAttachmentPoint: 1
-  handFollowTransform: {fileID: 0}
-  handFollowTransformPosition: 1
-  handFollowTransformRotation: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
+  hoverPriority: 0
 --- !u!54 &1407717381
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -48188,7 +48723,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1410417491
 GameObject:
@@ -48356,7 +48891,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 120.5}
   m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1416183508
@@ -48693,18 +49228,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateActionSetOnAttach: {fileID: 0}
+  activateActionSetOnAttach:
+    actionSetPath: 
   hideHandOnAttach: 1
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
   useHandObjectAttachmentPoint: 1
-  handFollowTransform: {fileID: 0}
-  handFollowTransformPosition: 1
-  handFollowTransformRotation: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
+  hoverPriority: 0
 --- !u!114 &1428132029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48738,20 +49301,19 @@ MonoBehaviour:
   releaseVelocityStyle: 1
   releaseVelocityTimeOffset: -0.011
   scaleReleaseVelocity: 1.1
-  restoreOriginalParent: 0
-  attachEaseIn: 0
-  snapAttachEaseInCurve:
+  scaleReleaseVelocityThreshold: -1
+  scaleReleaseVelocityCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
@@ -48759,12 +49321,12 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  snapAttachEaseInTime: 0.15
+  restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
       m_Calls:
@@ -48797,7 +49359,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  snapAttachEaseInCompleted: 0
+  onHeldUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!64 &1428132031
 MeshCollider:
@@ -54244,7 +54810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4838220252604734, guid: 20ca7c1d529346b4c9170e201c05e5f4, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4838220252604734, guid: 20ca7c1d529346b4c9170e201c05e5f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -54634,6 +55200,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.0838642, y: 6.0012703, z: 2.0757642}
   m_Center: {x: -0.48019505, y: 3.0442514, z: 0.9890082}
+--- !u!114 &1592726872 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114000011273627542, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1732458955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a5fb0ca93b55ef4b8d54b512b103341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1598191441
 GameObject:
   m_ObjectHideFlags: 0
@@ -55169,6 +55747,162 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1607782918}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1608364606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1608364607}
+  - component: {fileID: 1608364612}
+  - component: {fileID: 1608364611}
+  - component: {fileID: 1608364610}
+  - component: {fileID: 1608364609}
+  - component: {fileID: 1608364608}
+  m_Layer: 5
+  m_Name: QuitDesktopButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1608364607
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608364606}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Children:
+  - {fileID: 1751235625}
+  m_Father: {fileID: 1632567889}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -166.66669}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1608364608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608364606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e538c061b0d5f4c8a079f829e0f150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1608364609
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608364606}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 159.41798, y: 28.114794, z: 7.4072027}
+  m_Center: {x: -0.17255543, y: 0.4470348, z: -3.2036228}
+--- !u!114 &1608364610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608364606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1608364611}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1608364608}
+        m_MethodName: QuitToDeskTop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TEST SUCCESSFULL
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1608364611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608364606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1608364612
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608364606}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1612592313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55240,20 +55974,19 @@ MonoBehaviour:
   releaseVelocityStyle: 1
   releaseVelocityTimeOffset: -0.011
   scaleReleaseVelocity: 1.1
-  restoreOriginalParent: 0
-  attachEaseIn: 0
-  snapAttachEaseInCurve:
+  scaleReleaseVelocityThreshold: -1
+  scaleReleaseVelocityCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
@@ -55261,12 +55994,12 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  snapAttachEaseInTime: 0.15
+  restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -55277,7 +56010,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  snapAttachEaseInCompleted: 0
+  onHeldUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!54 &1613297101
 Rigidbody:
@@ -55322,18 +56059,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateActionSetOnAttach: {fileID: 0}
+  activateActionSetOnAttach:
+    actionSetPath: 
   hideHandOnAttach: 1
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
   useHandObjectAttachmentPoint: 1
-  handFollowTransform: {fileID: 0}
-  handFollowTransformPosition: 1
-  handFollowTransformRotation: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
+  hoverPriority: 0
 --- !u!114 &1613297104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55981,6 +56746,7 @@ GameObject:
   - component: {fileID: 1632567889}
   - component: {fileID: 1632567891}
   - component: {fileID: 1632567890}
+  - component: {fileID: 1632567892}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -56000,6 +56766,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 411243696}
+  - {fileID: 617548270}
+  - {fileID: 1608364607}
   m_Father: {fileID: 1416183507}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -56045,6 +56813,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632567888}
   m_CullTransparentMesh: 0
+--- !u!114 &1632567892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632567888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1297475563, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
 --- !u!1 &1634386304
 GameObject:
   m_ObjectHideFlags: 0
@@ -60116,6 +60907,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11401046, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: trackedObject
+      value: 
+      objectReference: {fileID: 1767675814}
+    - target: {fileID: 114000011273627542, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: poseAction
+      value: 
+      objectReference: {fileID: 11400000, guid: f98539f7bdfef8e4fa3e865e8d531ad4,
+        type: 2}
     - target: {fileID: 9215702, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -60129,12 +60930,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1000011547835092, guid: d5082f7d9f947374197e0a97786f4e40,
         type: 3}
-    - target: {fileID: 114000011273627542, guid: dc06161b6d97feb419f45f03b62e14b9,
-        type: 3}
-      propertyPath: poseAction
+    - target: {fileID: 11450312, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: trackedObject
       value: 
-      objectReference: {fileID: 11400000, guid: f98539f7bdfef8e4fa3e865e8d531ad4,
-        type: 2}
+      objectReference: {fileID: 1592726872}
     - target: {fileID: 177230, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -60285,7 +61084,7 @@ Transform:
   - {fileID: 1152671525}
   - {fileID: 771806071}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!23 &1743409243
 MeshRenderer:
@@ -60393,6 +61192,87 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.0838642, y: 6.0012703, z: 2.0757642}
   m_Center: {x: -0.48019505, y: 3.0442514, z: 0.9890082}
+--- !u!1 &1751235624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1751235625}
+  - component: {fileID: 1751235627}
+  - component: {fileID: 1751235626}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1751235625
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751235624}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1608364607}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1751235626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751235624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Quit To Desktop
+
+'
+--- !u!222 &1751235627
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751235624}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1751383452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61079,7 +61959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5fb0ca93b55ef4b8d54b512b103341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1767675816
+--- !u!114 &1767675815
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61091,11 +61971,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e59f308de884d4bb89869289d934ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handType: 2
-  controllerPose: {fileID: 1767675814}
-  teleportAction: {fileID: 11400000, guid: 47607217bf8edbb4fa37e2d495b4adae, type: 2}
-  laserPrefab: {fileID: 1773831756301223831, guid: dcb35df1074c980419b771d7539d80f4,
-    type: 3}
+  interactWithUI:
+    actionPath: /actions/default/in/InteractUI
+    needsReinit: 0
+  Active: 0
+  LaserColor: {r: 0, g: 0, b: 0, a: 0}
+  LaserThickness: 0.002
+  pointer: {fileID: 0}
+  holder: {fileID: 0}
+--- !u!114 &1767675816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767675813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb86de43b23eff4f9d8da0623b159d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionSetEnable:
+    actionSetPath: /actions/userinterface
+  MenuPressAction:
+    actionPath: /actions/userinterface/in/MenuButtonPressed
+    needsReinit: 0
+  TriggerPressAction:
+    actionPath: /actions/userinterface/in/MenuItemSelected
+    needsReinit: 0
+  HandType: 2
+  VrMenu: {fileID: 1632567888}
 --- !u!1 &1771019776
 GameObject:
   m_ObjectHideFlags: 0
@@ -62580,20 +63485,19 @@ MonoBehaviour:
   releaseVelocityStyle: 1
   releaseVelocityTimeOffset: -0.011
   scaleReleaseVelocity: 1.1
-  restoreOriginalParent: 0
-  attachEaseIn: 0
-  snapAttachEaseInCurve:
+  scaleReleaseVelocityThreshold: -1
+  scaleReleaseVelocityCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
@@ -62601,12 +63505,12 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  snapAttachEaseInTime: 0.15
+  restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -62617,7 +63521,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  snapAttachEaseInCompleted: 0
+  onHeldUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!114 &1832348175
 MonoBehaviour:
@@ -62646,18 +63554,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateActionSetOnAttach: {fileID: 0}
+  activateActionSetOnAttach:
+    actionSetPath: 
   hideHandOnAttach: 1
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
   useHandObjectAttachmentPoint: 1
-  handFollowTransform: {fileID: 0}
-  handFollowTransformPosition: 1
-  handFollowTransformRotation: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
+  hoverPriority: 0
 --- !u!54 &1832348177
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -63246,20 +64182,19 @@ MonoBehaviour:
   releaseVelocityStyle: 1
   releaseVelocityTimeOffset: -0.011
   scaleReleaseVelocity: 1.1
-  restoreOriginalParent: 0
-  attachEaseIn: 0
-  snapAttachEaseInCurve:
+  scaleReleaseVelocityThreshold: -1
+  scaleReleaseVelocityCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
@@ -63267,12 +64202,12 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  snapAttachEaseInTime: 0.15
+  restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -63283,7 +64218,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  snapAttachEaseInCompleted: 0
+  onHeldUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!114 &1863179026
 MonoBehaviour:
@@ -63312,18 +64251,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateActionSetOnAttach: {fileID: 0}
+  activateActionSetOnAttach:
+    actionSetPath: 
   hideHandOnAttach: 1
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
   useHandObjectAttachmentPoint: 1
-  handFollowTransform: {fileID: 0}
-  handFollowTransformPosition: 1
-  handFollowTransformRotation: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
+  hoverPriority: 0
 --- !u!54 &1863179028
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -63614,10 +64581,18 @@ MonoBehaviour:
   otherHand: {fileID: 1392559318}
   handType: 0
   trackedObject: {fileID: 0}
-  grabPinchAction: {fileID: 11400000, guid: 4c153a89ddc0bdf4dbf59901961ab92a, type: 2}
-  grabGripAction: {fileID: 11400000, guid: 6779608f35c3e6840a83c646d1fd1d90, type: 2}
-  hapticAction: {fileID: 11400000, guid: c0a6551ac9815334f84987eea068bc47, type: 2}
-  uiInteractAction: {fileID: 11400000, guid: 87776dfddbf41c347a1b743a2e04db9a, type: 2}
+  grabPinchAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  grabGripAction:
+    actionPath: /actions/default/in/GrabGrip
+    needsReinit: 0
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
+  uiInteractAction:
+    actionPath: /actions/default/in/InteractUI
+    needsReinit: 0
   useHoverSphere: 1
   hoverSphereTransform: {fileID: 1867488652}
   hoverSphereRadius: 0.05
@@ -63636,6 +64611,9 @@ MonoBehaviour:
   noSteamVRFallbackMaxDistanceNoItem: 10
   noSteamVRFallbackMaxDistanceWithItem: 0.5
   renderModelPrefab: {fileID: 0}
+  renderModels: []
+  mainRenderModel: {fileID: 0}
+  hoverhighlightRenderModel: {fileID: 0}
   showDebugText: 0
   spewDebugText: 0
   showDebugInteractables: 0
@@ -64255,6 +65233,10 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4364004340437948, guid: 0db147abf24fd2a4db05b4d76e0145b5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.697
+      objectReference: {fileID: 0}
     - target: {fileID: 1706362407888410, guid: 0db147abf24fd2a4db05b4d76e0145b5, type: 3}
       propertyPath: m_Name
       value: Door03
@@ -64370,10 +65352,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Intensity
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4364004340437948, guid: 0db147abf24fd2a4db05b4d76e0145b5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.697
       objectReference: {fileID: 0}
     - target: {fileID: 4427953604751546, guid: 0db147abf24fd2a4db05b4d76e0145b5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -64589,7 +65567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 483054, guid: 857b9bcf7311f5a49b829c4fd3cc791f, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 483054, guid: 857b9bcf7311f5a49b829c4fd3cc791f, type: 3}
       propertyPath: m_LocalScale.x
@@ -65581,7 +66559,7 @@ Transform:
   m_Children:
   - {fileID: 128072078}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!54 &1928563197
 Rigidbody:
@@ -65617,20 +66595,19 @@ MonoBehaviour:
   releaseVelocityStyle: 1
   releaseVelocityTimeOffset: -0.011
   scaleReleaseVelocity: 1.1
-  restoreOriginalParent: 0
-  attachEaseIn: 0
-  snapAttachEaseInCurve:
+  scaleReleaseVelocityThreshold: -1
+  scaleReleaseVelocityCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
@@ -65638,12 +66615,12 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  snapAttachEaseInTime: 0.15
+  restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -65654,7 +66631,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  snapAttachEaseInCompleted: 0
+  onHeldUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!114 &1928563199
 MonoBehaviour:
@@ -65683,18 +66664,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateActionSetOnAttach: {fileID: 0}
+  activateActionSetOnAttach:
+    actionSetPath: 
   hideHandOnAttach: 1
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
   useHandObjectAttachmentPoint: 1
-  handFollowTransform: {fileID: 0}
-  handFollowTransformPosition: 1
-  handFollowTransformRotation: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
+  hoverPriority: 0
 --- !u!1 &1929436902
 GameObject:
   m_ObjectHideFlags: 0
@@ -65895,7 +66904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b172c6ecbd1d86e4fbd45ce106b6e29f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b172c6ecbd1d86e4fbd45ce106b6e29f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -65979,10 +66988,18 @@ MonoBehaviour:
   otherHand: {fileID: 0}
   handType: 0
   trackedObject: {fileID: 0}
-  grabPinchAction: {fileID: 11400000, guid: 4c153a89ddc0bdf4dbf59901961ab92a, type: 2}
-  grabGripAction: {fileID: 11400000, guid: 6779608f35c3e6840a83c646d1fd1d90, type: 2}
-  hapticAction: {fileID: 11400000, guid: c0a6551ac9815334f84987eea068bc47, type: 2}
-  uiInteractAction: {fileID: 11400000, guid: 87776dfddbf41c347a1b743a2e04db9a, type: 2}
+  grabPinchAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  grabGripAction:
+    actionPath: /actions/default/in/GrabGrip
+    needsReinit: 0
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
+  uiInteractAction:
+    actionPath: /actions/default/in/InteractUI
+    needsReinit: 0
   useHoverSphere: 1
   hoverSphereTransform: {fileID: 0}
   hoverSphereRadius: 0.05
@@ -66001,6 +67018,9 @@ MonoBehaviour:
   noSteamVRFallbackMaxDistanceNoItem: 10
   noSteamVRFallbackMaxDistanceWithItem: 0.5
   renderModelPrefab: {fileID: 0}
+  renderModels: []
+  mainRenderModel: {fileID: 0}
+  hoverhighlightRenderModel: {fileID: 0}
   showDebugText: 0
   spewDebugText: 0
   showDebugInteractables: 0
@@ -69465,7 +70485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4574200215347046, guid: e19a9ae5d2dbac64cb2615394d2cda7f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4574200215347046, guid: e19a9ae5d2dbac64cb2615394d2cda7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
