@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 31197729}
   - component: {fileID: 31197728}
   - component: {fileID: 31197727}
+  - component: {fileID: 4032642092720240025}
   m_Layer: 0
   m_Name: ItemCatcher2
   m_TagString: Untagged
@@ -91,6 +92,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4032642092720240025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31197725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ad3e65243c004438f2426bbaf24cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &576816692
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,6 +323,7 @@ GameObject:
   - component: {fileID: 842993711}
   - component: {fileID: 842993710}
   - component: {fileID: 842993709}
+  - component: {fileID: 9190219613240892308}
   m_Layer: 0
   m_Name: CraftingStation
   m_TagString: Untagged
@@ -396,6 +410,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 2b266aa81ca5c3c4fa93f8e7f25793d0, type: 3}
+--- !u!114 &9190219613240892308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842993708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e9350a00f157d04c847d3f3faef262e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Material1: {fileID: 4315929011234634917}
+  Material2: {fileID: 4032642092720240025}
+  ResultPad: {fileID: 1041681824}
 --- !u!1 &870014863
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,7 +864,18 @@ MonoBehaviour:
   disengageAtPercent: 0.9
   onButtonDown:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9190219613240892308}
+        m_MethodName: TryCraft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   onButtonUp:
@@ -1141,6 +1181,7 @@ GameObject:
   - component: {fileID: 2014563443}
   - component: {fileID: 2014563442}
   - component: {fileID: 2014563441}
+  - component: {fileID: 4315929011234634917}
   m_Layer: 0
   m_Name: ItemCatcher1
   m_TagString: Untagged
@@ -1220,3 +1261,15 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4315929011234634917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014563439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ad3e65243c004438f2426bbaf24cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

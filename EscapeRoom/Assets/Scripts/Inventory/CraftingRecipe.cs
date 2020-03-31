@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CraftingRecipe : MonoBehaviour
+public class CraftingRecipe : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //public List<Item> Materials;
+    //public List<Item> Results;
 
-    // Update is called once per frame
-    void Update()
+    public void Create()
     {
+        GameObject blade = new GameObject();
+        
         
     }
+}
+
+public class CraftingMaterial : ScriptableObject
+{
+
 }
