@@ -36,7 +36,7 @@ public class Pathfinding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!agent.pathPending && agent.remainingDistance < 5.5f)
+        if (!agent.pathPending && agent.remainingDistance < 1.5f)
             GotoNextPoint();
 
         //agent.SetDestination(target.position);
