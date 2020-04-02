@@ -25,6 +25,8 @@ public class CraftingStation : MonoBehaviour
 
     public void TryCraft()
     {
+        // If Material1 and Material2 match up to a recipe
+        // Create the result of the recipe on the result pad.
 
     }
 }
