@@ -2808,6 +2808,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1659088061}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &50902045 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 842993712, guid: 4d8bd56afe644b64d92c532f31a8f3ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1711775971}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &57473657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4004111521868838, guid: c72212416bf32dc48af56649fca0b037,
@@ -30888,6 +30894,11 @@ PrefabInstance:
         type: 3}
       propertyPath: IsBroken
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114641209541489222, guid: 0db147abf24fd2a4db05b4d76e0145b5,
+        type: 3}
+      propertyPath: isOpenAtStart
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114184658181354776, guid: 0db147abf24fd2a4db05b4d76e0145b5,
         type: 3}
@@ -60805,7 +60816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &1702058905
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -60841,6 +60852,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1928563196}
+  points:
+  - {fileID: 597415601}
+  - {fileID: 1841010517}
+  - {fileID: 587796241}
+  - {fileID: 50902045}
 --- !u!136 &1702058907
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -65123,6 +65139,12 @@ Transform:
   m_Father: {fileID: 863901613}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1841010517 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4778179723630954, guid: ed8bf7796458a064991339fadfe64d8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 684282363}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1842137418
 GameObject:
   m_ObjectHideFlags: 0
@@ -65152,6 +65174,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bff6ed726c203742a7d5596b2925e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Wire: {fileID: 0}
+  TinCan: {fileID: 0}
+  TripWire1: {fileID: 0}
 --- !u!4 &1842137420
 Transform:
   m_ObjectHideFlags: 0
@@ -71409,7 +71434,7 @@ MonoBehaviour:
   IsBroken: 0
   IsLocked: 0
   IsOpen: 0
-  isOpenAtStart: 0
+  isOpenAtStart: 1
 --- !u!64 &2031225600
 MeshCollider:
   m_ObjectHideFlags: 0
