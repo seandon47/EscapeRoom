@@ -45,9 +45,9 @@ public class CraftingStation : MonoBehaviour
             return;
 
         GameObject result = ItemCreator.Create(currentRecipe.ResultName);
-        GameObject CraftedItem = Instantiate(result);
-        CraftedItem.transform.SetParent(ResultPad.transform);
+        GameObject CraftedItem = Instantiate(result, ResultPad.transform.position, new Quaternion(90, 0, 0, 0));        
         CraftedItem.GetComponent<Rigidbody>().isKinematic = true;
+
     }
 
     private CraftingRecipe FindCraftingRecipe(string name1, string name2)
