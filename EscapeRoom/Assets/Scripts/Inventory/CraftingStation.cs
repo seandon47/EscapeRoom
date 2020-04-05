@@ -45,7 +45,7 @@ public class CraftingStation : MonoBehaviour
             return;
 
         GameObject result = ItemCreator.Create(currentRecipe.ResultName);
-        GameObject CraftedItem = Instantiate(result, ResultPad.transform.position, new Quaternion(90, 0, 0, 0));        
+        GameObject CraftedItem = Instantiate(result, ResultPad.transform.position, new Quaternion(0, 0, 0, 0));        
         CraftedItem.GetComponent<Rigidbody>().isKinematic = true;
 
     }
