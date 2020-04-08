@@ -54,4 +54,10 @@ public class MaterialPad : MonoBehaviour
     {
         return ItemMaterial;
     }
+
+    public void UseUpMaterial()
+    {
+        Destroy(ItemMaterial);
+        HasObject = false;
+    }
 }

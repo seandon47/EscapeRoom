@@ -48,6 +48,8 @@ public class CraftingStation : MonoBehaviour
         GameObject CraftedItem = Instantiate(result, ResultPad.transform.position, new Quaternion(0, 0, 0, 0));        
         CraftedItem.GetComponent<Rigidbody>().isKinematic = true;
 
+        MaterialPad1.UseUpMaterial();
+        MaterialPad2.UseUpMaterial();
     }
 
     private CraftingRecipe FindCraftingRecipe(string name1, string name2)
