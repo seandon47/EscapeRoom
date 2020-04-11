@@ -17,6 +17,11 @@ public class RattleEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
         if (/*Body.velocity.magnitude >= 0.1 &&*/ !Audio.isPlaying)
         {
             Audio.Play();
