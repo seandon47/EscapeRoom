@@ -10,6 +10,7 @@ public class Pathfinding : MonoBehaviour
     public Transform[] points;
     private int destPoint = 0;
     NavMeshAgent agent;
+    bool ascending = true;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +29,18 @@ public class Pathfinding : MonoBehaviour
         // Set the agent to go to the currently selected destination.
         agent.destination = points[destPoint].position;
 
-        // Choose the next point in the array as the destination,
-        // cycling to the start if necessary.
-        destPoint = (destPoint + 1) % points.Length;
+        if(destPoint < points.Length - 1 && ascending)
+        {
+            destPoint = (destPoint + 1);
+        }  
+        else
+        {
+            ascending = false;
+            destPoint = (destPoint - 1);
+        }
+
+        if (destPoint == 0)
+            ascending = true;
     }
 
     // Update is called once per frame
