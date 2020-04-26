@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 2203331549128783958}
   - component: {fileID: 5262624644690838684}
   - component: {fileID: 6188598294781127294}
-  - component: {fileID: 5172634053478099013}
+  - component: {fileID: 712587835522423551}
+  - component: {fileID: 8926922404261258236}
+  - component: {fileID: 8133285092832953825}
   m_Layer: 0
   m_Name: Flare
   m_TagString: Untagged
@@ -79,8 +81,37 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &5172634053478099013
-MeshCollider:
+--- !u!114 &712587835522423551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496091922455538565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ab2c21c485dc04d930b0602fac962b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Flare
+--- !u!54 &8926922404261258236
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496091922455538565}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &8133285092832953825
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -89,10 +120,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300006, guid: f7260c28ba15eea47ada6570bd80de0d, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 5.1663604, y: 5.166362, z: 34.81775}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5298890115005265065
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ItemFactory : MonoBehaviour
 {
@@ -12,10 +9,16 @@ public class ItemFactory : MonoBehaviour
 
     internal GameObject Create(string resultName)
     {
-        switch(resultName)
+        switch (resultName)
         {
             case "NoiseMaker":
                 return NoiseMaker;
+            case "Flare":
+                return Flare;
+            case "FlashBomb":
+                return FlashBomb;
+            case "PipeBomb":
+                return PipeBomb;
             default:
                 return null;
         }

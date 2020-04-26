@@ -45,6 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NoiseMaker: {fileID: 8686585858173211262, guid: 24571bc3fc8464f42a7973b3c6ae73e5,
     type: 3}
-  Flare: {fileID: 0}
+  Flare: {fileID: 1496091922455538565, guid: c84bbba265b41684f9663d2d01b6aa21, type: 3}
   FlashBomb: {fileID: 0}
   PipeBomb: {fileID: 0}

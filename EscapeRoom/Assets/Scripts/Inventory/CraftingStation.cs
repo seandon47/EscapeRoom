@@ -20,10 +20,8 @@ public class CraftingStation : MonoBehaviour
     {
         // Load Crafting Recipes
         // From Disk? From someplace?
-        CraftingRecipe recipe = new CraftingRecipe();
-        recipe.Components = new List<string>() { "ColaCan", "ScrapMetal" };
-        recipe.ResultName = "NoiseMaker";
-        Recipes.Add(recipe);
+        Recipes.Add(new CraftingRecipe("NoiseMaker", "ColaCan", "ScrapMetal"));
+        Recipes.Add(new CraftingRecipe("Flare", "Pipe", "RedPowder"));
     }
 
     // Update is called once per frame
