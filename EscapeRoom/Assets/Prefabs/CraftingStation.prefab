@@ -425,7 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaterialPad1: {fileID: 4315929011234634917}
   MaterialPad2: {fileID: 4032642092720240025}
-  ResultPad: {fileID: 1041681824}
+  ResultPad: {fileID: 8528849470545414271}
   ItemCreator: {fileID: 5879049812199116073}
 --- !u!1 &870014863
 GameObject:
@@ -439,6 +439,7 @@ GameObject:
   - component: {fileID: 870014867}
   - component: {fileID: 870014866}
   - component: {fileID: 870014865}
+  - component: {fileID: 8528849470545414271}
   m_Layer: 0
   m_Name: ResultPad
   m_TagString: Untagged
@@ -521,6 +522,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &8528849470545414271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870014863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65046524407393c4dae49276ae99f50d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1041681824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,7 +1403,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 5
+  m_Intensity: 1
   m_Range: 0.5
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1459,7 +1472,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 5
+  m_Intensity: 1
   m_Range: 0.5
   m_SpotAngle: 30
   m_CookieSize: 10

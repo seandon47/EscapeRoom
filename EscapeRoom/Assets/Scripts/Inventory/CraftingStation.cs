@@ -7,7 +7,7 @@ public class CraftingStation : MonoBehaviour
 {
     public MaterialPad MaterialPad1;
     public MaterialPad MaterialPad2;
-    public GameObject ResultPad;
+    public ResultPad ResultPad;
     public ItemFactory ItemCreator;
 
     private Item Material1;
@@ -45,7 +45,8 @@ public class CraftingStation : MonoBehaviour
         GameObject result = ItemCreator.Create(currentRecipe.ResultName);
         GameObject CraftedItem = Instantiate(result, ResultPad.transform.position, new Quaternion(0, 0, 0, 0));        
         CraftedItem.GetComponent<Rigidbody>().isKinematic = true;
-
+        ResultPad.SetResultItem(CraftedItem);
+        
         MaterialPad1.UseUpMaterial();
         MaterialPad2.UseUpMaterial();
     }
