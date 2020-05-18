@@ -36,6 +36,10 @@
       "requirement": "optional"
     },
     {
+      "name": "/actions/default/in/DisplayInventory",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },

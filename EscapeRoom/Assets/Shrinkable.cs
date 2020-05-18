@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Shrinkable : MonoBehaviour
 {
+    public bool IsVisible { get; private set; }
     private bool IsShrinking;
     private bool IsGrowing;
     private Vector3 OriginalScale;
@@ -15,6 +16,7 @@ public class Shrinkable : MonoBehaviour
         OriginalScale = transform.localScale;
         IsShrinking = false;
         IsGrowing = false;
+        IsVisible = true;
     }
 
     // Update is called once per frame
@@ -44,6 +46,7 @@ public class Shrinkable : MonoBehaviour
         {
             transform.localScale = OriginalScale;
             IsGrowing = false;
+            IsVisible = true;
         }            
     }
 
@@ -54,6 +57,7 @@ public class Shrinkable : MonoBehaviour
         {
             transform.localScale = new Vector3(0, 0, 0);
             IsShrinking = false;
+            IsVisible = false;
         }
     }
 }

@@ -33,6 +33,8 @@ namespace Valve.VR
         
         private static SteamVR_Action_Single p_default_Squeeze;
         
+        private static SteamVR_Action_Boolean p_default_DisplayInventory;
+        
         private static SteamVR_Action_Vibration p_default_Haptic;
         
         private static SteamVR_Action_Boolean p_userinterface_MenuButtonPressed;
@@ -105,6 +107,14 @@ namespace Valve.VR
             }
         }
         
+        public static SteamVR_Action_Boolean default_DisplayInventory
+        {
+            get
+            {
+                return SteamVR_Actions.p_default_DisplayInventory.GetCopy<SteamVR_Action_Boolean>();
+            }
+        }
+        
         public static SteamVR_Action_Vibration default_Haptic
         {
             get
@@ -148,6 +158,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_SkeletonLeftHand,
                     SteamVR_Actions.default_SkeletonRightHand,
                     SteamVR_Actions.default_Squeeze,
+                    SteamVR_Actions.default_DisplayInventory,
                     SteamVR_Actions.default_Haptic,
                     SteamVR_Actions.userinterface_MenuButtonPressed,
                     SteamVR_Actions.userinterface_MenuItemSelected,
@@ -161,6 +172,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_SkeletonLeftHand,
                     SteamVR_Actions.default_SkeletonRightHand,
                     SteamVR_Actions.default_Squeeze,
+                    SteamVR_Actions.default_DisplayInventory,
                     SteamVR_Actions.userinterface_MenuButtonPressed,
                     SteamVR_Actions.userinterface_MenuItemSelected,
                     SteamVR_Actions.userinterface_Pose};
@@ -176,6 +188,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_Teleport,
                     SteamVR_Actions.default_GrabPinch,
                     SteamVR_Actions.default_GrabGrip,
+                    SteamVR_Actions.default_DisplayInventory,
                     SteamVR_Actions.userinterface_MenuButtonPressed,
                     SteamVR_Actions.userinterface_MenuItemSelected};
             Valve.VR.SteamVR_Input.actionsSingle = new Valve.VR.SteamVR_Action_Single[] {
@@ -191,6 +204,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_GrabPinch,
                     SteamVR_Actions.default_GrabGrip,
                     SteamVR_Actions.default_Squeeze,
+                    SteamVR_Actions.default_DisplayInventory,
                     SteamVR_Actions.userinterface_MenuButtonPressed,
                     SteamVR_Actions.userinterface_MenuItemSelected};
         }
@@ -205,6 +219,7 @@ namespace Valve.VR
             SteamVR_Actions.p_default_SkeletonLeftHand = ((SteamVR_Action_Skeleton)(SteamVR_Action.Create<SteamVR_Action_Skeleton>("/actions/default/in/SkeletonLeftHand")));
             SteamVR_Actions.p_default_SkeletonRightHand = ((SteamVR_Action_Skeleton)(SteamVR_Action.Create<SteamVR_Action_Skeleton>("/actions/default/in/SkeletonRightHand")));
             SteamVR_Actions.p_default_Squeeze = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/default/in/Squeeze")));
+            SteamVR_Actions.p_default_DisplayInventory = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/DisplayInventory")));
             SteamVR_Actions.p_default_Haptic = ((SteamVR_Action_Vibration)(SteamVR_Action.Create<SteamVR_Action_Vibration>("/actions/default/out/Haptic")));
             SteamVR_Actions.p_userinterface_MenuButtonPressed = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/userinterface/in/MenuButtonPressed")));
             SteamVR_Actions.p_userinterface_MenuItemSelected = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/userinterface/in/MenuItemSelected")));
