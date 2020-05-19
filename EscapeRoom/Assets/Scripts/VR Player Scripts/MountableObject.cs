@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
+[RequireComponent(typeof(Throwable))]
 public class MountableObject : MonoBehaviour {
     public Vector3 MountedOrientation;
     public bool IsMounted;
@@ -11,6 +13,9 @@ public class MountableObject : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         IsMounted = false;
+        Throwable throwable = GetComponent<Throwable>();
+        throwable.onPickUp.AddListener(OnPickUp);
+        throwable.onDetachFromHand.AddListener(OnDetachHand);
 	}
 	
 	// Update is called once per frame
