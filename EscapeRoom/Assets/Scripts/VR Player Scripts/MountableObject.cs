@@ -6,13 +6,16 @@ using Valve.VR.InteractionSystem;
 [RequireComponent(typeof(Throwable))]
 public class MountableObject : MonoBehaviour {
     public Vector3 MountedOrientation;
+    public Vector3 MountedPosition;
     public bool IsMounted;
+    Quaternion MountedRotation;
     Color OriginalColor;
     MountPoint mountPoint;
 
 	// Use this for initialization
 	void Start () {
         IsMounted = false;
+        MountedRotation = Quaternion.Euler(MountedOrientation.x, MountedOrientation.y, MountedOrientation.z);
         Throwable throwable = GetComponent<Throwable>();
         throwable.onPickUp.AddListener(OnPickUp);
         throwable.onDetachFromHand.AddListener(OnDetachHand);
@@ -31,7 +34,7 @@ public class MountableObject : MonoBehaviour {
     public virtual void ShowMountCue()
     {
         MeshRenderer MR = GetComponent<MeshRenderer>();
-        if(MR != null)
+        if(MR != null && !IsMounted)
         {
             OriginalColor = MR.material.color;
             MR.material.color = Color.blue;
@@ -53,7 +56,8 @@ public class MountableObject : MonoBehaviour {
         transform.SetParent(NewParent.transform);
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
-        transform.localPosition = new Vector3(0, 0, 0);
+        transform.localPosition = MountedPosition;
+        transform.localRotation = MountedRotation;
 
         MeshRenderer MR = GetComponent<MeshRenderer>();
         if (MR != null)
