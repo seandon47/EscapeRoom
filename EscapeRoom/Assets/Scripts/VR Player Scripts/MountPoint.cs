@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MountPoint : MonoBehaviour {
-    MountableObject MountedObject;
+    Mountable MountedObject;
 
 	// Use this for initialization
 	void Start ()
@@ -19,7 +19,7 @@ public class MountPoint : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        MountableObject MO = other.gameObject.GetComponent<MountableObject>();
+        Mountable MO = other.gameObject.GetComponent<Mountable>();
 
         if (MO != null)
         {
@@ -30,7 +30,7 @@ public class MountPoint : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        MountableObject MO = other.gameObject.GetComponent<MountableObject>();
+        Mountable MO = other.gameObject.GetComponent<Mountable>();
 
         if (MO != null)
         {

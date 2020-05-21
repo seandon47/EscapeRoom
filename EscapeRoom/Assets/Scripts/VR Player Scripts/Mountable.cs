@@ -4,7 +4,7 @@ using UnityEngine;
 using Valve.VR.InteractionSystem;
 
 [RequireComponent(typeof(Throwable))]
-public class MountableObject : MonoBehaviour {
+public class Mountable : MonoBehaviour {
     public Vector3 MountedOrientation;
     public Vector3 MountedPosition;
     public bool IsMounted;

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 704933291}
   - component: {fileID: 1098159438062274259}
   - component: {fileID: 8204870682583518896}
-  - component: {fileID: 4619890229129479086}
+  - component: {fileID: 1674918186161873610}
   m_Layer: 0
   m_Name: Cola Can
   m_TagString: Untagged
@@ -259,7 +259,7 @@ MonoBehaviour:
     m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   interactable: {fileID: 0}
---- !u!114 &4619890229129479086
+--- !u!114 &1674918186161873610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
