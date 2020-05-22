@@ -24,7 +24,8 @@ public class VrPlayerInventoryInput : MonoBehaviour
 
     private void DisplayInventoryPress(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource, bool newState)
     {
-        VrInventory.ToggleDisplay();
+        if (fromAction.stateDown)
+            VrInventory.ToggleDisplay();
     }
     
 }

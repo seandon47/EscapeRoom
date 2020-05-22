@@ -16,9 +16,9 @@ public class TestVrInventory : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.KeypadMinus))
-            InventoryWidget.SetShrinking(true);
+            InventoryWidget.ShrinkObject();
 
         if (Input.GetKeyDown(KeyCode.KeypadPlus))
-            InventoryWidget.SetGrowing(true);
+            InventoryWidget.GrowObject();
     }
 }

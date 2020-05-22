@@ -12,6 +12,7 @@ public class VrInventory : MonoBehaviour
     void Start()
     {
         ShrinkableComponent = GetComponent<Shrinkable>();
+        ShrinkableComponent.ShrinkObject();
     }
 
     // Update is called once per frame
@@ -22,9 +23,9 @@ public class VrInventory : MonoBehaviour
 
     public void ToggleDisplay()
     {
-        if (ShrinkableComponent.IsVisible)
-            ShrinkableComponent.SetShrinking(true);
+        if (ShrinkableComponent.IsShrunk)
+            ShrinkableComponent.GrowObject();
         else
-            ShrinkableComponent.SetGrowing(true);
+            ShrinkableComponent.ShrinkObject();
     }
 }

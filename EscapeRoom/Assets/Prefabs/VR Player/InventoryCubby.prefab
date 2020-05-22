@@ -115,6 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e6cafb61acd5bb479df2d7d70c245fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OriginalScale: {x: 1.5, y: 1.5, z: 1.5}
+  ShrinkSpeed: 0.05
 --- !u!114 &238743671
 MonoBehaviour:
   m_ObjectHideFlags: 0
