@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 2515536653443045160}
   - component: {fileID: 3555326376764545282}
   - component: {fileID: 1227849642291639844}
+  - component: {fileID: 5342704164412003221}
   m_Layer: 0
   m_Name: RedPowder
   m_TagString: Untagged
@@ -314,3 +315,18 @@ MonoBehaviour:
     m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   interactable: {fileID: 0}
+--- !u!114 &5342704164412003221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8292197998872654413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed9d765b77e82c4298c55d6aea2d421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MountedOrientation: {x: 0, y: 0, z: 0}
+  MountedPosition: {x: 0, y: 0, z: 0}
+  IsMounted: 0

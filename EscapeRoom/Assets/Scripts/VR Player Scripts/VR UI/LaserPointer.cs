@@ -14,8 +14,8 @@ public class LaserPointer : MonoBehaviour
     public event PointerEventHandler PointerClickDown;
     public event PointerEventHandler PointerClickUp;
 
-    public GameObject pointer;
-    public GameObject holder;
+    private GameObject pointer;
+    private GameObject holder;
     private SteamVR_Behaviour_Pose pose;
     private Transform previousContact = null;
     private bool addRigidBody = false;

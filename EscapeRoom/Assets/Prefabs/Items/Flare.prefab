@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8133285092832953825}
   - component: {fileID: 8182006092945504506}
   - component: {fileID: 7463786269689615775}
+  - component: {fileID: 3484841823757333949}
   m_Layer: 0
   m_Name: Flare
   m_TagString: Untagged
@@ -237,6 +238,21 @@ MonoBehaviour:
     m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   interactable: {fileID: 0}
+--- !u!114 &3484841823757333949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496091922455538565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed9d765b77e82c4298c55d6aea2d421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MountedOrientation: {x: 0, y: 0, z: 0}
+  MountedPosition: {x: 0, y: 0, z: 0}
+  IsMounted: 0
 --- !u!1 &5298890115005265065
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5384019727200641624}
   - component: {fileID: 2465798803229386096}
   - component: {fileID: 4737815024147652027}
+  - component: {fileID: 4609212266239281858}
   m_Layer: 0
   m_Name: ScrapMetal
   m_TagString: Untagged
@@ -192,6 +193,21 @@ MonoBehaviour:
     m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   interactable: {fileID: 0}
+--- !u!114 &4609212266239281858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5384019727200641631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed9d765b77e82c4298c55d6aea2d421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MountedOrientation: {x: 0, y: 0, z: 0}
+  MountedPosition: {x: 0, y: 0, z: 0}
+  IsMounted: 0
 --- !u!1001 &5384019727638185956
 PrefabInstance:
   m_ObjectHideFlags: 0

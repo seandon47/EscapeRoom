@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 7640786685833774855}
   - component: {fileID: 6852936613856592088}
   - component: {fileID: 5453466073315935506}
+  - component: {fileID: 2750915573523786151}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -268,6 +269,21 @@ MonoBehaviour:
     m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   interactable: {fileID: 0}
+--- !u!114 &2750915573523786151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5238121653392014280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed9d765b77e82c4298c55d6aea2d421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MountedOrientation: {x: 0, y: 0, z: 0}
+  MountedPosition: {x: 0, y: 0, z: 0}
+  IsMounted: 0
 --- !u!1 &5645494949744086378
 GameObject:
   m_ObjectHideFlags: 0
