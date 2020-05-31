@@ -72,6 +72,7 @@ public class Mountable : MonoBehaviour {
     {
         Debug.Log($"{name} was picked up");
         IsMounted = false;
+        MountPointPublisher.Instance.ShowMountPoints();
     }
 
     public void OnDetachHand()
@@ -86,5 +87,6 @@ public class Mountable : MonoBehaviour {
             IsMounted = false;
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
         }
+        MountPointPublisher.Instance.HideMountPoints();
     }
 }
