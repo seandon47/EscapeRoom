@@ -17,9 +17,13 @@ public class PowerMenu : BaseSystemMenu
     }
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            base.CloseAllSystemMenus();
+        }
+    }
 
     public override void AddSubsystemToMenu(SubSystemClass SubSystem)
     {

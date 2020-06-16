@@ -10,7 +10,11 @@ public class LightsMenu : BaseSystemMenu {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            base.CloseAllSystemMenus();
+        }
+    }
 }
