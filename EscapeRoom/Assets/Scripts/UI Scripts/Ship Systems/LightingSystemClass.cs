@@ -54,7 +54,10 @@ public class LightingSystemClass : ShipSystemClass {
 	// Update is called once per frame
 	void Update ()
     {
-
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            UiMenu.ToggleMenu();
+        }
     }
 
     public override void TimeUpdate(int CurrentTime)

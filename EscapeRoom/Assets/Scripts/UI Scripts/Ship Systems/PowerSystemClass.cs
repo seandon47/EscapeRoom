@@ -74,9 +74,13 @@ public class PowerSystemClass : ShipSystemClass {
     }
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            UiMenu.ToggleMenu();
+        }
+    }
 
     public override void TimeUpdate(int CurrentTime)
     {

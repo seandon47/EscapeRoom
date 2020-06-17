@@ -48,8 +48,12 @@ public class DoorSystemClass : ShipSystemClass {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
+	void Update ()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            UiMenu.ToggleMenu();
+        }
     }
 
     public override void TimeUpdate(int CurrentTime)

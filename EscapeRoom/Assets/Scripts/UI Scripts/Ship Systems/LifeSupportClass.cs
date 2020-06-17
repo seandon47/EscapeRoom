@@ -44,9 +44,13 @@ public class LifeSupportClass : ShipSystemClass {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            UiMenu.ToggleMenu();
+        }
+    }
 
     public override void ClickEvent()
     {

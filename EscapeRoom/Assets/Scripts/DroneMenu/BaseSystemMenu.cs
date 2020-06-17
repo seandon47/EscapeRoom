@@ -20,7 +20,7 @@ public class BaseSystemMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        
     }
 
     public void ToggleMenu()
