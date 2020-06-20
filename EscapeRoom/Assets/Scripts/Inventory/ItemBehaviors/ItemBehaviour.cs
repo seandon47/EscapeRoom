@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryButton : MonoBehaviour
+public abstract class ItemBehaviour : MonoBehaviour
 {
-    public VrInventory Inventory;
+    protected BehaviorComponent behaviorComponent;
 
     // Start is called before the first frame update
     void Start()
@@ -15,11 +15,7 @@ public class InventoryButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
-    public void ToggleInventory()
-    {
-        Inventory?.ToggleDisplay();
     }
+    public abstract BehaviorComponent GetBehaviorComponent();
 }

@@ -1,13 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
 [RequireComponent(typeof(Throwable))]
+[RequireComponent(typeof(ItemBehaviour))]
 public class Mountable : MonoBehaviour {
     public Vector3 MountedOrientation;
     public Vector3 MountedPosition;
     public bool IsMounted;
+
     Quaternion MountedRotation;
     Color OriginalColor;
     MountPoint mountPoint;
@@ -20,9 +23,14 @@ public class Mountable : MonoBehaviour {
         throwable.onPickUp.AddListener(OnPickUp);
         throwable.onDetachFromHand.AddListener(OnDetachHand);
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    internal ItemBehaviour GetBehavior()
+    {
+        return GetComponent<ItemBehaviour>();
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
@@ -43,44 +51,24 @@ public class Mountable : MonoBehaviour {
 
     public virtual void CancelMountCue()
     {
-        MeshRenderer MR = GetComponent<MeshRenderer>();
-        if (MR != null)
-        {
-            MR.material.color = OriginalColor;
-        }
-    }
-
-    public virtual void MountObject(GameObject NewParent)
-    {
-        Debug.Log($"MountObject {gameObject.name} to {NewParent.name}");
-        transform.SetParent(NewParent.transform);
-        gameObject.GetComponent<Rigidbody>().isKinematic = true;
-
-        transform.localPosition = MountedPosition;
-        transform.localRotation = MountedRotation;
-
-        MeshRenderer MR = GetComponent<MeshRenderer>();
-        if (MR != null)
-        {
-            MR.material.color = OriginalColor;
-        }
-
-        IsMounted = true;
+        ReturnOriginalMaterialColor();
     }
 
     public void OnPickUp()
     {
-        Debug.Log($"{name} was picked up");
+        // Debug.Log($"{name} was picked up");
         IsMounted = false;
         MountPointPublisher.Instance.ShowMountPoints();
+        mountPoint?.UnMount();
     }
 
     public void OnDetachHand()
     {
-        Debug.Log($"{name} was detached from hand. Mount Point was: {mountPoint}");
+        //Debug.Log($"{name} was detached from hand. Mount Point was: {mountPoint}");
         if (mountPoint != null)
         {
             MountObject(mountPoint.gameObject);
+            mountPoint.Mount(this);
         }
         else
         {
@@ -88,5 +76,32 @@ public class Mountable : MonoBehaviour {
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
         }
         MountPointPublisher.Instance.HideMountPoints();
+    }
+
+    protected virtual void MountObject(GameObject NewParent)
+    {
+        // Debug.Log($"MountObject {gameObject.name} to {NewParent.name}");
+        Reparent(NewParent);
+        ReturnOriginalMaterialColor();
+
+        IsMounted = true;
+    }
+
+    private void Reparent(GameObject NewParent)
+    {
+        transform.SetParent(NewParent.transform);
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
+        transform.localPosition = MountedPosition;
+        transform.localRotation = MountedRotation;
+    }
+
+    private void ReturnOriginalMaterialColor()
+    {
+        MeshRenderer MR = GetComponent<MeshRenderer>();
+        if (MR != null)
+        {
+            MR.material.color = OriginalColor;
+        }
     }
 }

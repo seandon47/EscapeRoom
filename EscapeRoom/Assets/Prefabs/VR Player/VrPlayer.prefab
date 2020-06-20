@@ -199,9 +199,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197001867}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.347, y: 1.45, z: 0.376}
-  m_LocalScale: {x: 0.260325, y: 0.5, z: 0.226425}
+  m_LocalRotation: {x: 0.24348196, y: -0.24858145, z: 0.6742859, w: 0.65135425}
+  m_LocalPosition: {x: -0.40006524, y: 1.1059542, z: -0.3047486}
+  m_LocalScale: {x: 0.026032519, y: 0.0025, z: 0.045285024}
   m_Children: []
   m_Father: {fileID: 1192061886}
   m_RootOrder: 0
@@ -690,13 +690,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298222126}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.42261827, y: 0, z: 0, w: 0.9063079}
   m_LocalPosition: {x: -0.2, y: 0, z: -0.2}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 2124998179}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -50, y: 0, z: 0}
 --- !u!135 &298222129
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -722,6 +722,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d59297141e5cee84baf9156be8179a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnItemMounted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 832308969940980686}
+        m_MethodName: OnEquipped
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: MountableUnityEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnItemUnmounted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 832308969940980686}
+        m_MethodName: OnUnequipped
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: MountableUnityEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &336983504
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,6 +2384,7 @@ GameObject:
   - component: {fileID: 1192061885}
   - component: {fileID: 1192061884}
   - component: {fileID: 1192061883}
+  - component: {fileID: 832308969940980686}
   m_Layer: 0
   m_Name: Watch
   m_TagString: Untagged
@@ -2432,6 +2465,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &832308969940980686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192061882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02daf0f642af3ac46877fc30c9682a38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1215469953
 GameObject:
   m_ObjectHideFlags: 0

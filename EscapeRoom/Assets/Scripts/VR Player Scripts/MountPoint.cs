@@ -1,14 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MountPoint : MonoBehaviour {
+    
+    public MountableUnityEvent OnItemMounted;
+    public MountableUnityEvent OnItemUnmounted;
+
     Mountable MountedObject;
     GameObject VisibleMountPoint;
 
 	// Use this for initialization
 	void Start ()
     {
+        MountedObject = null;
         MountPointPublisher.Instance.OnShowMountPoints += Instance_OnShowMountPoints;
         MountPointPublisher.Instance.OnHideMountPoints += Instance_OnHideMountPoints;		
 	}
@@ -33,6 +40,18 @@ public class MountPoint : MonoBehaviour {
 		
 	}
 
+    public void Mount(Mountable mountable)
+    {
+        MountedObject = mountable;
+        OnItemMounted?.Invoke(mountable);
+    }
+
+    public void UnMount()
+    {
+        OnItemUnmounted?.Invoke(MountedObject);
+        MountedObject = null;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Mountable MO = other.gameObject.GetComponent<Mountable>();
@@ -53,5 +72,10 @@ public class MountPoint : MonoBehaviour {
             MO.CancelMountCue();
             MO.SetMountPoint(null);
         }
+    }
+
+    public void ExecuteMountedObject()
+    {
+
     }
 }
