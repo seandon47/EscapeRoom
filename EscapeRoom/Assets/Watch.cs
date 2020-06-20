@@ -30,7 +30,7 @@ public class Watch : MonoBehaviour
 
     public void OnEquipped(Mountable equipedItem)
     {
-        Debug.Log($"{equipedItem.name} was equipped : {equipedItem.GetInstanceID()}");
+        //Debug.Log($"{equipedItem.name} was equipped : {equipedItem.GetInstanceID()}");
         DisplayName.SetText(equipedItem.name);
         ItemBehaviour behavior = equipedItem.GetBehavior();
         BehaviorComponent behaviorObject = behavior.GetBehaviorComponent();
@@ -46,7 +46,7 @@ public class Watch : MonoBehaviour
     public void OnUnequipped(Mountable unequippedItem)
     {
         int ID = unequippedItem.GetInstanceID();
-        Debug.Log($"{unequippedItem.name} was unequipped : {ID}");
+        //Debug.Log($"{unequippedItem.name} was unequipped : {ID}");
 
         DisplayName.SetText("(EMPTY)");
 
