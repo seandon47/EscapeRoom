@@ -8683,7 +8683,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851429876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.15, y: 0.27, z: 0}
+  m_LocalPosition: {x: 1.15, y: 0.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2042299427}
@@ -9832,7 +9832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 624caca1f8f604645beeb4656daed21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 0
   Director: {fileID: 1811942343}
   Follower: {fileID: 836676453}
   DroneCamera: {fileID: 1926279411}
