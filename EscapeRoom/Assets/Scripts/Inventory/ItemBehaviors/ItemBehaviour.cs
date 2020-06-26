@@ -17,5 +17,7 @@ public abstract class ItemBehaviour : MonoBehaviour
     {
 
     }
-    public abstract BehaviorComponent GetBehaviorComponent();
+
+    public abstract void Input();
+    public abstract GameObject GetVrBehaviorComponent();
 }

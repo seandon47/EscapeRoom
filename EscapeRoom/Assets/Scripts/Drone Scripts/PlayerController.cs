@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour {
     public float FollowerY;
     public float FollowerZ;
 
+    public List<MountPoint> MountPointList;
+    ItemBehaviour PrimaryItemBehavior;
+
     public GameObject CrossHair, DroneEscapeMenu;
     int DecelerationMultiplier = 3000;
     int maxVelocity = 4;
@@ -24,6 +27,12 @@ public class PlayerController : MonoBehaviour {
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
+
+        foreach (MountPoint mountPoint in MountPointList)
+        {
+            mountPoint.OnItemMounted.AddListener(OnEquipped);
+            mountPoint.OnItemUnmounted.AddListener(OnUnequipped);
+        }
     }
 
     // Update is called once per frame
@@ -163,6 +172,11 @@ public class PlayerController : MonoBehaviour {
         {
             GameController.Instance.MiniMap.GetComponent<MiniMapClass>().ToggleState();
         }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            PrimaryItemBehavior?.Input();
+        }
         #endregion
 
     }
@@ -187,7 +201,7 @@ public class PlayerController : MonoBehaviour {
         float xOffset = transform.position.x + FollowerX;
         float yOffset = transform.position.y + FollowerY;
         float zOffset = transform.position.z + FollowerZ;
-        Follower.transform.localPosition = new Vector3(xOffset, yOffset, zOffset);
+        //Follower.transform.localPosition = new Vector3(xOffset, yOffset, zOffset);
         Director.transform.position = new Vector3(transform.position.x, transform.position.y + 0.250f, transform.position.z);
     }
 
@@ -197,5 +211,15 @@ public class PlayerController : MonoBehaviour {
         {
             Physics.IgnoreCollision(GetComponent<Collider>(), collision.gameObject.GetComponent<Collider>());
         }
+    }
+
+    public void OnEquipped(Mountable equipedItem)
+    {
+        PrimaryItemBehavior = equipedItem.GetBehavior();
+    }
+
+    public void OnUnequipped(Mountable unequipedItem)
+    {
+
     }
 }

@@ -36,9 +36,13 @@ public class OnOffBehavior : ItemBehaviour
         return buttonObject;
     }
 
-    public override BehaviorComponent GetBehaviorComponent()
+    public override void Input()
     {
-
-        return new BehaviorComponent(CreateVrButton);
+        ButtonPressed.Invoke();
     }
+
+    public override BehaviorComponent GetVrBehaviorComponent()
+    {
+        return new BehaviorComponent(CreateVrButton);
+    } 
 }
