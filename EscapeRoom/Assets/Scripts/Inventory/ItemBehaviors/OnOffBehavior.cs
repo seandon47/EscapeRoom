@@ -41,8 +41,8 @@ public class OnOffBehavior : ItemBehaviour
         ButtonPressed.Invoke();
     }
 
-    public override BehaviorComponent GetVrBehaviorComponent()
+    public override GameObject GetVrBehaviorComponent()
     {
-        return new BehaviorComponent(CreateVrButton);
+        return CreateVrButton();
     } 
 }

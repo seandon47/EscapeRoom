@@ -4,8 +4,6 @@ using UnityEngine;
 
 public abstract class ItemBehaviour : MonoBehaviour
 {
-    protected BehaviorComponent behaviorComponent;
-
     // Start is called before the first frame update
     void Start()
     {
