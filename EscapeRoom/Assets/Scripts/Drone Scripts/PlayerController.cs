@@ -163,11 +163,6 @@ public class PlayerController : MonoBehaviour {
         #endregion
 
         #region Keyboard Input
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            GameController.Instance.ToggleNewConsole();
-        }
-
         if (Input.GetKeyDown(KeyCode.M))
         {
             GameController.Instance.MiniMap.GetComponent<MiniMapClass>().ToggleState();
