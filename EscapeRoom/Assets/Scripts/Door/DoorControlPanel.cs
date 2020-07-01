@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class DoorControlPanel : DroneInteractable {
     public Door doorInstance;
-
-	// Use this for initialization
-	void Start () {
-        rend = GetComponent<Renderer>();
-    }
-	
+    	
 	// Update is called once per frame
 	void Update () {
 		
@@ -24,7 +19,7 @@ public class DoorControlPanel : DroneInteractable {
         // At least show player that they fixed it
         // Maybe tell them in the console?
 
-        if (doorInstance.IsBroken)
+        if (doorInstance != null && doorInstance.IsBroken)
         {
             doorInstance.FixDoor();
         }
