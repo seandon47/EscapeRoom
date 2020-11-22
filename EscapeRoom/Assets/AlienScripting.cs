@@ -22,6 +22,7 @@ public class AlienScripting : MonoBehaviour
     {
         if(collision.gameObject.name == "HandColliderLeft(Clone)" || collision.gameObject.name == "HandColliderRight(Clone)" collision.gameObject.name == "BodyCollider")
         {
+            UnityEditor.EditorApplication.isPlaying = false;
             Application.Quit();
         }
 
