@@ -15,4 +15,11 @@ public class GameOverUI : MonoBehaviour
     {
         
     }
+
+    private void OnEnable()
+    {
+        Fadable fadable = GetComponent<Fadable>();
+        if (fadable != null)
+            fadable.Show();
+    }
 }
