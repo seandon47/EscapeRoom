@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject CrossHair, DroneEscapeMenu;
     int DecelerationMultiplier = 3000;
     int maxVelocity = 4;
+    bool CanInteract = true;
 
     Rigidbody rb;
     bool InteractiveMode;
@@ -38,6 +39,9 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (!CanInteract)
+            return;
+
         #region Mouse Input
 
         #region Mouse Input THIS Frame
@@ -122,7 +126,8 @@ public class PlayerController : MonoBehaviour {
         // Left mouse button is being held down
         if (Input.GetMouseButton(0))
         {
-
+            if (!CanInteract)
+                return;
         }
 
         //Right mouse button is being held down
@@ -178,6 +183,9 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate()
     {
+        if (!CanInteract)
+            return;
+
         Ray ray = new Ray(transform.position, Vector3.down);
 
         RaycastHit hit;
@@ -216,5 +224,10 @@ public class PlayerController : MonoBehaviour {
     public void OnUnequipped(Mountable unequipedItem)
     {
 
+    }
+
+    public void SetCanInteract(bool canInteract)
+    {
+        CanInteract = canInteract;
     }
 }
