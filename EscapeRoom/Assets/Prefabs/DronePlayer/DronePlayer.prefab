@@ -3580,6 +3580,7 @@ MonoBehaviour:
   speed: 5
   Director: {fileID: 1115409676693403366}
   Follower: {fileID: 1115409676675951301}
+  Minimap: {fileID: 1115409675924521644}
   DroneCamera: {fileID: 1115409675618333011}
   FollowerX: 0
   FollowerY: 0.25

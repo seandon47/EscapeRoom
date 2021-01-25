@@ -23,8 +23,6 @@ public class PanelClick : MonoBehaviour, IPointerClickHandler
         if (system == null)
             return;
 
-        string RepairInstructions = system.GetRepairInstructions();
-        GameController.Instance.AppendToConsole(RepairInstructions);
         system.ClickEvent();
     }
 }

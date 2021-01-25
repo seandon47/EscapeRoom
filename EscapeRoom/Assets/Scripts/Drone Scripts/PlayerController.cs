@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float speed;
     public GameObject Director;
     public GameObject Follower;
+    public MiniMapClass Minimap;
     public Camera DroneCamera;
     public float FollowerX;
     public float FollowerY;
@@ -170,7 +171,7 @@ public class PlayerController : MonoBehaviour {
         #region Keyboard Input
         if (Input.GetKeyDown(KeyCode.M))
         {
-            GameController.Instance.MiniMap.GetComponent<MiniMapClass>().ToggleState();
+            Minimap.ToggleState();
         }
 
         if (Input.GetKeyDown(KeyCode.Q))

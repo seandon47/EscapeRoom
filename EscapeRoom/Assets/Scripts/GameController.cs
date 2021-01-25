@@ -41,9 +41,6 @@ public class GameController : MonoBehaviour {
 
     public int Time {get; private set; }
     public GameStateEnum CurrentState;
-    public Text ConsoleText;
-    public GameObject ConsoleContainer;
-    public GameObject MiniMap;
     public PowerSystemClass PowerSystem;
     public BatterySystemClass BatterySystem;
     public LifeSupportClass LifeSupportSystem;
@@ -86,24 +83,6 @@ public class GameController : MonoBehaviour {
                 Debug.Log(r.gameObject.name);
             }
         }
-    }
-	
-
-    public void AppendToConsole(string TextToAppend)
-    {
-        if (consoleHistory.Count > 30)
-            consoleHistory.Dequeue();
-
-        consoleHistory.Enqueue(TextToAppend);
-        ConsoleText.text = string.Join("\n", consoleHistory.ToArray());
-    }
-
-    public void ToggleConsole()
-    {
-        ConsoleActive = !ConsoleActive;
-        ConsoleContainer.SetActive(ConsoleActive);
-        
-
     }
 
     void TimeUpdate()
