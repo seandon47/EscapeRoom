@@ -11,13 +11,18 @@ public class IndependentPowerSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameController.Instance.AddIndependentPowerSystem(this);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public string GetPercent()
+    {
+        return $"{Battery.GetBatteryPercent()}%";
     }
 
     public void AddDraw(int draw)
@@ -34,6 +39,6 @@ public class IndependentPowerSystem : MonoBehaviour
 
     public void SystemUpdate()
     {
-        Battery.
+        Battery.UseCharge(Draw);
     }
 }

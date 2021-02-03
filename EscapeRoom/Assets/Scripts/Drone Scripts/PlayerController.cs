@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -12,8 +13,10 @@ public class PlayerController : MonoBehaviour {
     public float FollowerX;
     public float FollowerY;
     public float FollowerZ;
+    public Text BatteryPercentText;
 
     public List<MountPoint> MountPointList;
+    private IndependentPowerSystem BatterySystem;
     ItemBehaviour PrimaryItemBehavior;
 
     public GameObject CrossHair, DroneEscapeMenu;
@@ -35,6 +38,9 @@ public class PlayerController : MonoBehaviour {
             mountPoint.OnItemMounted.AddListener(OnEquipped);
             mountPoint.OnItemUnmounted.AddListener(OnUnequipped);
         }
+
+        BatterySystem = GetComponent<IndependentPowerSystem>();
+        BatterySystem.AddDraw(50);
     }
 
     // Update is called once per frame
@@ -180,6 +186,7 @@ public class PlayerController : MonoBehaviour {
         }
         #endregion
 
+        BatteryPercentText.text = BatterySystem.GetPercent();
     }
 
     void FixedUpdate()

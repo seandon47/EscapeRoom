@@ -31,6 +31,6 @@ public class BatteryClass : MonoBehaviour
 
     public float GetBatteryPercent()
     {
-        return (Charge / MaxCharge) * 100;
+        return (Charge / (float)MaxCharge) * 100;
     }
 }
