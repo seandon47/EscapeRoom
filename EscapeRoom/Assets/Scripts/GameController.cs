@@ -3,6 +3,7 @@
 //  Manage control of the game state
 //  Copyright 2018 Disi Studios LLC
 //
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,7 +47,7 @@ public class GameController : MonoBehaviour {
     public LifeSupportClass LifeSupportSystem;
     public LightingSystemClass LightingSystem;
     public DoorSystemClass DoorSystem;
-    public  List<ShipSystemClass> shipSystems;
+    public List<ShipSystemClass> shipSystems;
     public GameObject VRWatch;
     public Tutorial CurrentStory;
 
@@ -58,10 +59,13 @@ public class GameController : MonoBehaviour {
     Queue<string> consoleHistory = new Queue<string>();
     bool ConsoleActive = false;
 
+    private List<IndependentPowerSystem> IndependentSystems;
+
     public GameController()
     {
         CurrentState = GameStateEnum.Running;           // TODO: Have this start at PreGame JPR
-
+        
+        IndependentSystems = new List<IndependentPowerSystem>();
         shipSystems = new List<ShipSystemClass>();
         Time = 0;
     }
@@ -88,29 +92,15 @@ public class GameController : MonoBehaviour {
     void TimeUpdate()
     {
         if (CurrentState == GameStateEnum.Running)
-        { 
+        {
             // Increment time
             Time++;
 
             // Story Time!
             CurrentStory.TimeUpdate();
-
-            double PowerRequested = 0;
-            double TotalPowerRequested = 0;
-            // Use power from ship's generator first
-            for (int i = 0; i < shipSystems.Count; i++)
-            {
-                PowerRequested = shipSystems[i].PowerRequested();
-                if(!PowerSystem.UseCharge(PowerRequested, shipSystems[i].GetSystemName()))
-                {
-                    // At this point the battery system can no longer supply power to anything
-                    // Should put a trigger here to alert players that they are FUCKED
-                    shipSystems[i].ChargeFailed();
-                }
-                TotalPowerRequested += PowerRequested;
-            }
-
-            PowerSystem.UpdateTotalDraw(TotalPowerRequested);
+            
+            UpdateSystemPower();
+            UpdateIndependentPowerSystems();
 
             // Update the ship systems
             for (int i = 0; i < shipSystems.Count; i++)
@@ -119,6 +109,35 @@ public class GameController : MonoBehaviour {
             }
 
             // Update the players
+        }
+
+    }
+
+    private void UpdateSystemPower()
+    {
+        double PowerRequested = 0;
+        double TotalPowerRequested = 0;
+        // Use power from ship's generator first
+        for (int i = 0; i < shipSystems.Count; i++)
+        {
+            PowerRequested = shipSystems[i].PowerRequested();
+            if (!PowerSystem.UseCharge(PowerRequested, shipSystems[i].GetSystemName()))
+            {
+                // At this point the battery system can no longer supply power to anything
+                // Should put a trigger here to alert players that they are FUCKED
+                shipSystems[i].ChargeFailed();
+            }
+            TotalPowerRequested += PowerRequested;
+        }
+
+        PowerSystem.UpdateTotalDraw(TotalPowerRequested);
+    }
+
+    private void UpdateIndependentPowerSystems()
+    {
+        foreach(IndependentPowerSystem system in IndependentSystems)
+        {
+            system.SystemUpdate();
         }
     }
 
@@ -157,5 +176,15 @@ public class GameController : MonoBehaviour {
         }
 
         return retVal;
+    }
+
+    public void AddIndependentPowerSystem(IndependentPowerSystem independentPowerSystem)
+    {
+        IndependentSystems.Add(independentPowerSystem);
+    }
+
+    public void RemoveIndependentPowerSystem(IndependentPowerSystem independentPowerSystem)
+    {
+        IndependentSystems.Remove(independentPowerSystem);
     }
 }
