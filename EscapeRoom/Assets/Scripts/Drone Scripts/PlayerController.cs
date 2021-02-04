@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         BatterySystem = GetComponent<IndependentPowerSystem>();
-        BatterySystem.AddDraw(50);
+        BatterySystem.AddDraw(1);
     }
 
     // Update is called once per frame
