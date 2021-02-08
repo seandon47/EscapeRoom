@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IndependentPowerSystem : MonoBehaviour
 {
-    public BatteryClass Battery;
+    public BatteryMountPoint BatteryPoint;
     private int Draw;
 
 
@@ -22,7 +22,7 @@ public class IndependentPowerSystem : MonoBehaviour
 
     public string GetPercent()
     {
-        return $"{Battery.GetBatteryPercent()}%";
+        return $"{BatteryPoint.GetBattery().GetBatteryPercent()}%";
     }
 
     public void AddDraw(int draw)
@@ -39,6 +39,6 @@ public class IndependentPowerSystem : MonoBehaviour
 
     public void SystemUpdate()
     {
-        Battery.UseCharge(Draw);
+        BatteryPoint.GetBattery().UseCharge(Draw);
     }
 }

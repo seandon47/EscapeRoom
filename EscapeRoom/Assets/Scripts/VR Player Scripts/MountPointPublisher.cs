@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,17 +19,17 @@ class MountPointPublisher
         }
     }
 
-    public event Action OnShowMountPoints = delegate { };
-    public event Action OnHideMountPoints = delegate { };
+    public event Action<GameObject> OnShowMountPoints = delegate { };
+    public event Action<GameObject> OnHideMountPoints = delegate { };
 
-    public void ShowMountPoints()
+    public void ShowMountPoints(GameObject mountableObject)
     {
-        OnShowMountPoints();
+        OnShowMountPoints(mountableObject);
     }
 
-    public void HideMountPoints()
+    public void HideMountPoints(GameObject mountableObject)
     {
-        OnHideMountPoints();
+        OnHideMountPoints(mountableObject);
     }
 }
 

@@ -20,7 +20,7 @@ public class MountPoint : MonoBehaviour {
         MountPointPublisher.Instance.OnHideMountPoints += Instance_OnHideMountPoints;		
 	}
 
-    private void Instance_OnShowMountPoints()
+    protected virtual void Instance_OnShowMountPoints(GameObject mountableObject)
     {
         VisibleMountPoint = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         VisibleMountPoint.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
@@ -28,7 +28,7 @@ public class MountPoint : MonoBehaviour {
         VisibleMountPoint.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
     }
 
-    private void Instance_OnHideMountPoints()
+    protected virtual void Instance_OnHideMountPoints(GameObject mountableObject)
     {
         Destroy(VisibleMountPoint);
         VisibleMountPoint = null;
@@ -40,13 +40,13 @@ public class MountPoint : MonoBehaviour {
 		
 	}
 
-    public void Mount(Mountable mountable)
+    public virtual void Mount(Mountable mountable)
     {
         MountedObject = mountable;
         OnItemMounted?.Invoke(mountable);
     }
 
-    public void UnMount()
+    public virtual void UnMount()
     {
         OnItemUnmounted?.Invoke(MountedObject);
         MountedObject = null;

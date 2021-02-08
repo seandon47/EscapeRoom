@@ -58,7 +58,7 @@ public class Mountable : MonoBehaviour {
     {
         // Debug.Log($"{name} was picked up");
         IsMounted = false;
-        MountPointPublisher.Instance.ShowMountPoints();
+        MountPointPublisher.Instance.ShowMountPoints(this.gameObject);
         mountPoint?.UnMount();
     }
 
@@ -75,7 +75,7 @@ public class Mountable : MonoBehaviour {
             IsMounted = false;
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
         }
-        MountPointPublisher.Instance.HideMountPoints();
+        MountPointPublisher.Instance.HideMountPoints(this.gameObject);
     }
 
     protected virtual void MountObject(GameObject NewParent)
