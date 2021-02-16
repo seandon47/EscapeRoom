@@ -20,6 +20,15 @@ public class IndependentPowerSystem : MonoBehaviour
         
     }
 
+    public bool HasPower()
+    {
+        BatteryClass battery = BatteryPoint.GetBattery();
+        if (battery != null && battery.GetBatteryPercent() > 0)
+            return true;
+
+        return false;
+    }
+
     public string GetPercent()
     {
         return $"{BatteryPoint.GetBattery().GetBatteryPercent()}%";
