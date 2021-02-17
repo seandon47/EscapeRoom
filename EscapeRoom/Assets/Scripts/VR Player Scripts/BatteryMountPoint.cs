@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BatteryMountPoint : MountPoint
 {
+    [SerializeField]
     private BatteryClass Battery;
 
     // Start is called before the first frame update
