@@ -741,16 +741,6 @@ PrefabInstance:
       propertyPath: system
       value: 
       objectReference: {fileID: 176191779}
-    - target: {fileID: 9093883906766736932, guid: 10e10d66933e2c242a5c3d98810f023f,
-        type: 3}
-      propertyPath: MaxCharge
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 9093883906766736932, guid: 10e10d66933e2c242a5c3d98810f023f,
-        type: 3}
-      propertyPath: Charge
-      value: 1000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10e10d66933e2c242a5c3d98810f023f, type: 3}
 --- !u!1 &606208372 stripped
