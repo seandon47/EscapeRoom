@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,7 +47,10 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (!CanInteract)
+        if (!BatterySystem.HasPower())
+            DeactivateDrone();
+
+        if (!InteractiveMode)
             return;
 
         #region Mouse Input
@@ -92,7 +96,7 @@ public class PlayerController : MonoBehaviour {
         // Left mouse button went up this frame
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(!DroneEscapeMenu.activeInHierarchy)
+            if (!DroneEscapeMenu.activeInHierarchy)
             {
                 DroneEscapeMenu.SetActive(true);
             }
@@ -145,7 +149,7 @@ public class PlayerController : MonoBehaviour {
             if (Physics.Raycast(ray, out hit, 5.0f))
             {
                 DroneInteractable DI = null;
-                if ( InteractingObject != null &&
+                if (InteractingObject != null &&
                     !InteractingObject.transform.name.Equals(hit.transform.name))
                 {
                     DI = InteractingObject.GetComponent<DroneInteractable>();
@@ -189,9 +193,17 @@ public class PlayerController : MonoBehaviour {
         BatteryPercentText.text = BatterySystem.GetPercent();
     }
 
+    private void DeactivateDrone()
+    {
+        if (CanInteract)
+            CanInteract = false;
+
+        // Shut off video
+    }
+
     void FixedUpdate()
     {
-        if (!CanInteract)
+        if (!InteractiveMode)
             return;
 
         Ray ray = new Ray(transform.position, Vector3.down);
