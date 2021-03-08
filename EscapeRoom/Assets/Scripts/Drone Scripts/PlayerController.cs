@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject Follower;
     public MiniMapClass Minimap;
     public Camera DroneCamera;
+    public BatteryOverlay BatteryDisplay;
     public float FollowerX;
     public float FollowerY;
     public float FollowerZ;
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour {
     bool CanInteract = true;
 
     Rigidbody rb;
-    bool InteractiveMode;
+    bool InteractiveMode = true;
     GameObject InteractingObject;
 
     // Use this for initialization
@@ -199,6 +200,7 @@ public class PlayerController : MonoBehaviour {
             CanInteract = false;
 
         // Shut off video
+        BatteryDisplay.PowerDown();
     }
 
     void FixedUpdate()
