@@ -42,15 +42,14 @@ public class PlayerController : MonoBehaviour {
         }
 
         BatterySystem = GetComponent<IndependentPowerSystem>();
+        BatterySystem.PowerDown.AddListener(DeactivateDrone);
+        BatterySystem.PowerUp.AddListener(ActivateDrone);
         BatterySystem.AddDraw(1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!BatterySystem.HasPower())
-            DeactivateDrone();
-
         if (!InteractiveMode)
             return;
 
@@ -201,6 +200,14 @@ public class PlayerController : MonoBehaviour {
 
         // Shut off video
         BatteryDisplay.PowerDown();
+    }
+
+    private void ActivateDrone()
+    {
+        if (!CanInteract)
+            CanInteract = true;
+
+        BatteryDisplay.PowerUp();
     }
 
     void FixedUpdate()
