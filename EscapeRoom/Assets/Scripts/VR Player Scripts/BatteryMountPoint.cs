@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,9 +20,9 @@ public class BatteryMountPoint : MountPoint
         
     }
 
-    public BatteryClass GetBattery()
+    public int GetCurrentBatteryPowerPercentage()
     {
-        return Battery;
+        return Battery.GetBatteryPercent();
     }
 
     protected override void Instance_OnShowMountPoints(GameObject mountableObject)
@@ -46,6 +47,11 @@ public class BatteryMountPoint : MountPoint
         }
 
         base.Mount(mountable);
+    }
+
+    public void UseCharge(int draw)
+    {
+        Battery.UseCharge(draw);
     }
 
     public override void UnMount()
