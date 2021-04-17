@@ -26,7 +26,6 @@ public class PowerSystemClass : ShipSystemClass {
     SubSystemClass processingUnit;
     bool canBreakAtRandom;
     double output;
-    Dictionary<string, Text> PowerDrawMap = new Dictionary<string, Text>();
 
     public PowerSystemClass()
     {
@@ -65,10 +64,6 @@ public class PowerSystemClass : ShipSystemClass {
         {
             UiMenu.AddSubsystemToMenu(SSC);
         }
-
-        PowerDrawMap.Add("Life Support", LifeSupportDraw);
-        PowerDrawMap.Add("Doors", DoorSystemDraw);
-        PowerDrawMap.Add("Lighting", LightSystemDraw);
 
         canBreakAtRandom = false;
     }
@@ -192,15 +187,9 @@ public class PowerSystemClass : ShipSystemClass {
         BatteryCharge.text = BatterySystem.GetCharge().ToString("0") + " kw";
     }
 
-    public bool UseCharge(double Usage, string NameOfSystem)
+    public bool UseCharge(double Usage)
     {
         bool RetVal = true;
-
-        int iUsage = (int)Usage;
-        if (PowerDrawMap.ContainsKey(NameOfSystem))
-        {
-            PowerDrawMap[NameOfSystem].text = iUsage.ToString() + " kw";
-        }
 
         output -= Usage;
         if (output <= 0)

@@ -6,11 +6,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LifeSupportClass : ShipSystemClass {
 
     public int NumberOfRooms;   // Obvious
     public float Oxygen;        // Percent Needed
+    public Text PowerDraw;
 
     SubSystemClass oxygenGenerator;
     SubSystemClass ventilationFan;
@@ -65,7 +67,10 @@ public class LifeSupportClass : ShipSystemClass {
 
     public override double PowerRequested()
     {
-        return NumberOfRooms * 2;
+        double powerNeeded = NumberOfRooms * 2;
+        PowerDraw.text = $"{powerNeeded} kw";
+        
+        return powerNeeded;
     }
 
     public override void ChargeFailed()

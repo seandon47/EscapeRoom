@@ -15,10 +15,15 @@ public class MountPoint : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        Initialize();
+	}
+
+    protected virtual void Initialize()
+    {
         MountedObject = null;
         MountPointPublisher.Instance.OnShowMountPoints += Instance_OnShowMountPoints;
-        MountPointPublisher.Instance.OnHideMountPoints += Instance_OnHideMountPoints;		
-	}
+        MountPointPublisher.Instance.OnHideMountPoints += Instance_OnHideMountPoints;
+    }
 
     protected virtual void Instance_OnShowMountPoints(GameObject mountableObject)
     {

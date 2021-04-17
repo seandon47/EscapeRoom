@@ -16,6 +16,7 @@ public class DoorSystemClass : ShipSystemClass {
     public Material BrokenLockedIcon;
     public Material BrokenUnlockedIcon;
     public GameObject DoorMenuPanelPrefab;
+    public Text PowerDraw;
 
     public DoorSystemClass()
     {
@@ -63,7 +64,10 @@ public class DoorSystemClass : ShipSystemClass {
 
     public override double PowerRequested()
     {
-        return DoorList.Count * 2;
+        double powerNeeded = DoorList.Count * 2;
+        PowerDraw.text = $"{powerNeeded} kw";
+
+        return powerNeeded;
     }
 
     public override void ChargeFailed()
