@@ -1,6 +1,7 @@
 ﻿//
 //  Copyright 2018 Disi Studios LLC
 //
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,14 @@ public class RechargePoint : MountPoint
 
         if (RechargeSystem != null)
             RechargeSystem.AddRechargePoint(this);
+    }
+
+    internal int GetCurrentBatteryPercent()
+    {
+        if (Battery == null)
+            return 0;
+
+        return Battery.GetBatteryPercent();
     }
 
     // Update is called once per frame
