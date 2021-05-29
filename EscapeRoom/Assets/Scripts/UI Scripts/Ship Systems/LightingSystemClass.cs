@@ -6,10 +6,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LightingSystemClass : ShipSystemClass {
 
     public GameObject LightMenuPanelPrefab;
+    public Text PowerDraw;
     /// <summary>
     /// Element 1 Left side
     /// Element 2 Center
@@ -70,7 +72,9 @@ public class LightingSystemClass : ShipSystemClass {
         // Do something cute in the future.
         // Right now, we'll just make some shit up
         // return LightList.Count * 100;
-        return 10;
+        double powerNeeded = 10;
+        PowerDraw.text = $"{powerNeeded} kw";
+        return powerNeeded;
     }
 
     public override void ChargeFailed()

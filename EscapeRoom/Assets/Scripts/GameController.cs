@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour {
     public int Time {get; private set; }
     public GameStateEnum CurrentState;
     public PowerSystemClass PowerSystem;
+    public RechargeSystemClass RechargeSystem;
     public BatterySystemClass BatterySystem;
     public LifeSupportClass LifeSupportSystem;
     public LightingSystemClass LightingSystem;
@@ -76,7 +77,7 @@ public class GameController : MonoBehaviour {
         InvokeRepeating("TimeUpdate", 1, 1);
         Valve.VR.InteractionSystem.Teleport.instance.CancelTeleportHint();
 
-        shipSystems.AddRange(new ShipSystemClass[] { PowerSystem, BatterySystem, LifeSupportSystem, LightingSystem, DoorSystem });
+        shipSystems.AddRange(new ShipSystemClass[] { PowerSystem, RechargeSystem, BatterySystem, LifeSupportSystem, LightingSystem, DoorSystem });
 
         var foundObjects = FindObjectsOfType<Rigidbody>();
 
@@ -121,7 +122,7 @@ public class GameController : MonoBehaviour {
         for (int i = 0; i < shipSystems.Count; i++)
         {
             PowerRequested = shipSystems[i].PowerRequested();
-            if (!PowerSystem.UseCharge(PowerRequested, shipSystems[i].GetSystemName()))
+            if (!PowerSystem.UseCharge(PowerRequested))
             {
                 // At this point the battery system can no longer supply power to anything
                 // Should put a trigger here to alert players that they are FUCKED
@@ -176,6 +177,11 @@ public class GameController : MonoBehaviour {
         }
 
         return retVal;
+    }
+
+    public void AddRechargePoint(RechargePoint rechargePoint)
+    {
+        
     }
 
     public void AddIndependentPowerSystem(IndependentPowerSystem independentPowerSystem)

@@ -29,6 +29,16 @@ public class BatteryClass : MonoBehaviour
             Charge = 0;
     }
 
+    public void AddCharge(int charge)
+    {
+        Charge += charge;
+        if (Charge > MaxCharge)
+        {
+            // Add problem counter
+            Charge = MaxCharge;
+        }
+    }
+
     public virtual int GetBatteryPercent()
     {
         return (int)(Charge / (float)MaxCharge * 100);
