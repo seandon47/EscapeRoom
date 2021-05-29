@@ -15,7 +15,7 @@ public class BatteryBehaviour : ItemBehaviour
     {
         
     }
-    public override GameObject GetVrBehaviorComponent()
+    public override void EquipToVrPlayer(Watch watch)
     {
         // Show battery percentage on watch
         throw new System.NotImplementedException();

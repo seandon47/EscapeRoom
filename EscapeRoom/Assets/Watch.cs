@@ -33,12 +33,7 @@ public class Watch : MonoBehaviour
         //Debug.Log($"{equipedItem.name} was equipped : {equipedItem.GetInstanceID()}");
         DisplayName.SetText(equipedItem.name);
         ItemBehaviour behavior = equipedItem.GetBehavior();
-        GameObject vrButton = behavior.GetVrBehaviorComponent();
-
-        vrButton.transform.SetParent(WatchBody.transform, false);
-        vrButton.transform.localPosition = new Vector3(0.4f, 0.75f, 0.4f);
-
-        MountedControls.Add(equipedItem.GetInstanceID(), vrButton);
+        behavior.EquipToVrPlayer(this);
     }
 
     public void OnUnequipped(Mountable unequippedItem)
@@ -55,5 +50,18 @@ public class Watch : MonoBehaviour
         MountedControls.Remove(ID);
 
         MountedControls.Clear();
+    }
+
+    public void AddButton(GameObject buttonObject)
+    {
+        buttonObject.transform.SetParent(WatchBody.transform, false);
+        buttonObject.transform.localPosition = new Vector3(0.4f, .075f, 0.4f);
+
+        MountedControls.Add(buttonObject.GetInstanceID(), buttonObject);
+    }
+
+    public void AddDisplay(GameObject displayObject)
+    {
+
     }
 }

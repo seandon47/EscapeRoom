@@ -5,7 +5,6 @@ using UnityEngine;
 using Valve.VR.InteractionSystem;
 
 [RequireComponent(typeof(Throwable))]
-[RequireComponent(typeof(ItemBehaviour))]
 public class Mountable : MonoBehaviour {
     public Vector3 MountedOrientation;
     public Vector3 MountedPosition;
@@ -13,20 +12,25 @@ public class Mountable : MonoBehaviour {
 
     Quaternion MountedRotation;
     Color OriginalColor;
-    MountPoint mountPoint;
+    MountPoint CurrentMountPoint;
+    ItemBehaviour Behaviour;
 
 	// Use this for initialization
 	void Start () {
         IsMounted = false;
+        Behaviour = GetComponent<ItemBehaviour>();
         MountedRotation = Quaternion.Euler(MountedOrientation.x, MountedOrientation.y, MountedOrientation.z);
         Throwable throwable = GetComponent<Throwable>();
         throwable.onPickUp.AddListener(OnPickUp);
         throwable.onDetachFromHand.AddListener(OnDetachHand);
+
+        if (Behaviour == null)
+            Behaviour = new NullBehaviour();
 	}
 
     internal ItemBehaviour GetBehavior()
     {
-        return GetComponent<ItemBehaviour>();
+        return Behaviour;
     }
 
     // Update is called once per frame
@@ -36,7 +40,7 @@ public class Mountable : MonoBehaviour {
 
     public void SetMountPoint(MountPoint MP)
     {
-        mountPoint = MP;
+        CurrentMountPoint = MP;
     }
 
     public virtual void ShowMountCue()
@@ -59,16 +63,16 @@ public class Mountable : MonoBehaviour {
         // Debug.Log($"{name} was picked up");
         IsMounted = false;
         MountPointPublisher.Instance.ShowMountPoints(this.gameObject);
-        mountPoint?.UnMount();
+        CurrentMountPoint?.UnMount();
     }
 
     public void OnDetachHand()
     {
         //Debug.Log($"{name} was detached from hand. Mount Point was: {mountPoint}");
-        if (mountPoint != null)
+        if (CurrentMountPoint != null)
         {
-            MountObject(mountPoint.gameObject);
-            mountPoint.Mount(this);
+            MountObject(CurrentMountPoint.gameObject);
+            CurrentMountPoint.Mount(this);
         }
         else
         {

@@ -17,5 +17,5 @@ public abstract class ItemBehaviour : MonoBehaviour
     }
 
     public abstract void Input();
-    public abstract GameObject GetVrBehaviorComponent();
+    public abstract void EquipToVrPlayer(Watch watch);
 }

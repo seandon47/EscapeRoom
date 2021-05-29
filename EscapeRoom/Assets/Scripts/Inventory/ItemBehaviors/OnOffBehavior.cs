@@ -24,7 +24,7 @@ public class OnOffBehavior : ItemBehaviour
         ButtonPressed?.Invoke();
     }
 
-    GameObject CreateVrButton()
+    GameObject CreateWatchButton()
     {
         GameObject buttonObject = Instantiate(OnOffButton);
         HoverButton buttonComponent = buttonObject.GetComponent<HoverButton>();
@@ -37,8 +37,9 @@ public class OnOffBehavior : ItemBehaviour
         ButtonPressed.Invoke();
     }
 
-    public override GameObject GetVrBehaviorComponent()
+    public override void EquipToVrPlayer(Watch watch)
     {
-        return CreateVrButton();
+        GameObject go = CreateWatchButton();
+        watch.AddButton(go);
     } 
 }
