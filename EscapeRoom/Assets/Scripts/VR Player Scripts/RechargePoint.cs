@@ -19,10 +19,6 @@ public class RechargePoint : MountPoint
     {
         base.Initialize();
 
-        SphereCollider collider = gameObject.AddComponent<SphereCollider>();
-        collider.radius = 0.05f;
-        collider.isTrigger = true;
-
         if (RechargeSystem != null)
             RechargeSystem.AddRechargePoint(this);
     }

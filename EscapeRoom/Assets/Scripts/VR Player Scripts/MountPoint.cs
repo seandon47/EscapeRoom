@@ -23,6 +23,10 @@ public class MountPoint : MonoBehaviour {
         MountedObject = null;
         MountPointPublisher.Instance.OnShowMountPoints += Instance_OnShowMountPoints;
         MountPointPublisher.Instance.OnHideMountPoints += Instance_OnHideMountPoints;
+
+        SphereCollider collider = gameObject.AddComponent<SphereCollider>();
+        collider.radius = 0.05f;
+        collider.isTrigger = true;
     }
 
     protected virtual void Instance_OnShowMountPoints(GameObject mountableObject)
