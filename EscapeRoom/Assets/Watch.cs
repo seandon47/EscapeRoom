@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -55,7 +55,7 @@ public class Watch : MonoBehaviour
     public void AddButton(GameObject buttonObject)
     {
         buttonObject.transform.SetParent(WatchBody.transform, false);
-        buttonObject.transform.localPosition = new Vector3(0.4f, .075f, 0.4f);
+        buttonObject.transform.localPosition = new Vector3(0.4f, 0.75f, 0.4f);
 
         MountedControls.Add(buttonObject.GetInstanceID(), buttonObject);
     }
