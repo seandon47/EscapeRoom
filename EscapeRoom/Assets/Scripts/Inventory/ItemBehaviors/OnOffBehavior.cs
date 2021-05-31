@@ -40,6 +40,7 @@ public class OnOffBehavior : ItemBehaviour
     public override void EquipToVrPlayer(Watch watch)
     {
         GameObject go = CreateWatchButton();
-        watch.AddButton(go);
+        int ID = GetComponent<ItemBehaviour>().GetInstanceID();
+        watch.AddButton(go, ID);
     } 
 }

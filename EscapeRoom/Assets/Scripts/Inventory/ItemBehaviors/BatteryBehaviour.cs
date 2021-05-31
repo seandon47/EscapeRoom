@@ -31,7 +31,8 @@ public class BatteryBehaviour : ItemBehaviour
     {
         // Show battery percentage on watch
         Display = Instantiate(BatteryReadout);
-        watch.AddButton(Display.gameObject);
+        int ID = GetComponent<ItemBehaviour>().GetInstanceID();
+        watch.AddButton(Display.gameObject, ID);
     }
 
     public override void Input()

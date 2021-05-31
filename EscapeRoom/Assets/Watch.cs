@@ -30,16 +30,17 @@ public class Watch : MonoBehaviour
 
     public void OnEquipped(Mountable equipedItem)
     {
-        //Debug.Log($"{equipedItem.name} was equipped : {equipedItem.GetInstanceID()}");
         DisplayName.SetText(equipedItem.name);
         ItemBehaviour behavior = equipedItem.GetBehavior();
         behavior.EquipToVrPlayer(this);
+        Debug.Log($"{behavior.name} was equipped : {behavior.GetInstanceID()}");
     }
 
     public void OnUnequipped(Mountable unequippedItem)
     {
-        int ID = unequippedItem.GetInstanceID();
-        //Debug.Log($"{unequippedItem.name} was unequipped : {ID}");
+        ItemBehaviour behavior = unequippedItem.GetBehavior();
+        int ID = behavior.GetInstanceID();
+        Debug.Log($"{unequippedItem.name} was unequipped : {ID}");
 
         DisplayName.SetText("(EMPTY)");
 
@@ -48,16 +49,15 @@ public class Watch : MonoBehaviour
         Destroy(buttonToDestroy);
 
         MountedControls.Remove(ID);
-
-        MountedControls.Clear();
     }
 
-    public void AddButton(GameObject buttonObject)
+    public void AddButton(GameObject buttonObject, int objectId)
     {
         buttonObject.transform.SetParent(WatchBody.transform, false);
         buttonObject.transform.localPosition = new Vector3(0.4f, 0.75f, 0.4f);
 
-        MountedControls.Add(buttonObject.GetInstanceID(), buttonObject);
+        Debug.Log($"Object ID Added: {objectId}");
+        MountedControls.Add(objectId, buttonObject);
     }
 
     public void AddDisplay(GameObject displayObject)
