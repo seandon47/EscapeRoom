@@ -9,29 +9,20 @@ public class Mountable : MonoBehaviour {
     public Vector3 MountedOrientation;
     public Vector3 MountedPosition;
     public bool IsMounted;
+    public List<ItemBehaviour> BehaviourList;
 
     Quaternion MountedRotation;
     Color OriginalColor;
     MountPoint CurrentMountPoint;
-    ItemBehaviour Behaviour;
 
 	// Use this for initialization
 	void Start () {
         IsMounted = false;
-        Behaviour = GetComponent<ItemBehaviour>();
         MountedRotation = Quaternion.Euler(MountedOrientation.x, MountedOrientation.y, MountedOrientation.z);
         Throwable throwable = GetComponent<Throwable>();
         throwable.onPickUp.AddListener(OnPickUp);
         throwable.onDetachFromHand.AddListener(OnDetachHand);
-
-        if (Behaviour == null)
-            Behaviour = new NullBehaviour();
-	}
-
-    internal ItemBehaviour GetBehavior()
-    {
-        return Behaviour;
-    }
+	}    
 
     // Update is called once per frame
     void Update () {

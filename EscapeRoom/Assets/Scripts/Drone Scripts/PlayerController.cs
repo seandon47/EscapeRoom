@@ -247,7 +247,8 @@ public class PlayerController : MonoBehaviour {
 
     public void OnEquipped(Mountable equipedItem)
     {
-        PrimaryItemBehavior = equipedItem.GetBehavior();
+        if (equipedItem.BehaviourList.Count > 0)
+            PrimaryItemBehavior = equipedItem.BehaviourList[0];
     }
 
     public void OnUnequipped(Mountable unequipedItem)

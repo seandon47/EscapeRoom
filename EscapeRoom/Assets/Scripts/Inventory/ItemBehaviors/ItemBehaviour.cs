@@ -16,5 +16,5 @@ public abstract class ItemBehaviour : MonoBehaviour
     }
 
     public abstract void Input();
-    public abstract void EquipToVrPlayer(Watch watch);
+    public abstract void EquipToVrPlayer(Watch watch, int mountableId);
 }

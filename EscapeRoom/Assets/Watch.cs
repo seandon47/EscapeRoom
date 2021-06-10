@@ -10,7 +10,7 @@ public class Watch : MonoBehaviour
     public TextMeshPro DisplayName;
     public GameObject WatchBody;
 
-    Dictionary<int, GameObject> MountedControls = new Dictionary<int, GameObject>();
+    Dictionary<int, List<GameObject>> MountedControls = new Dictionary<int, List<GameObject>>();
 
     // Start is called before the first frame update
     void Start()
@@ -31,33 +31,36 @@ public class Watch : MonoBehaviour
     public void OnEquipped(Mountable equipedItem)
     {
         DisplayName.SetText(equipedItem.name);
-        ItemBehaviour behavior = equipedItem.GetBehavior();
-        behavior.EquipToVrPlayer(this);
-        Debug.Log($"{behavior.name} was equipped : {behavior.GetInstanceID()}");
+
+        foreach (ItemBehaviour behaviour in equipedItem.BehaviourList)
+        {
+            behaviour.EquipToVrPlayer(this, equipedItem.GetInstanceID());
+            Debug.Log($"{behaviour.name} was equipped : {behaviour.GetInstanceID()}");
+        }
     }
 
     public void OnUnequipped(Mountable unequippedItem)
     {
-        ItemBehaviour behavior = unequippedItem.GetBehavior();
-        int ID = behavior.GetInstanceID();
+        int ID = unequippedItem.GetInstanceID();
         Debug.Log($"{unequippedItem.name} was unequipped : {ID}");
 
         DisplayName.SetText("(EMPTY)");
 
-        GameObject buttonToDestroy = MountedControls[ID];
-        buttonToDestroy.transform.SetParent(null);
-        Destroy(buttonToDestroy);
-
+        foreach (GameObject objectToDestroy in MountedControls[ID])
+        {
+            objectToDestroy.transform.SetParent(null);
+            Destroy(objectToDestroy);
+        }
         MountedControls.Remove(ID);
     }
 
-    public void AddButton(GameObject buttonObject, int objectId)
+    public void AddButton(GameObject buttonObject, int mounteableId)
     {
         buttonObject.transform.SetParent(WatchBody.transform, false);
         buttonObject.transform.localPosition = new Vector3(0.4f, 0.75f, 0.4f);
 
-        Debug.Log($"Object ID Added: {objectId}");
-        MountedControls.Add(objectId, buttonObject);
+        Debug.Log($"Object ID Added: {mounteableId}");
+        MountedControls[mounteableId].Add(buttonObject);
     }
 
     public void AddDisplay(GameObject displayObject)

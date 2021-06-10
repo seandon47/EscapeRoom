@@ -27,12 +27,11 @@ public class BatteryBehaviour : ItemBehaviour
 
         Display.UpdateDisplayText($"{Battery.GetBatteryPercent()}%");
     }
-    public override void EquipToVrPlayer(Watch watch)
+    public override void EquipToVrPlayer(Watch watch, int mountableId)
     {
         // Show battery percentage on watch
         Display = Instantiate(BatteryReadout);
-        int ID = GetComponent<ItemBehaviour>().GetInstanceID();
-        watch.AddButton(Display.gameObject, ID);
+        watch.AddButton(Display.gameObject, mountableId);
     }
 
     public override void Input()

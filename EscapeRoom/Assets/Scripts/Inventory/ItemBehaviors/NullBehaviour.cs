@@ -11,7 +11,7 @@
     {
         
     }
-    public override void EquipToVrPlayer(Watch watch)
+    public override void EquipToVrPlayer(Watch watch, int mountableId)
     {
         // Do nothing
     }
