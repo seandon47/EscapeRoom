@@ -51,7 +51,8 @@ public class Watch : MonoBehaviour
             objectToDestroy.transform.SetParent(null);
             Destroy(objectToDestroy);
         }
-        MountedControls.Remove(ID);
+        if (MountedControls.ContainsKey(ID))
+            MountedControls.Remove(ID);
     }
 
     public void AddButton(GameObject buttonObject, int mounteableId)
@@ -60,6 +61,9 @@ public class Watch : MonoBehaviour
         buttonObject.transform.localPosition = new Vector3(0.4f, 0.75f, 0.4f);
 
         Debug.Log($"Object ID Added: {mounteableId}");
+        if (!MountedControls.ContainsKey(mounteableId))
+            MountedControls.Add(mounteableId, new List<GameObject>());
+
         MountedControls[mounteableId].Add(buttonObject);
     }
 
