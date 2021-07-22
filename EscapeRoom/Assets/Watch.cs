@@ -46,13 +46,10 @@ public class Watch : MonoBehaviour
 
         DisplayName.SetText("(EMPTY)");
 
-        foreach (GameObject objectToDestroy in MountedControls[ID])
-        {
-            objectToDestroy.transform.SetParent(null);
-            Destroy(objectToDestroy);
-        }
         if (MountedControls.ContainsKey(ID))
-            MountedControls.Remove(ID);
+        {
+            RemoveBehaviorControls(ID);
+        }
     }
 
     public void AddButton(GameObject buttonObject, int mounteableId)
@@ -70,5 +67,16 @@ public class Watch : MonoBehaviour
     public void AddDisplay(GameObject displayObject)
     {
 
+    }
+
+    private void RemoveBehaviorControls(int ID)
+    {
+        foreach (GameObject objectToDestroy in MountedControls[ID])
+        {
+            objectToDestroy.transform.SetParent(null);
+            Destroy(objectToDestroy);
+        }
+
+        MountedControls.Remove(ID);
     }
 }
